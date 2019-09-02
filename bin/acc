@@ -1,0 +1,11 @@
+#!/bin/bash
+filename=$(date +aosp.ccc.%Y%m%d_%H:%M:%S.$1.log)
+filepath=/home/luwh/log/compile
+file=$filepath/$filename
+tfile=$filepath/aosp.ccc.last.log
+
+~/repos/aosp.ccc.sh | tee $tfile
+if [[ $? != 0 ]]; then
+	echo "mv $tfile $file"
+	mv $tfile $file
+fi

@@ -1,0 +1,10 @@
+*
+!/.gitignore
+!/bin
+!/.config/nvim
+!/.config/htop
+!/.oh-my-zsh
+!/.tmux.conf
+!/.vim/[^.]*
+!/.vimrc
+!/.zshrc
