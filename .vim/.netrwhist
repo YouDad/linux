@@ -1,8 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/luwh/repos/aosp/hardware/interfaces/configstore'
-let g:netrw_dirhist_2='/home/luwh/repos/aosp/hardware/interfaces/keymaster/4.0/support'
-let g:netrw_dirhist_3='/home/luwh/repos/aosp/hardware/interfaces/keymaster/4.0/support/include'
-let g:netrw_dirhist_4='/home/luwh/repos/aosp/hardware/interfaces/keymaster/4.0/support/include/keymasterV4_0'
-let g:netrw_dirhist_5='/home/luwh/repos/aosp/hardware/interfaces/luwh/1.0'
-let g:netrw_dirhist_6='/home/luwh/repos/aosp/out/soong/.intermediates/hardware/interfaces/luwh/1.0/android.hardware.luwh@1.0_genc++_headers/gen/android/hardware/luwh/1.0'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/luwh/repos/dragonboard410-dev/db410c-kernel/drivers/i2c/busses'
