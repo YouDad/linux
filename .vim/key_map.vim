@@ -46,9 +46,10 @@
 
     "按sn去掉高亮
         nmap <silent> sn		:nohl<cr>
-    
     "按sq关闭当前缓冲区
         nmap <silent> sq		:bd<cr>
+	"sf定义文件类型
+		nmap sf	:set filetype=
 
     "窗口跟随移动
         nnoremap j		jzz
@@ -62,6 +63,9 @@
         nnoremap N		Nzz
 		nnoremap w		wzz
 		nnoremap b		bzz
+		nnoremap *		*zz
+		nnoremap #		#zz
+		nnoremap %		%zz
 
     "4/8缩进(user/kernel)
         nmap ss4		:set tabstop=4<cr>:set shiftwidth=4<cr>:set cc=160<cr>:highlight ColorColumn ctermbg=5<cr>

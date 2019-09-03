@@ -1,10 +1,10 @@
 #!/bin/bash
-filename=$(date +dragonboard410-dev.ccc.%Y%m%d_%H:%M:%S.$1.log)
+filename=$(date +dragonboard410-dev.ccc.%Y%m%d_%H:%M:%S.$2.log)
 filepath=/home/luwh/log/compile
 file=$filepath/$filename
 tfile=$filepath/dragonboard410-dev.ccc.last.log
 
-~/repos/dragonboard410-dev.ccc.sh | tee $tfile
+~/repos/dragonboard410-dev.ccc.sh $1 | tee $tfile
 if [[ $? != 0 ]]; then
 	mv $tfile $file
 fi
