@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/bin/zsh
 filename=$(date +aosp.ccc.%Y%m%d_%H:%M:%S.$2.log)
 filepath=/home/luwh/log/compile
 file=$filepath/$filename
-tfile=$filepath/aosp.ccc.last.log
+tfile=$filepath/aosp.last.log
 
-~/repos/aosp.ccc.sh $1 | tee $tfile
+~/repos/ccc.aosp.sh $1 1>/dev/stdout 1>$tfile 2>&1
 if [[ $? != 0 ]]; then
 	echo "mv $tfile $file"
 	mv $tfile $file

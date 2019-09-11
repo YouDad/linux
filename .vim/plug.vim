@@ -1,4 +1,9 @@
 "插件区
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync
+endif
 "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     "让插件正常工作的一些设置
         set nocompatible
@@ -25,20 +30,40 @@
 		if has ("nvim")
         	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 		endif
-		"translate
+		"翻译
 		Plug 'voldikss/vim-translate-me'
 		"rst2html
 		Plug 'gu-fan/riv.vim'
+		"书签
+		Plug 'kshenoy/vim-signature'
+		"快速查找文件
+		Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+		Plug 'junegunn/fzf.vim'
+		"开始页
+		Plug 'mhinz/vim-startify'
+		"coc
+		Plug 'neoclide/coc.nvim', {'branch': 'release'}
     call plug#end()
 
     "vim-airline
-        "tabline中当前buffer两端的分隔字符
-        let g:airline#extensions#tabline#enabled = 1
-        "tabline中未激活buffer两端的分隔字符
-        let g:airline#extensions#tabline#left_sep = ' '
-        "tabline中buffer显示编号
-        let g:airline#extensions#tabline#left_alt_sep = '|'
+		let g:airline#extensions#coc#enabled = 0
+		let g:airline#extensions#branch#enabled = 1
+		let g:airline#extensions#tabline#enabled = 1
+		let g:airline#extensions#tabline#show_buffers = 1
+		let g:airline#extensions#tabline#formatter = 'unique_tail'
         let g:airline#extensions#tabline#buffer_nr_show = 1      
+		let g:airline_powerline_fonts = 0
+		let g:airline_left_sep = ''
+		let g:airline_right_sep = ''
+		let g:airline_mode_map = {
+		      \ 'n'  : 'N',
+		      \ 'i'  : 'I',
+		      \ 'R'  : 'R',
+		      \ 'c'  : 'C',
+		      \ 'v'  : 'V',
+		      \ 'V'  : 'L',
+		      \ '' : 'B',
+		      \ }
 
     "vim-snazzy
         "let g:SnazzyTransparent=1
@@ -152,8 +177,8 @@
 
 	"vim-translate-me
 		"<leader>w 翻译光标下的文本，在窗口中显示
-		nmap <silent> <leader>w <plug>Translate
-		vmap <silent> <leader>w <plug>TranslateV
+		nmap <silent> <leader>w <plug>TranslateW
+		vmap <silent> <leader>w <plug>TranslateWV
 		"<leader>r 替换光标下的文本为翻译内容
 		nmap <silent> <leader>r <plug>TranslateR
 		vmap <silent> <leader>r <plug>TranslateRV
@@ -177,3 +202,33 @@
 	"riv.vim
 		nmap <silent> <leader>t :Riv2HtmlAndBrowse<cr>
 
+	"vim-signature
+		let g:SignatureMap = {
+			\ 'Leader'             :  "m",
+			\ 'PlaceNextMark'      :  "m,",
+			\ 'ToggleMarkAtLine'   :  "",
+			\ 'PurgeMarksAtLine'   :  "",
+			\ 'DeleteMark'         :  "",
+			\ 'PurgeMarks'         :  "sd",
+			\ 'PurgeMarkers'       :  "",
+			\ 'GotoNextLineAlpha'  :  "",
+			\ 'GotoPrevLineAlpha'  :  "",
+			\ 'GotoNextSpotAlpha'  :  "m<LEADER>",
+			\ 'GotoPrevSpotAlpha'  :  "",
+			\ 'GotoNextLineByPos'  :  "",
+			\ 'GotoPrevLineByPos'  :  "",
+			\ 'GotoNextSpotByPos'  :  "mn",
+			\ 'GotoPrevSpotByPos'  :  "mp",
+			\ 'GotoNextMarker'     :  "",
+			\ 'GotoPrevMarker'     :  "",
+			\ 'GotoNextMarkerAny'  :  "",
+			\ 'GotoPrevMarkerAny'  :  "",
+			\ 'ListLocalMarks'     :  "m/",
+			\ 'ListLocalMarkers'   :  ""
+			\ }
+
+	"fzf
+		nmap sp :FZF<CR>
+
+	"coc
+		nmap <leader>rn <Plug>(coc-rename)
