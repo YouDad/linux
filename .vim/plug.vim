@@ -43,6 +43,8 @@ endif
 		Plug 'mhinz/vim-startify'
 		"coc
 		Plug 'neoclide/coc.nvim', {'branch': 'release'}
+		"taglist
+		Plug 'vim-scripts/taglist.vim'
     call plug#end()
 
     "vim-airline
@@ -94,13 +96,8 @@ endif
         set cscopeverbose
         set cscopetag
         set csto=0
-        if filereadable ("/home/luwh/repos/dragonboard410-dev/db410c-kernel/cscope.out")
-            nmap ss1	:cd ~/repos/dragonboard410-dev/db410c-kernel<cr>ss8:silent cs add ~/repos/dragonboard410-dev/db410c-kernel/cscope.out<cr>
-        endif
         if filereadable("cscope.out")
             silent cs add cscope.out
-        elseif $CSCOPE_DB != ""
-            silent cs add $CSCOPE_DB
         endif
         "s  symbol:     find all references to the token under cursor
         "g  global:     find global definitions of the token under cursor
@@ -232,3 +229,8 @@ endif
 
 	"coc
 		nmap <leader>rn <Plug>(coc-rename)
+
+	"taglist
+		nmap sg	:TlistToggle<CR>
+		let g:Tlist_Use_Right_Window = 1
+		let g:Tlist_WinWidth = 50
