@@ -1,5 +1,6 @@
 *
 !/.gitignore
+!/.install.sh
 !/bin
 !/.config/nvim
 !/.config/htop

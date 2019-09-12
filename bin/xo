@@ -1,1 +1,2 @@
+type xdg-open >/dev/null 2>&1 || ( /mnt/c/windows/explorer.exe . && exit 0 )
 xdg-open . >/dev/null 2>&1 &
