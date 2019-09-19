@@ -18,6 +18,7 @@ endif
         Plug 'vim-airline/vim-airline'
         Plug 'connorholyday/vim-snazzy'
         Plug 'Rigellute/rigel'
+		Plug 'dracula/vim'
         "文件导航
         Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
         Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -53,7 +54,7 @@ endif
 		let g:airline#extensions#tabline#enabled = 1
 		let g:airline#extensions#tabline#show_buffers = 1
 		let g:airline#extensions#tabline#formatter = 'unique_tail'
-        let g:airline#extensions#tabline#buffer_nr_show = 1      
+        let g:airline#extensions#tabline#buffer_nr_show = 1
 		let g:airline_powerline_fonts = 0
 		let g:airline_left_sep = ''
 		let g:airline_right_sep = ''
@@ -68,9 +69,20 @@ endif
 		      \ }
 
     "vim-snazzy
+		set termguicolors
+
         "let g:SnazzyTransparent=1
         "colorscheme snazzy
         colorscheme rigel
+		"colorscheme dracula
+		highlight Normal guibg=NONE ctermbg=None
+
+		"启用定位光标的行列，设置行列样式
+			set cursorline
+			highlight CursorLine cterm=NONE ctermbg=8 ctermfg=NONE guibg=#444444 guifg=NONE
+			set cursorcolumn
+			highlight CursorColumn cterm=NONE ctermbg=8 ctermfg=NONE guibg=#444444 guifg=NONE
+
 
     "nerdtree
         map st			:NERDTreeToggle<cr>
@@ -205,8 +217,8 @@ endif
 			\ 'PlaceNextMark'      :  "m,",
 			\ 'ToggleMarkAtLine'   :  "",
 			\ 'PurgeMarksAtLine'   :  "",
-			\ 'DeleteMark'         :  "",
-			\ 'PurgeMarks'         :  "sd",
+			\ 'DeleteMark'         :  "sd",
+			\ 'PurgeMarks'         :  "",
 			\ 'PurgeMarkers'       :  "",
 			\ 'GotoNextLineAlpha'  :  "",
 			\ 'GotoPrevLineAlpha'  :  "",

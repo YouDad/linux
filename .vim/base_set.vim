@@ -1,6 +1,13 @@
 "显示行号
 set number
 
+set ttyfast "should make scrolling faster
+set lazyredraw "same as above
+
+set list
+"set listchars=tab:▸\ ,trail:·
+set listchars=tab:··,trail:·
+
 "语法高亮
 syntax on
 
@@ -88,12 +95,6 @@ if has("autocmd")
 	autocmd BufEnter * execute "normal! zz"
 	autocmd BufReadPost * execute "normal! g'\""
 endif
-
-"启用定位光标的行列，设置行列样式
-    set cursorline
-    highlight CursorLine   cterm=NONE ctermbg=black ctermfg=NONE guibg=NONE guifg=NONE
-    set cursorcolumn
-    highlight CursorColumn cterm=NONE ctermbg=black ctermfg=NONE guibg=NONE guifg=NONE
 
 "vim-gnome的细光标设置
     if has("autocmd")
