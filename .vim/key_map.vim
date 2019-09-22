@@ -1,6 +1,7 @@
 "改键映射
     "Leader键设置为空格键
         let mapleader=' '
+		nmap <leader>	<nop>
 
     "s相当于自定义键的前缀，所以是<nop>
         nmap s			<nop>
