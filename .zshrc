@@ -1,5 +1,4 @@
 export PATH="$PATH:/home/$(whoami)/bin"
-export PATH="$PATH:/home/$(whoami)/repos/gcc-aarch64-gnu/bin"
 alias ra="ranger"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
