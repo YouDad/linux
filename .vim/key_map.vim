@@ -12,6 +12,7 @@
         map <c-q>		<nop>
 		nmap <c-s>		:w<cr>
 		nmap <c-q>		:q<cr>
+		vmap <c-c>		:!xsel -bi<cr>u
 
     "缓冲区移动键
         nmap <silent> <leader>1	:b 1<cr>

@@ -1,5 +1,9 @@
 export PATH="$PATH:/home/$(whoami)/bin"
 alias ra="ranger"
+alias cll="colorls -l"
+alias cla="colorls -a"
+alias clla="colorls -l -a"
+alias cls="colorls"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -16,10 +20,15 @@ if [ -e ~/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
 		ln -s ~/src/powerlevel9k/powerlevel9k.zsh-theme ~/.oh-my-zsh/themes/
 	fi
 	ZSH_THEME="powerlevel9k"
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline status)
-	POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs status newline os_icon)
+	POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs time history)
 	POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+	POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
+	
+	POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 	POWERLEVEL9K_MODE='nerdfont-complete'
+	POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
+	POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
 else
 	ZSH_THEME="dracula"
 fi
