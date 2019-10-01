@@ -11,6 +11,7 @@ fi
 function usage() {
 	cat <<- _EOF_
 		install
+		remove
 		reinstall
 		list
 	_EOF_
@@ -28,11 +29,19 @@ function usage_reinstall() {
 	_EOF_
 }
 
+function usage_remove() {
+	cat <<- _EOF_
+		remove <name>
+	_EOF_
+}
+
 function usage_list() {
 	cmd="egrep \"function [a-zA-Z0-9_]+\(\) {\" $0"
 	cmd="$cmd | cut -d ' ' -f 2 | cut -d '(' -f 1"
 	echo "install:"
 	eval $cmd | egrep "^install" | sed "s/install_/install /g"
+	echo -e "\nremove:"
+	eval $cmd | egrep "^remove" | sed "s/remove_/remove /g"
 	echo -e "\nreinstall:"
 	eval $cmd | egrep "^reinstall" | sed "s/reinstall_/reinstall /g"
 }
@@ -60,10 +69,54 @@ function check_dir() {
 	fi
 }
 
+function reinstall_zsh_powerlevel9k() {
+	remove_zsh_powerlevel9k
+	install_zsh_powerlevel9k
+}
+
+function remove_zsh_powerlevel9k() {
+	need_dir $HOME/src
+	rm -rf $HOME/src/powerlevel9k
+	check_retval "rm -rf $HOME/src/powerlevel9k"
+}
+
+function install_zsh_powerlevel9k() {
+	path=$HOME/src/powerlevel9k
+	need_dir $HOME/src
+	check_dir $path
+
+	git clone https://github.com/bhilburn/powerlevel9k.git $path
+	check_retval "git clone https://github.com/bhilburn/powerlevel9k.git $path"
+
+	url=https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/DroidSansMono.zip
+	wget $url
+	check_retval "wget $url"
+
+	unzip DroidSansMono.zip
+	check_retval "unzip DroidSansMono.zip"
+
+	rm DroidSansMono.zip
+	check_retval "rm DroidSansMono.zip"
+
+	sudo mv Droid* /usr/share/fonts/opentype
+	check_retval "sudo mv Droid* /usr/share/fonts/opentype"
+
+	sudo aptitude install fontconfig
+	check_retval "sudo aptitude install fontconfig"
+
+	sudo fc-cache -fv /usr/share/fonts/opentype
+	check_retval "sudo fc-cache -fv /usr/share/fonts/opentype"
+}
+
 function reinstall_zsh_dracula() {
+	remove_zsh_dracula
+	install_zsh_dracula
+}
+
+function remove_zsh_dracula() {
 	need_dir $HOME/src
 	rm -rf $HOME/src/zsh_dracula
-	install_zsh_dracula
+	check_retval "rm -rf $HOME/src/zsh_dracula"
 }
 
 function install_zsh_dracula() {
@@ -79,9 +132,15 @@ function install_zsh_dracula() {
 }
 
 function reinstall_nodejs() {
+	remove_nodejs
+	install_nodejs
+}
+
+function remove_nodejs() {
 	need_dir $HOME/src
 	rm -rf $HOME/src/nodejs
-	install_nodejs
+	check_retval "rm -rf $HOME/src/nodejs"
+	sudo rm /usr/bin/npm /usr/bin/node
 }
 
 function install_nodejs() {
@@ -115,8 +174,8 @@ function install_aptitude() {
 	sudo apt install aptitude
 	check_retval "sudo apt install aptitude"
 
-	sudo aptitude install cscope ctags
-	check_retval "sudo aptitude install cscope ctags"
+	sudo aptitude install cscope ctags fontconfig aria2
+	check_retval "sudo aptitude install cscope ctags fontconfig aria2"
 }
 
 function main() {

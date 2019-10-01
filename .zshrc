@@ -1,4 +1,8 @@
 alias ra="ranger"
+umask 022
+if [ -e $HOME/.profile ]; then
+	source $HOME/.profile
+fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
