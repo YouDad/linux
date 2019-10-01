@@ -1,1 +1,1 @@
-/home/karl/src/zsh/dracula.zsh-theme
+/home/karl/src/zsh_dracula/dracula.zsh-theme

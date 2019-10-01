@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [[ "$HOME" == "" ]]; then
+	if [[ "$(whoami)" == "root" ]]; then
+		HOME=/root
+	else
+		HOME=/home/$(whoami)
+	fi
+fi
+
 function usage() {
 	cat <<- _EOF_
 		install
@@ -8,9 +16,30 @@ function usage() {
 	_EOF_
 }
 
+function usage_install() {
+	cat <<- _EOF_
+		install <name>
+	_EOF_
+}
+
+function usage_reinstall() {
+	cat <<- _EOF_
+		reinstall <name>
+	_EOF_
+}
+
+function usage_list() {
+	cmd="egrep \"function [a-zA-Z0-9_]+\(\) {\" $0"
+	cmd="$cmd | cut -d ' ' -f 2 | cut -d '(' -f 1"
+	echo "install:"
+	eval $cmd | egrep "^install" | sed "s/install_/install /g"
+	echo -e "\nreinstall:"
+	eval $cmd | egrep "^reinstall" | sed "s/reinstall_/reinstall /g"
+}
+
 function check_retval() {
 	if [[ $? != 0 ]]; then
-		echo $1
+		echo "ins: $1 failed"
 		exit $?
 	fi
 }
@@ -31,13 +60,37 @@ function check_dir() {
 	fi
 }
 
+function reinstall_zsh_dracula() {
+	need_dir $HOME/src
+	rm -rf $HOME/src/zsh_dracula
+	install_zsh_dracula
+}
+
+function install_zsh_dracula() {
+	path=$HOME/src/zsh_dracula
+	need_dir $HOME/src
+	check_dir $path
+
+	git clone https://github.com/dracula/zsh.git $path
+	check_retval "git clone https://github.com/dracula/zsh.git $path"
+
+	ln -sf $path/dracula.zsh-theme $HOME/.oh-my-zsh/theme/dracula.zsh-theme
+	check_retval "ln -sf $path/dracula.zsh-theme $HOME/.oh-my-zsh/theme/dracula.zsh-theme"
+}
+
+function reinstall_nodejs() {
+	need_dir $HOME/src
+	rm -rf $HOME/src/nodejs
+	install_nodejs
+}
+
 function install_nodejs() {
-	need_dir ~/src
-	check_dir ~/src/nodejs
+	need_dir $HOME/src
+	check_dir $HOME/src/nodejs
 	url=https://npm.taobao.org/mirrors/node/v12.10.0/node-v12.10.0-linux-x64.tar.xz
 
 	wget $url
-	check_retval "wget [$url] failed"
+	check_retval "wget $url"
 
 	tar -axvf node-v12.10.0-linux-x64.tar.xz
 	check_retval "tar -axvf node-v12.10.0-linux-x64.tar.xz"
@@ -45,14 +98,14 @@ function install_nodejs() {
 	mv node-v12.10.0-linux-x64 nodejs
 	check_retval "mv node-v12.10.0-linux-x64 nodejs"
 
-	mv nodejs ~/src
-	check_retval "mv nodejs ~/src"
+	mv nodejs $HOME/src
+	check_retval "mv nodejs $HOME/src"
 
-	sudo ln -s ~/src/nodejs/bin/npm /usr/bin/
-	check_retval "sudo ln -s ~/src/nodejs/bin/npm /usr/bin/"
+	sudo ln -s $HOME/src/nodejs/bin/npm /usr/bin/
+	check_retval "sudo ln -s $HOME/src/nodejs/bin/npm /usr/bin/"
 
-	sudo ln -s ~/src/nodejs/bin/node /usr/bin/
-	check_retval "sudo ln -s ~/src/nodejs/bin/node /usr/bin/"
+	sudo ln -s $HOME/src/nodejs/bin/node /usr/bin/
+	check_retval "sudo ln -s $HOME/src/nodejs/bin/node /usr/bin/"
 
 	rm node-v12.10.0-linux-x64.tar.xz
 	check_retval "rm node-v12.10.0-linux-x64.tar.xz"
@@ -66,14 +119,18 @@ function install_aptitude() {
 	check_retval "sudo aptitude install cscope ctags"
 }
 
-if [[ $1 == "" ]]; then
-	usage
-	exit 0
-fi
+function main() {
+	if [[ $1 == "" ]]; then
+		usage
+		exit 0
+	fi
 
-if [[ $2 == "" ]]; then
+	if [[ $2 == "" ]]; then
+		eval usage_$1
+		exit 0
+	fi
 
-	exit 0
-fi
+	eval $1_$2
+}
 
-eval $1_$2
+main $*
