@@ -1,2 +1,10 @@
-type xdg-open >/dev/null 2>&1 || ( /mnt/c/windows/explorer.exe . && exit 0 )
-xdg-open . >/dev/null 2>&1 &
+#!/bin/bash
+
+target=.
+
+if [[ "$1" != "" ]]; then
+	target=$1
+fi
+
+type xdg-open >/dev/null 2>&1 || ( /mnt/c/windows/explorer.exe $target && exit 0 )
+xdg-open $target >/dev/null 2>&1 &

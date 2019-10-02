@@ -85,8 +85,11 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-
+if [[ "$TMUX" == "" ]]; then
+	plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+else
+	plugins=(git zsh-syntax-highlighting)
+fi
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -116,3 +119,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/karl/src/nodejs/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/karl/src/nodejs/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
