@@ -17,33 +17,31 @@ function usage() {
 	_EOF_
 }
 
-function usage_install() {
-	cat <<- _EOF_
-		install <name>
-	_EOF_
+function get_function() {
+	cmd="egrep \"function [a-zA-Z0-9_]+\(\) {\" $0"
+	cmd="$cmd | cut -d ' ' -f 2 | cut -d '(' -f 1"
+	eval $cmd
 }
 
-function usage_reinstall() {
-	cat <<- _EOF_
-		reinstall <name>
-	_EOF_
+function usage_install() {
+	get_function | egrep "^install" | sed "s/install_/install /g"
 }
 
 function usage_remove() {
-	cat <<- _EOF_
-		remove <name>
-	_EOF_
+	get_function | egrep "^remove" | sed "s/remove_/remove /g"
+}
+
+function usage_reinstall() {
+	get_function | egrep "^reinstall" | sed "s/reinstall_/reinstall /g"
 }
 
 function usage_list() {
-	cmd="egrep \"function [a-zA-Z0-9_]+\(\) {\" $0"
-	cmd="$cmd | cut -d ' ' -f 2 | cut -d '(' -f 1"
 	echo "install:"
-	eval $cmd | egrep "^install" | sed "s/install_/install /g"
+	usage_install
 	echo -e "\nremove:"
-	eval $cmd | egrep "^remove" | sed "s/remove_/remove /g"
+	usage_remove
 	echo -e "\nreinstall:"
-	eval $cmd | egrep "^reinstall" | sed "s/reinstall_/reinstall /g"
+	usage_reinstall
 }
 
 function check_retval() {
