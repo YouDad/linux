@@ -46,6 +46,8 @@ endif
 		Plug 'neoclide/coc.nvim', {'branch': 'release'}
 		"taglist
 		Plug 'vim-scripts/taglist.vim'
+		"emmet-vim
+		Plug 'mattn/emmet-vim'
     call plug#end()
 
     "vim-airline
@@ -246,3 +248,8 @@ endif
 		nmap sg	:TlistToggle<CR>
 		let g:Tlist_Use_Right_Window = 1
 		let g:Tlist_WinWidth = 50
+
+	"emmet-vim
+		let g:user_emmet_mode='inv'
+		let g:user_emmet_install_global = 0
+		autocmd FileType html,css EmmetInstall
