@@ -41,10 +41,10 @@
         nmap <leader>l	<c-w>l
 
     "重载方向键为改变布局的键
-        nmap <up>		:resize -3<cr>
-        nmap <down>		:resize +3<cr>
-        nmap <left>		:vertical resize -3<cr>
-        nmap <right>	:vertical resize +3<cr>
+        nmap <up>		5k
+        nmap <down>		5j
+        nmap <left>		5h
+        nmap <right>	5l
 
     "按sn去掉高亮
         nmap <silent> sn		:nohl<cr>
@@ -73,6 +73,6 @@
         nmap ss4		:set tabstop=4<cr>:set shiftwidth=4<cr>:set cc=160<cr>:highlight ColorColumn ctermbg=5<cr>
         nmap ss8		:set tabstop=8<cr>:set shiftwidth=8<cr>:set cc=80<cr>:highlight ColorColumn ctermbg=5<cr>
 
-	"把反斜杠重定义为调用q宏
+	"把反斜杠和竖线重定义为调用宏
 		nmap \	@q
-
+		nmap |  @w
