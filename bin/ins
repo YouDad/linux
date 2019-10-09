@@ -125,8 +125,21 @@ function install_zsh_dracula() {
 	git clone https://github.com/dracula/zsh.git $path
 	check_retval "git clone https://github.com/dracula/zsh.git $path"
 
-	ln -sf $path/dracula.zsh-theme $HOME/.oh-my-zsh/theme/dracula.zsh-theme
-	check_retval "ln -sf $path/dracula.zsh-theme $HOME/.oh-my-zsh/theme/dracula.zsh-theme"
+	ln -sf $path/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme
+	check_retval "ln -sf $path/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme"
+}
+
+function reinstall_zsh_autosuggestions() {
+	remove_zsh_autosuggestions
+	install_zsh_autosuggestions
+}
+
+function remove_zsh_autosuggestions() {
+	rm -rf $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
+}
+
+function install_zsh_autosuggestions() {
+	git clone git://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
 }
 
 function reinstall_nodejs() {

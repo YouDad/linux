@@ -71,7 +71,9 @@ endif
 		      \ }
 
     "vim-snazzy
-		set termguicolors
+		if has ("nvim")
+			set termguicolors
+		endif
 
         "let g:SnazzyTransparent=1
         "colorscheme snazzy

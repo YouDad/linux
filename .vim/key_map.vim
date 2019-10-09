@@ -73,6 +73,5 @@
         nmap ss4		:set tabstop=4<cr>:set shiftwidth=4<cr>:set cc=160<cr>:highlight ColorColumn ctermbg=5<cr>
         nmap ss8		:set tabstop=8<cr>:set shiftwidth=8<cr>:set cc=80<cr>:highlight ColorColumn ctermbg=5<cr>
 
-	"把反斜杠和竖线重定义为调用宏
+	"把反斜杠重定义为调用宏
 		nmap \	@q
-		nmap |  @w
