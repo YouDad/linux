@@ -19,8 +19,8 @@ endif
         Plug 'connorholyday/vim-snazzy'
         Plug 'Rigellute/rigel'
 		Plug 'dracula/vim'
-        "文件导航
-        Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+		"文件导航
+		Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
         Plug 'Xuyuanp/nerdtree-git-plugin'
         "重做树
         Plug 'mbbill/undotree'
@@ -33,8 +33,8 @@ endif
 		endif
 		"翻译
 		Plug 'voldikss/vim-translate-me'
-		"rst2html
-		Plug 'gu-fan/riv.vim'
+		"rst2html (deprecated)
+		"Plug 'gu-fan/riv.vim'
 		"书签
 		Plug 'kshenoy/vim-signature'
 		"快速查找文件
@@ -213,7 +213,7 @@ endif
 		"	历史记录文件的目录 默认：插件根目录 let g:vtm_history_dir= 
 
 	"riv.vim
-		nmap <silent> <leader>t :Riv2HtmlAndBrowse<cr>
+		"nmap <silent> <leader>t :Riv2HtmlAndBrowse<cr>
 
 	"vim-signature
 		let g:SignatureMap = {
@@ -244,7 +244,7 @@ endif
 		nmap sp :FZF<CR>
 
 	"coc
-		nmap <leader>rn <Plug>(coc-rename)
+		"nmap <leader>rn <Plug>(coc-rename)
 
 	"taglist
 		nmap sg	:TlistToggle<CR>

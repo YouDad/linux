@@ -15,44 +15,46 @@
 		vmap <c-c>		:!xsel -bi<cr>u
 
     "缓冲区移动键
-        nmap <silent> <leader>1	:b 1<cr>
-        nmap <silent> <leader>2	:b 2<cr>
-        nmap <silent> <leader>3	:b 3<cr>
-        nmap <silent> <leader>4	:b 4<cr>
-        nmap <silent> <leader>5	:b 5<cr>
-        nmap <silent> <leader>6	:b 6<cr>
-        nmap <silent> <leader>7	:b 7<cr>
-        nmap <silent> <leader>8	:b 8<cr>
-        nmap <silent> <leader>9	:b 9<cr>
-        nmap <silent> <leader>10	:b 10<cr>
-        nmap <silent> <leader>11	:b 11<cr>
-        nmap <silent> <leader>12	:b 12<cr>
-        nmap <silent> <leader>13	:b 13<cr>
-        nmap <silent> <leader>14	:b 14<cr>
-        nmap <silent> <leader>15	:b 15<cr>
-        nmap <silent> <leader>16	:b 16<cr>
-        nmap <silent> <leader>17	:b 17<cr>
-        nmap <silent> <leader>18	:b 18<cr>
-        nmap <silent> <leader>19	:b 19<cr>
+        nnoremap <silent> <leader>1<leader>	:b 1<cr>
+        nnoremap <silent> <leader>2			:b 2<cr>
+        nnoremap <silent> <leader>3			:b 3<cr>
+        nnoremap <silent> <leader>4			:b 4<cr>
+        nnoremap <silent> <leader>5			:b 5<cr>
+        nnoremap <silent> <leader>6			:b 6<cr>
+        nnoremap <silent> <leader>7			:b 7<cr>
+        nnoremap <silent> <leader>8			:b 8<cr>
+        nnoremap <silent> <leader>9			:b 9<cr>
+        nnoremap <silent> <leader>10		:b 10<cr>
+        nnoremap <silent> <leader>11		:b 11<cr>
+        nnoremap <silent> <leader>12		:b 12<cr>
+        nnoremap <silent> <leader>13		:b 13<cr>
+        nnoremap <silent> <leader>14		:b 14<cr>
+        nnoremap <silent> <leader>15		:b 15<cr>
+        nnoremap <silent> <leader>16		:b 16<cr>
+        nnoremap <silent> <leader>17		:b 17<cr>
+        nnoremap <silent> <leader>18		:b 18<cr>
+        nnoremap <silent> <leader>19		:b 19<cr>
 
     "在多窗口之间移动光标
-        nmap <leader>h	<c-w>h
-        nmap <leader>j	<c-w>j
-        nmap <leader>k	<c-w>k
-        nmap <leader>l	<c-w>l
+        nnoremap <leader>h	<c-w>h
+        nnoremap <leader>j	<c-w>j
+        nnoremap <leader>k	<c-w>k
+        nnoremap <leader>l	<c-w>l
 
     "重载方向键为改变布局的键
-        nmap <up>		5k
-        nmap <down>		5j
-        nmap <left>		5h
-        nmap <right>	5l
+        nnoremap <up>		5k
+        nnoremap <down>		5j
+        nnoremap <left>		5h
+        nnoremap <right>	5l
 
     "按sn去掉高亮
-        nmap <silent> sn		:nohl<cr>
+        nnoremap <silent> sn		:nohl<cr>
     "按sq关闭当前缓冲区
-        nmap <silent> sq		:bd<cr>
+        nnoremap <silent> sq		:bd<cr>
+	"按se反转wrap
+		nnoremap se	:set wrap!<cr>
 	"sf定义文件类型
-		nmap sf	:set filetype=
+		nnoremap sf	:set filetype=
 
     "窗口跟随移动
         nnoremap j		jzz
@@ -71,8 +73,13 @@
 		nnoremap %		%zz
 
     "4/8缩进(user/kernel)
-        nmap ss4		:set tabstop=4<cr>:set shiftwidth=4<cr>:set cc=160<cr>:highlight ColorColumn ctermbg=5<cr>
-        nmap ss8		:set tabstop=8<cr>:set shiftwidth=8<cr>:set cc=80<cr>:highlight ColorColumn ctermbg=5<cr>
+        nnoremap ss4		:set tabstop=4<cr>:set shiftwidth=4<cr>:set cc=160<cr>:highlight ColorColumn ctermbg=5<cr>
+        nnoremap ss8		:set tabstop=8<cr>:set shiftwidth=8<cr>:set cc=80<cr>:highlight ColorColumn ctermbg=5<cr>
 
 	"把反斜杠重定义为调用宏
-		nmap \	@q
+		nnoremap \	@q
+
+	"编辑Vim映射
+		nnoremap <leader>v	:vs ~/.vim/temp.vim<cr>
+		nnoremap <leader>V	:so %<cr>
+		inoremap jk	<esc>
