@@ -44,8 +44,8 @@
     "重载方向键为改变布局的键
         nnoremap <up>		5k
         nnoremap <down>		5j
-        nnoremap <left>		5h
-        nnoremap <right>	5l
+        nnoremap <left>		50h
+        nnoremap <right>	50l
 
     "按sn去掉高亮
         nnoremap <silent> sn		:nohl<cr>
