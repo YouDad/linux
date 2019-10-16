@@ -20,17 +20,21 @@ if [ -e ~/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
 		ln -s ~/src/powerlevel9k/powerlevel9k.zsh-theme ~/.oh-my-zsh/themes/
 	fi
 	ZSH_THEME="powerlevel9k"
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs status newline os_icon)
-	POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs time history)
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs status root_indicator background_jobs time history newline os_icon)
+	POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+#	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs status newline os_icon)
+#	POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs time history)
 	POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-	POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
+#	POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
 	
 	POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 	POWERLEVEL9K_MODE='nerdfont-complete'
 	POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
 	POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
-else
+elif [ -e ~/.oh-my-zsh/themes/dracula.zsh-theme ]; then
 	ZSH_THEME="dracula"
+else
+	ZSH_THEME="robbyrussell"
 fi
 
 # Set list of themes to pick from when loading at random
@@ -125,7 +129,3 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /home/karl/src/nodejs/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/karl/src/nodejs/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
