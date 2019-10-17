@@ -42,8 +42,8 @@
         nnoremap <leader>l	<c-w>l
 
     "重载方向键为改变布局的键
-        nnoremap <up>		5k
-        nnoremap <down>		5j
+        nnoremap <up>		5kzz
+        nnoremap <down>		5jzz
         nnoremap <left>		50h
         nnoremap <right>	50l
 
@@ -81,5 +81,6 @@
 
 	"编辑Vim映射
 		nnoremap <leader>v	:vs ~/.vim/temp.vim<cr>
+		nnoremap <leader>z	:vs ~/.vim/temp<cr><c-w>L
 		nnoremap <leader>V	:so %<cr>
 		inoremap jk	<esc>
