@@ -1,5 +1,9 @@
 export PATH="$PATH:/home/$(whoami)/bin"
 alias ra="ranger"
+umask 022
+if [ -e $HOME/.profile ]; then
+	source $HOME/.profile
+fi
 alias cll="colorls -l"
 alias cla="colorls -a"
 alias clla="colorls -l -a"
