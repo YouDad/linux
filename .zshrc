@@ -4,10 +4,6 @@ umask 022
 if [ -e $HOME/.profile ]; then
 	source $HOME/.profile
 fi
-alias cll="colorls -l"
-alias cla="colorls -a"
-alias clla="colorls -l -a"
-alias cls="colorls"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -133,3 +129,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+type colorls > /dev/null
+if [[ "$?" == "0" ]]; then
+	unalias ls
+	unalias ll
+	unalias la
+	alias ll="colorls -l --sd"
+	alias la="colorls -a --sd"
+	alias lla="colorls -l -a --sd"
+	alias ls="colorls --sd"
+fi
