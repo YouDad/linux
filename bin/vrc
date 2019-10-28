@@ -1,14 +1,20 @@
+#!/bin/bash
+
+function usage() {
+	cat <<- _EOF_
+	b. ~/.vim/base_set.vim
+	c. ~/.vim/command.vim
+	k. ~/.vim/key_map.vim
+	p. ~/.vim/plug.vim
+	r. ~/.vimrc
+	_EOF_
+}
+
 case $1 in
 	b)vim ~/.vim/base_set.vim;;
+	c)vim ~/.vim/command.vim;;
 	k)vim ~/.vim/key_map.vim;;
 	p)vim ~/.vim/plug.vim;;
-	h)
-cat << _EOF_
-b. ~/.vim/base_set.vim
-k. ~/.vim/key_map.vim
-p. ~/.vim/plug.vim
-*. ~/.vimrc
-_EOF_
-;;
-	*)vim ~/.vimrc;;
+	r)vim ~/.vimrc;;
+	*)usage;;
 esac

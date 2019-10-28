@@ -25,3 +25,11 @@ function! A_SudoWrite()
 endfunction
 command! LUWHSudoWrite call A_SudoWrite()
 
+function! A_FormatCode()
+	exec "w"
+	if &filetype == 'c' || &filetype == 'h'
+		exec "!astyle --options=$HOME/.c_astylerc %"
+	endif
+	exec "e!"
+endfunction
+map <F2> :call A_FormatCode()<cr>

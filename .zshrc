@@ -20,14 +20,15 @@ if [ -e ~/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
 		ln -s ~/src/powerlevel9k/powerlevel9k.zsh-theme ~/.oh-my-zsh/themes/
 	fi
 	ZSH_THEME="powerlevel9k"
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs status root_indicator background_jobs time history newline os_icon)
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs background_jobs newline status)
 	POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 #	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs status newline os_icon)
 #	POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs time history)
 	POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 #	POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
 	
-	POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+	POWERLEVEL9K_SHORTEN_DIR_LENGTH=8
+	POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
 	POWERLEVEL9K_MODE='nerdfont-complete'
 	POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
 	POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
@@ -131,11 +132,8 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 type colorls > /dev/null
 if [[ "$?" == "0" ]]; then
-	unalias ls
-	unalias ll
-	unalias la
-	alias ll="colorls -l --sd"
-	alias la="colorls -a --sd"
-	alias lla="colorls -l -a --sd"
-	alias ls="colorls --sd"
+	alias cll="colorls -l --sd"
+	alias cla="colorls -a --sd"
+	alias clla="colorls -l -a --sd"
+	alias cls="colorls --sd"
 fi
