@@ -15,9 +15,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-if [ -e ~/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
-	if [ ! -e ~/.oh-my-zsh/themes/powerlevel9k.zsh-theme ]; then
-		ln -s ~/src/powerlevel9k/powerlevel9k.zsh-theme ~/.oh-my-zsh/themes/
+if [ -e $HOME/My/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
+	if [ ! -e $HOME/.oh-my-zsh/themes/powerlevel9k.zsh-theme ]; then
+		ln -sf $HOME/My/src/powerlevel9k/powerlevel9k.zsh-theme $HOME/.oh-my-zsh/themes/
 	fi
 	ZSH_THEME="powerlevel9k"
 	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs background_jobs newline status)
@@ -32,7 +32,7 @@ if [ -e ~/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
 	POWERLEVEL9K_MODE='nerdfont-complete'
 	POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
 	POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
-elif [ -e ~/.oh-my-zsh/themes/dracula.zsh-theme ]; then
+elif [ -e $HOME/.oh-my-zsh/themes/dracula.zsh-theme ]; then
 	ZSH_THEME="dracula"
 else
 	ZSH_THEME="robbyrussell"
@@ -137,3 +137,4 @@ if [[ "$?" == "0" ]]; then
 	alias clla="colorls -l -a --sd"
 	alias cls="colorls --sd"
 fi
+export PATH="$HOME/My/src/nodejs/bin:$PATH"

@@ -18,74 +18,88 @@ endif
         Plug 'vim-airline/vim-airline'
         Plug 'connorholyday/vim-snazzy'
         Plug 'Rigellute/rigel'
-		Plug 'dracula/vim'
-		"文件导航
-		Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+        Plug 'dracula/vim'
+        Plug 'lmintmate/blue-mood-vim'
+
+        "文件导航
+        Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
         Plug 'Xuyuanp/nerdtree-git-plugin'
+
         "重做树
         Plug 'mbbill/undotree'
+
         "markdown
         Plug 'godlygeek/tabular'
         Plug 'plasticboy/vim-markdown'
         Plug 'dhruvasagar/vim-table-mode'
-		if has ("nvim")
+        if has ("nvim")
         	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-		endif
-		"翻译
-		Plug 'voldikss/vim-translate-me'
-		"rst2html (deprecated)
-		"Plug 'gu-fan/riv.vim'
-		"书签
-		Plug 'kshenoy/vim-signature'
-		"快速查找文件
-		Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-		Plug 'junegunn/fzf.vim'
-		"开始页
-		Plug 'mhinz/vim-startify'
-		"coc
-		Plug 'neoclide/coc.nvim', {'branch': 'release'}
-		"taglist
-		Plug 'vim-scripts/taglist.vim'
-		"emmet-vim
-		Plug 'mattn/emmet-vim'
+        endif
+
+        "翻译
+        Plug 'voldikss/vim-translate-me'
+
+        "rst2html (deprecated)
+        "Plug 'gu-fan/riv.vim'
+
+        "书签
+        Plug 'kshenoy/vim-signature'
+
+        "快速查找文件
+        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+        Plug 'junegunn/fzf.vim'
+
+        "开始页
+        Plug 'mhinz/vim-startify'
+
+        "coc
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+        "taglist
+        Plug 'vim-scripts/taglist.vim'
+
+        "emmet-vim
+        Plug 'mattn/emmet-vim'
+
+        "nerdcommenter
+        Plug 'scrooloose/nerdcommenter'
     call plug#end()
 
     "vim-airline
-		let g:airline#extensions#coc#enabled = 0
-		let g:airline#extensions#branch#enabled = 1
-		let g:airline#extensions#tabline#enabled = 1
-		let g:airline#extensions#tabline#show_buffers = 1
-		let g:airline#extensions#tabline#formatter = 'unique_tail'
+        let g:airline#extensions#coc#enabled = 0
+        let g:airline#extensions#branch#enabled = 1
+        let g:airline#extensions#tabline#enabled = 1
+        let g:airline#extensions#tabline#show_buffers = 1
+        let g:airline#extensions#tabline#formatter = 'unique_tail'
         let g:airline#extensions#tabline#buffer_nr_show = 1
-		let g:airline_powerline_fonts = 0
-		let g:airline_left_sep = ''
-		let g:airline_right_sep = ''
-		let g:airline_mode_map = {
-		      \ 'n'  : 'N',
-		      \ 'i'  : 'I',
-		      \ 'R'  : 'R',
-		      \ 'c'  : 'C',
-		      \ 'v'  : 'V',
-		      \ 'V'  : 'L',
-		      \ '' : 'B',
-		      \ }
+        let g:airline_powerline_fonts = 0
+        let g:airline_left_sep = ''
+        let g:airline_right_sep = ''
+        let g:airline_mode_map = {
+              \ 'n'  : 'N',
+              \ 'i'  : 'I',
+              \ 'R'  : 'R',
+              \ 'c'  : 'C',
+              \ 'v'  : 'V',
+              \ 'V'  : 'L',
+              \ '' : 'B',
+              \ }
 
-    "vim-snazzy
-		if has ("nvim")
-			set termguicolors
-		endif
+    "vim-colorscheme
+        if has ("nvim")
+            set termguicolors
+        endif
 
-        "let g:SnazzyTransparent=1
         "colorscheme snazzy
-        colorscheme rigel
-		"colorscheme dracula
-		highlight Normal guibg=NONE ctermbg=None
-
-		"启用定位光标的行列，设置行列样式
-			set cursorline
-			highlight CursorLine cterm=NONE ctermbg=8 ctermfg=NONE guibg=#444444 guifg=NONE
-			set cursorcolumn
-			highlight CursorColumn cterm=NONE ctermbg=8 ctermfg=NONE guibg=#444444 guifg=NONE
+        "colorscheme rigel
+        colorscheme dracula
+            "启用定位光标的行列，设置行列样式
+            set cursorline
+            highlight CursorLine ctermfg=None ctermbg=236 guifg=None guibg=#282A36
+            set cursorcolumn
+            highlight CursorColumn ctermfg=None ctermbg=236 guifg=None guibg=#282A36
+        "colorscheme blue-mood
+        highlight Normal guibg=NONE ctermbg=None
 
 
     "nerdtree
@@ -188,70 +202,80 @@ endif
             \ 'sequence_diagrams': {}
             \ }
 
-	"vim-translate-me
-		"<leader>w 翻译光标下的文本，在窗口中显示
-		nmap <silent> <leader>w <plug>TranslateW
-		vmap <silent> <leader>w <plug>TranslateWV
-		"<leader>r 替换光标下的文本为翻译内容
-		nmap <silent> <leader>r <plug>TranslateR
-		vmap <silent> <leader>r <plug>TranslateRV
+    "vim-translate-me
+        "<leader>w 翻译光标下的文本，在窗口中显示
+        nmap <silent> <leader>w <plug>TranslateW
+        vmap <silent> <leader>w <plug>TranslateWV
+        "<leader>r 替换光标下的文本为翻译内容
+        nmap <silent> <leader>r <plug>TranslateR
+        vmap <silent> <leader>r <plug>TranslateRV
 
-		vmap <leader>j dmaPV`akJpkV<leader>r
+        vmap <leader>j dmaPV`akJpkV<leader>r
 
-		"	是否使用默认快捷键 默认：1
-		let g:vtm_default_mapping = 0
-		"	默认翻译的目标语言 可选：参考各 engine 支持语言列表 默认：'zh'
-		let g:vtm_default_to_lang = 'zh'
-		"	默认翻译接口 可选：'bing', 'ciba', 'google'(可直连), youdao。可选多个 默认：['ciba', 'youdao']
-		let g:vtm_default_engines = ['bing', 'ciba', 'youdao']
-		"	代理地址，如 let g:vtm_proxy_url = 'socks5://127.0.0.1:1080' 默认：''
-		let g:vtm_proxy_url= ''
-		"	是否保存查询历史记录 默认：1
-		let g:vtm_enable_history= 1
-		"	保存查询记录的数目 默认：5000
-		let g:vtm_max_history_count= 100
-		"	历史记录文件的目录 默认：插件根目录 let g:vtm_history_dir= 
+        "	是否使用默认快捷键 默认：1
+        let g:vtm_default_mapping = 0
+        "	默认翻译的目标语言 可选：参考各 engine 支持语言列表 默认：'zh'
+        let g:vtm_default_to_lang = 'zh'
+        "	默认翻译接口 可选：'bing', 'ciba', 'google'(可直连), youdao。可选多个 默认：['ciba', 'youdao']
+        let g:vtm_default_engines = ['bing', 'ciba', 'youdao']
+        "	代理地址，如 let g:vtm_proxy_url = 'socks5://127.0.0.1:1080' 默认：''
+        let g:vtm_proxy_url= ''
+        "	是否保存查询历史记录 默认：1
+        let g:vtm_enable_history= 1
+        "	保存查询记录的数目 默认：5000
+        let g:vtm_max_history_count= 100
+        "	历史记录文件的目录 默认：插件根目录 let g:vtm_history_dir= 
 
-	"riv.vim
-		"nmap <silent> <leader>t :Riv2HtmlAndBrowse<cr>
+    "riv.vim
+        "nmap <silent> <leader>t :Riv2HtmlAndBrowse<cr>
 
-	"vim-signature
-		let g:SignatureMap = {
-			\ 'Leader'             :  "m",
-			\ 'PlaceNextMark'      :  "m,",
-			\ 'ToggleMarkAtLine'   :  "",
-			\ 'PurgeMarksAtLine'   :  "",
-			\ 'DeleteMark'         :  "sd",
-			\ 'PurgeMarks'         :  "",
-			\ 'PurgeMarkers'       :  "",
-			\ 'GotoNextLineAlpha'  :  "",
-			\ 'GotoPrevLineAlpha'  :  "",
-			\ 'GotoNextSpotAlpha'  :  "m<LEADER>",
-			\ 'GotoPrevSpotAlpha'  :  "",
-			\ 'GotoNextLineByPos'  :  "",
-			\ 'GotoPrevLineByPos'  :  "",
-			\ 'GotoNextSpotByPos'  :  "mn",
-			\ 'GotoPrevSpotByPos'  :  "mp",
-			\ 'GotoNextMarker'     :  "",
-			\ 'GotoPrevMarker'     :  "",
-			\ 'GotoNextMarkerAny'  :  "",
-			\ 'GotoPrevMarkerAny'  :  "",
-			\ 'ListLocalMarks'     :  "m/",
-			\ 'ListLocalMarkers'   :  ""
-			\ }
+    "vim-signature
+        let g:SignatureMap = {
+            \ 'Leader'             :  "m",
+            \ 'PlaceNextMark'      :  "m,",
+            \ 'ToggleMarkAtLine'   :  "",
+            \ 'PurgeMarksAtLine'   :  "",
+            \ 'DeleteMark'         :  "sd",
+            \ 'PurgeMarks'         :  "",
+            \ 'PurgeMarkers'       :  "",
+            \ 'GotoNextLineAlpha'  :  "",
+            \ 'GotoPrevLineAlpha'  :  "",
+            \ 'GotoNextSpotAlpha'  :  "m<LEADER>",
+            \ 'GotoPrevSpotAlpha'  :  "",
+            \ 'GotoNextLineByPos'  :  "",
+            \ 'GotoPrevLineByPos'  :  "",
+            \ 'GotoNextSpotByPos'  :  "mn",
+            \ 'GotoPrevSpotByPos'  :  "mp",
+            \ 'GotoNextMarker'     :  "",
+            \ 'GotoPrevMarker'     :  "",
+            \ 'GotoNextMarkerAny'  :  "",
+            \ 'GotoPrevMarkerAny'  :  "",
+            \ 'ListLocalMarks'     :  "m/",
+            \ 'ListLocalMarkers'   :  ""
+            \ }
 
-	"fzf
-		nmap sp :FZF<CR>
+    "fzf
+        nmap sp :FZF<CR>
 
-	"coc
-		"nmap <leader>rn <Plug>(coc-rename)
+    "coc
+        "nmap <leader>rn <Plug>(coc-rename)
 
-	"taglist
-		nmap sg	:TlistToggle<CR>
-		let g:Tlist_Use_Right_Window = 1
-		let g:Tlist_WinWidth = 50
+    "taglist
+        nmap sg	:TlistToggle<CR>
+        let g:Tlist_Use_Right_Window = 1
+        let g:Tlist_WinWidth = 50
 
-	"emmet-vim
-		let g:user_emmet_mode='inv'
-		let g:user_emmet_install_global = 0
-		autocmd FileType html,css EmmetInstall
+    "emmet-vim
+        let g:user_emmet_mode='inv'
+        let g:user_emmet_install_global = 0
+        autocmd FileType html,css EmmetInstall
+
+    "nerdcommenter
+        let g:NERDSpaceDelims = 1
+        let g:NERDCompactSexyComs = 1
+        let g:NERDDefaultAlign = 'left'
+        let g:NERDAltDelims_java = 1
+        let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+        let g:NERDCommentEmptyLines = 1
+        let g:NERDTrimTrailingWhitespace = 1
+        let g:NERDToggleCheckAllLines = 1

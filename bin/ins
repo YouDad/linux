@@ -73,14 +73,14 @@ function reinstall_zsh_powerlevel9k() {
 }
 
 function remove_zsh_powerlevel9k() {
-	need_dir $HOME/src
-	rm -rf $HOME/src/powerlevel9k
-	check_retval "rm -rf $HOME/src/powerlevel9k"
+	need_dir $HOME/My/src
+	rm -rf $HOME/My/src/powerlevel9k
+	check_retval "rm -rf $HOME/My/src/powerlevel9k"
 }
 
 function install_zsh_powerlevel9k() {
-	path=$HOME/src/powerlevel9k
-	need_dir $HOME/src
+	path=$HOME/My/src/powerlevel9k
+	need_dir $HOME/My/src
 	check_dir $path
 
 	git clone https://github.com/bhilburn/powerlevel9k.git $path
@@ -112,14 +112,14 @@ function reinstall_zsh_dracula() {
 }
 
 function remove_zsh_dracula() {
-	need_dir $HOME/src
-	rm -rf $HOME/src/zsh_dracula
-	check_retval "rm -rf $HOME/src/zsh_dracula"
+	need_dir $HOME/My/src
+	rm -rf $HOME/My/src/zsh_dracula
+	check_retval "rm -rf $HOME/My/src/zsh_dracula"
 }
 
 function install_zsh_dracula() {
-	path=$HOME/src/zsh_dracula
-	need_dir $HOME/src
+	path=$HOME/My/src/zsh_dracula
+	need_dir $HOME/My/src
 	check_dir $path
 
 	git clone https://github.com/dracula/zsh.git $path
@@ -148,15 +148,15 @@ function reinstall_nodejs() {
 }
 
 function remove_nodejs() {
-	need_dir $HOME/src
-	rm -rf $HOME/src/nodejs
-	check_retval "rm -rf $HOME/src/nodejs"
+	need_dir $HOME/My/src
+	rm -rf $HOME/My/src/nodejs
+	check_retval "rm -rf $HOME/My/src/nodejs"
 	sudo rm /usr/bin/npm /usr/bin/node
 }
 
 function install_nodejs() {
-	need_dir $HOME/src
-	check_dir $HOME/src/nodejs
+	need_dir $HOME/My/src
+	check_dir $HOME/My/src/nodejs
 	url=https://npm.taobao.org/mirrors/node/v12.10.0/node-v12.10.0-linux-x64.tar.xz
 
 	cd $HOME
@@ -171,14 +171,14 @@ function install_nodejs() {
 	mv node-v12.10.0-linux-x64 nodejs
 	check_retval "mv node-v12.10.0-linux-x64 nodejs"
 
-	mv nodejs $HOME/src
-	check_retval "mv nodejs $HOME/src"
+	mv nodejs $HOME/My/src
+	check_retval "mv nodejs $HOME/My/src"
 
-	sudo ln -s $HOME/src/nodejs/bin/npm /usr/bin/
-	check_retval "sudo ln -s $HOME/src/nodejs/bin/npm /usr/bin/"
+	sudo ln -s $HOME/My/src/nodejs/bin/npm /usr/bin/
+	check_retval "sudo ln -s $HOME/My/src/nodejs/bin/npm /usr/bin/"
 
-	sudo ln -s $HOME/src/nodejs/bin/node /usr/bin/
-	check_retval "sudo ln -s $HOME/src/nodejs/bin/node /usr/bin/"
+	sudo ln -s $HOME/My/src/nodejs/bin/node /usr/bin/
+	check_retval "sudo ln -s $HOME/My/src/nodejs/bin/node /usr/bin/"
 
 	rm node-v12.10.0-linux-x64.tar.xz
 	check_retval "rm node-v12.10.0-linux-x64.tar.xz"
