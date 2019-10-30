@@ -72,6 +72,7 @@ nnoremap b		bzz
 nnoremap *		*zz
 nnoremap #		#zz
 nnoremap %		%zz
+nnoremap zi		zizz
 
 "4/8缩进(user/kernel)
 nnoremap ss4		:set tabstop=4<cr>:set shiftwidth=4<cr>:set cc=100<cr>:highlight ColorColumn ctermbg=5<cr>

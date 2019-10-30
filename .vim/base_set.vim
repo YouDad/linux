@@ -92,8 +92,8 @@ set noautochdir
 
 "打开文件时光标返回上次离开的位置
 if has("autocmd")
-	autocmd BufEnter * execute "normal! zz"
-	autocmd BufReadPost * execute "normal! g'\""
+	autocmd BufEnter * execute "normal zz"
+	autocmd BufReadPost * execute "normal g'\""
 endif
 
 "vim-gnome的细光标设置
