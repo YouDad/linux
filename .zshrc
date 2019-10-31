@@ -15,6 +15,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
+remote=`who am i | wc | sed "s/ //g"`
+
 if [ -e $HOME/My/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
 	if [ ! -e $HOME/.oh-my-zsh/themes/powerlevel9k.zsh-theme ]; then
 		ln -sf $HOME/My/src/powerlevel9k/powerlevel9k.zsh-theme $HOME/.oh-my-zsh/themes/
@@ -36,6 +38,14 @@ elif [ -e $HOME/.oh-my-zsh/themes/dracula.zsh-theme ]; then
 	ZSH_THEME="dracula"
 else
 	ZSH_THEME="robbyrussell"
+fi
+
+if [[ $remote != "000" && $ZSH_THEME == "powerlevel9k" ]]; then
+	if [ -e $HOME/.oh-my-zsh/themes/dracula.zsh-theme ]; then
+		ZSH_THEME="dracula"
+	else
+		ZSH_THEME="robbyrussell"
+	fi
 fi
 
 # Set list of themes to pick from when loading at random
