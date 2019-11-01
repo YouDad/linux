@@ -184,6 +184,12 @@ function install_nodejs() {
 	check_retval "rm node-v12.10.0-linux-x64.tar.xz"
 }
 
+function install_neovim() {
+    sudo add-apt-repository -y ppa:neovim-ppa/stable
+    sudo aptitude install neovim
+    sudo ln -s /usr/bin/nvim /usr/bin/vim
+}
+
 function install_aptitude() {
 	sudo apt install aptitude
 	check_retval "sudo apt install aptitude"
