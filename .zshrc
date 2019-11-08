@@ -106,11 +106,16 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+plugins=(git zsh-syntax-highlighting)
 if [[ "$TMUX" == "" ]]; then
-	plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+	plugins+=(zsh-autosuggestions)
 else
-	plugins=(git zsh-syntax-highlighting)
 fi
+
+if [ -e "$ZSH/plugins/h" ]; then
+	plugins+=(h)
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -139,7 +144,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -f ~/.fzf.zsh ]; then
+	source ~/.fzf.zsh
+fi
 type colorls > /dev/null
 if [[ "$?" == "0" ]]; then
 	alias cll="colorls -l --sd"

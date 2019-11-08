@@ -206,6 +206,16 @@ function install_aptitude() {
 	check_retval "sudo aptitude install cscope ctags fontconfig aria2"
 }
 
+function install_zsh_h() {
+	git clone git@github.com:paoloantinori/hhighlighter.git $HOME/.oh-my-zsh/plugins/h
+	mv $HOME/.oh-my-zsh/plugins/h/h.sh $HOME/.oh-my-zsh/plugins/h/h.plugin.zsh
+}
+
+function install_lazygit() {
+	sudo add-apt-repository -y -u ppa:lazygit-team/release
+	sudo aptitude install lazygit
+}
+
 function main() {
 	if [[ $1 == "" ]]; then
 		usage
