@@ -1,9 +1,3 @@
-export PATH="$PATH:/home/$(whoami)/bin"
-alias ra="ranger"
-umask 022
-if [ -e $HOME/.profile ]; then
-	source $HOME/.profile
-fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -15,11 +9,12 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-remote=`who am i | wc | sed "s/ //g"`
-
-if [ -e $HOME/My/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
+###############################
+# theme
+###############################
+if [ -e $HOME/my/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
 	if [ ! -e $HOME/.oh-my-zsh/themes/powerlevel9k.zsh-theme ]; then
-		ln -sf $HOME/My/src/powerlevel9k/powerlevel9k.zsh-theme $HOME/.oh-my-zsh/themes/
+		ln -sf $HOME/my/src/powerlevel9k/powerlevel9k.zsh-theme $HOME/.oh-my-zsh/themes/
 	fi
 	ZSH_THEME="powerlevel9k"
 	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs background_jobs newline status)
@@ -39,6 +34,11 @@ elif [ -e $HOME/.oh-my-zsh/themes/dracula.zsh-theme ]; then
 else
 	ZSH_THEME="robbyrussell"
 fi
+
+###############################
+# is remote ?
+###############################
+remote=`who am i | wc | sed "s/ //g"`
 
 if [[ $remote != "000" && $ZSH_THEME == "powerlevel9k" ]]; then
 	if [ -e $HOME/.oh-my-zsh/themes/dracula.zsh-theme ]; then
@@ -106,6 +106,8 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+### PLUGINS
 plugins=(git zsh-syntax-highlighting)
 if [[ "$TMUX" == "" ]]; then
 	plugins+=(zsh-autosuggestions)
@@ -144,9 +146,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -f ~/.fzf.zsh ]; then
-	source ~/.fzf.zsh
-fi
+###############################
+# user set
+###############################
+umask 022
+
+###############################
+# alias command
+###############################
+alias gvv="git status -vv"
+alias ra="ranger"
 type colorls > /dev/null
 if [[ "$?" == "0" ]]; then
 	alias cll="colorls -l --sd"
@@ -154,36 +163,24 @@ if [[ "$?" == "0" ]]; then
 	alias clla="colorls -l -a --sd"
 	alias cls="colorls --sd"
 fi
-export PATH="$HOME/My/src/nodejs/bin:$PATH"
 
-# CTRL-R - Paste the selected command from history into the command line
-while [ -e $HOME/bin/history.cpp ]; do
-	if [ ! -e $HOME/bin/hhistory ]; then
-		g++ -v 1>/dev/null 2>&1
-		if [[ $? == 0 ]]; then
-			g++ $HOME/bin/history.cpp -g -o $HOME/bin/hhistory
-		else
-			echo "please install g++"
-			break
-		fi
-	fi
+###############################
+# export environment variable
+###############################
+export PATH="$PATH:$HOME/my/src/nodejs/bin"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
-	fzf-history-widget() {
-		local selected num
-		setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-		selected=( $(hhistory ~/.zsh_history |
-			FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
-		local ret=$?
-		if [ -n "$selected" ]; then
-			num=$selected[1]
-			if [ -n "$num" ]; then
-				zle vi-fetch-history -n $num
-			fi
-		fi
-		zle reset-prompt
-		return $ret
-	}
-	zle     -N   fzf-history-widget
-	bindkey '^R' fzf-history-widget
-	break
-done
+###############################
+# source
+###############################
+
+### FZF
+if [ -f $HOME/.fzf.zsh ]; then
+	source $HOME/.fzf.zsh
+fi
+
+### HHISTORY
+if [ -f $HOME/my/src/hhistory/hhistory.sh ]; then
+	source $HOME/my/src/hhistory/hhistory.sh
+fi
