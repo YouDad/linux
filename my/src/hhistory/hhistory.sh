@@ -1,6 +1,6 @@
-while [ -e main.cpp ]; do
+while [ -e $HOME/my/src/hhistory/main.cpp ]; do
 	if [ ! -e $HOME/bin/hhistory ]; then
-		g++ $HOME/bin/history.cpp -g -o $HOME/bin/hhistory -std=c++11
+		g++ $HOME/my/src/hhistory/main.cpp -g -o $HOME/bin/hhistory -std=c++11
 		if [[ $? != 0 ]]; then
 			echo "please install g++, cannot compile cpp"
 			break
