@@ -46,10 +46,12 @@ void fast_date(struct YMDHMS *date, int ts)
 int main(int argc, char **argv)
 {
 	FILE *fp = NULL;
+
 	if (argc != 2) {
 		fprintf(stderr, "Usage: hhistory path/to/zsh_history\n");
 		return -1;
 	}
+
 	fp = fopen(argv[1], "r");
 
 	if (fp == NULL) {
@@ -57,7 +59,7 @@ int main(int argc, char **argv)
 		return -1;
 	}
 
-	char s[128], *p = s;
+	char s[256], *p = s, last_char = 0;
 	int last_timestamp = 0, timestamp, n;
 
 	while (true) {
@@ -70,16 +72,24 @@ int main(int argc, char **argv)
 		if (*p == '\n') {
 			*p = '\0';
 
-			if (sscanf(s, ": %d:0;%n", &timestamp, &n) == 1) {
-				if (timestamp >= last_timestamp) {
-					v.push_back(std::make_pair(timestamp, s + n));
-					last_timestamp = timestamp;
+			if (last_char != '\\') {
+				if (sscanf(s, ": %d:0;%n", &timestamp, &n) == 1) {
+					// if (timestamp >= last_timestamp) {
+					if (timestamp >= 0) {
+						v.push_back(std::make_pair(timestamp, s + n));
+						last_timestamp = timestamp;
+					}
 				}
-			}
 
-			p = s;
+				p = s;
+			} else {
+				last_char = *p;
+			}
 		} else if (p - s < (sizeof s) - 1) {
+			last_char = *p;
 			p++;
+		} else {
+			last_char = *p;
 		}
 	}
 
@@ -99,14 +109,35 @@ int main(int argc, char **argv)
 		char timestr[32];
 		const char *week;
 		fast_date(&timestamp_date, v[i].first);
-		switch(v[i].first/86400%7){
-			case 0:week="四";break;
-			case 1:week="五";break;
-			case 2:week="六";break;
-			case 3:week="日";break;
-			case 4:week="一";break;
-			case 5:week="二";break;
-			case 6:week="三";break;
+
+		switch (v[i].first / 86400 % 7) {
+		case 0:
+			week = "四";
+			break;
+
+		case 1:
+			week = "五";
+			break;
+
+		case 2:
+			week = "六";
+			break;
+
+		case 3:
+			week = "日";
+			break;
+
+		case 4:
+			week = "一";
+			break;
+
+		case 5:
+			week = "二";
+			break;
+
+		case 6:
+			week = "三";
+			break;
 		}
 
 		if (most_old_date.Y != now_date.Y) {
@@ -143,7 +174,7 @@ int main(int argc, char **argv)
 
 		char fmt[64];
 		snprintf(fmt, sizeof fmt, "%%%dd %%s %%s %%s\n", size);
-		printf(fmt, i+1, week, timestr, v[i].second.c_str());
+		printf(fmt, i + 1, week, timestr, v[i].second.c_str());
 	}
 
 	fclose(fp);
