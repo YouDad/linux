@@ -25,7 +25,7 @@ function! A_SudoWrite()
 endfunction
 command! LUWHSudoWrite call A_SudoWrite()
 
-function! A_FormatCode()
+function! A_F2_FormatCode()
 	if &filetype == 'c' || &filetype == 'h'
 		exec "w"
 		exec "!astyle --options=$HOME/.c_astylerc %"
@@ -36,4 +36,13 @@ function! A_FormatCode()
 		exec "e!"
 	endif
 endfunction
-map <F2> :call A_FormatCode()<cr>
+map <F2> :call A_F2_FormatCode()<cr>
+
+function! A_F3_FormatCode()
+	if &filetype == 'c' || &filetype == 'h'
+		exec "w"
+		exec "!astyle --options=$HOME/.kernel_c_astylerc %"
+		exec "e!"
+	endif
+endfunction
+map <F3> :call A_F3_FormatCode()<cr>

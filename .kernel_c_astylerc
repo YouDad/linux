@@ -1,0 +1,10 @@
+--style=kr
+--indent=force-tab=8
+--remove-brackets
+--break-blocks
+--pad-oper
+--pad-header
+--align-pointer=name
+--max-code-length=80
+--mode=c
+--suffix=none
