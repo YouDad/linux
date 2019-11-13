@@ -17,7 +17,7 @@ if [ -e $HOME/my/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
 		ln -sf $HOME/my/src/powerlevel9k/powerlevel9k.zsh-theme $HOME/.oh-my-zsh/themes/
 	fi
 	ZSH_THEME="powerlevel9k"
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs background_jobs newline status)
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir background_jobs newline status)
 	POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 #	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs status newline os_icon)
 #	POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs time history)
@@ -169,6 +169,7 @@ fi
 ###############################
 export PATH="$PATH:$HOME/my/src/nodejs/bin"
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/my/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
 ###############################

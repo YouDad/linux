@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [[ "$1" == "" ]]; then
-	echo "download remote_sth local_dir [scp's options(max=7)]"
-	exit 0
-fi
-
-scp $3 $4 $5 $6 $7 $8 $9 root@39.107.64.93:~/$1 $2

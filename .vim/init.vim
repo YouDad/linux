@@ -1,1 +1,1 @@
-/home/luwh/.vimrc
+../.vimrc

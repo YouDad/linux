@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [[ "$1" == "" ]]; then
-	echo "upload target [scp's options(max=8)]"
-	exit 0
-fi
-
-scp $2 $3 $4 $5 $6 $7 $8 $9 $1 root@39.107.64.93:~/

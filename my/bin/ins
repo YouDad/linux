@@ -1,5 +1,10 @@
 #!/bin/bash
 
+lsb_release -a | grep Manjaro 1>/dev/null 2>&1
+manjaro=$?
+lsb_release -a | grep Ubuntu 1>/dev/null 2>&1
+ubuntu=$?
+
 if [[ "$HOME" == "" ]]; then
 	if [[ "$(whoami)" == "root" ]]; then
 		HOME=/root
@@ -81,6 +86,7 @@ function remove_zsh_powerlevel9k() {
 function install_zsh_powerlevel9k() {
 	path=$HOME/my/src/powerlevel9k
 	need_dir $HOME/my/src
+	need_dir $HOME/.fonts
 	check_dir $path
 
 	git clone https://github.com/bhilburn/powerlevel9k.git $path
@@ -96,14 +102,19 @@ function install_zsh_powerlevel9k() {
 	rm DroidSansMono.zip
 	check_retval "rm DroidSansMono.zip"
 
-	sudo mv Droid* /usr/share/fonts/opentype
-	check_retval "sudo mv Droid* /usr/share/fonts/opentype"
+	sudo mv Droid* $HOME/.fonts
+	check_retval "sudo mv Droid* $HOME/.fonts"
 
-	sudo aptitude install fontconfig
-	check_retval "sudo aptitude install fontconfig"
+	fc-cache --help
+	if [[ "$?" != "0" ]]; then
+		if [[ "$ubuntu" == "0" ]]; then
+			sudo aptitude install fontconfig
+			check_retval "sudo aptitude install fontconfig"
+		fi
+	fi
 
-	sudo fc-cache -fv /usr/share/fonts/opentype
-	check_retval "sudo fc-cache -fv /usr/share/fonts/opentype"
+	sudo fc-cache -fv $HOME/.fonts
+	check_retval "sudo fc-cache -fv $HOME/.fonts"
 }
 
 function reinstall_zsh_dracula() {
@@ -185,9 +196,16 @@ function install_nodejs() {
 }
 
 function install_neovim() {
-    sudo add-apt-repository -yu ppa:neovim-ppa/unstable
-    sudo aptitude install neovim
-    sudo ln -sf /usr/bin/nvim /usr/bin/vim
+	if [[ "$ubuntu" == "0" ]]; then
+		sudo add-apt-repository -yu ppa:neovim-ppa/unstable
+		sudo aptitude install neovim
+		sudo ln -sf /usr/bin/nvim /usr/bin/vim
+	elif [[ "$manjaro" == "0" ]]; then
+		sudo pacman -Sy neovim
+		sudo ln -sf nvim /usr/bin/vim
+		sudo ln -sf nvim /usr/bin/vi
+		sudo ln -sf nvim /usr/bin/nano
+	fi
 }
 
 function install_rg() {
@@ -212,15 +230,10 @@ function install_zsh_h() {
 }
 
 function install_lazygit() {
-	sudo add-apt-repository -yu ppa:lazygit-team/release
-	sudo aptitude install lazygit
-}
-
-function install_font1() {
-	cd $HOME/my/fonts
-	curl -fLo DroidSansMono_NerdFont.otf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-	mkfontscale
-	mkfontdir
+	if [[ "$ubuntu" == "0" ]]; then
+		sudo add-apt-repository -yu ppa:lazygit-team/release
+		sudo aptitude install lazygit
+	fi
 }
 
 function main() {
