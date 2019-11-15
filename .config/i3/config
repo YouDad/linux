@@ -196,5 +196,6 @@ assign [class="Thunderbird"] 10
 
 for_window [class="Gedit"] floating enable
 for_window [class="Thunar"] floating enable
+for_window [class="finger"] floating enable
 
 focus_follows_mouse no
