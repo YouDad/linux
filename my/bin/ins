@@ -185,11 +185,11 @@ function install_nodejs() {
 	mv nodejs $HOME/my/src
 	check_retval "mv nodejs $HOME/my/src"
 
-	sudo ln -s $HOME/my/src/nodejs/bin/npm /usr/bin/
-	check_retval "sudo ln -s $HOME/my/src/nodejs/bin/npm /usr/bin/"
+	sudo ln -sf $HOME/my/src/nodejs/bin/npm /usr/bin/
+	check_retval "sudo ln -sf $HOME/my/src/nodejs/bin/npm /usr/bin/"
 
-	sudo ln -s $HOME/my/src/nodejs/bin/node /usr/bin/
-	check_retval "sudo ln -s $HOME/my/src/nodejs/bin/node /usr/bin/"
+	sudo ln -sf $HOME/my/src/nodejs/bin/node /usr/bin/
+	check_retval "sudo ln -sf $HOME/my/src/nodejs/bin/node /usr/bin/"
 
 	rm node-v12.10.0-linux-x64.tar.xz
 	check_retval "rm node-v12.10.0-linux-x64.tar.xz"
@@ -199,7 +199,9 @@ function install_neovim() {
 	if [[ "$ubuntu" == "0" ]]; then
 		sudo add-apt-repository -yu ppa:neovim-ppa/unstable
 		sudo aptitude install neovim
-		sudo ln -sf /usr/bin/nvim /usr/bin/vim
+		sudo ln -sf nvim /usr/bin/vim
+		sudo ln -sf nvim /usr/bin/vi
+		sudo ln -sf nvim /usr/bin/nano
 	elif [[ "$manjaro" == "0" ]]; then
 		sudo pacman -Sy neovim
 		sudo ln -sf nvim /usr/bin/vim
@@ -234,6 +236,12 @@ function install_lazygit() {
 		sudo add-apt-repository -yu ppa:lazygit-team/release
 		sudo aptitude install lazygit
 	fi
+}
+
+function install_manjaro() {
+	cat <<- _EOF_
+	sudo echo -en "[archlinuxcn]\nSigLevel = Never\nServer = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch" >> /etc/pacman.conf
+	_EOF_
 }
 
 function main() {
