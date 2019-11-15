@@ -83,41 +83,6 @@ function remove_zsh_powerlevel9k() {
 	check_retval "rm -rf $HOME/my/src/powerlevel9k"
 }
 
-function install_zsh_powerlevel9k() {
-	path=$HOME/my/src/powerlevel9k
-	need_dir $HOME/my/src
-	need_dir $HOME/.fonts
-
-	if [ ! -e $path ]; then
-		git clone https://github.com/bhilburn/powerlevel9k.git $path
-		check_retval "git clone https://github.com/bhilburn/powerlevel9k.git $path"
-	fi
-
-	url=https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/DroidSansMono.zip
-	wget -c $url
-	check_retval "wget $url"
-
-	unzip DroidSansMono.zip
-	check_retval "unzip DroidSansMono.zip"
-
-	rm DroidSansMono.zip
-	check_retval "rm DroidSansMono.zip"
-
-	sudo mv Droid* $HOME/.fonts
-	check_retval "sudo mv Droid* $HOME/.fonts"
-
-	fc-cache --help
-	if [[ "$?" != "0" ]]; then
-		if [[ "$ubuntu" == "0" ]]; then
-			sudo aptitude install fontconfig
-			check_retval "sudo aptitude install fontconfig"
-		fi
-	fi
-
-	sudo fc-cache -fv $HOME/.fonts
-	check_retval "sudo fc-cache -fv $HOME/.fonts"
-}
-
 function reinstall_zsh_dracula() {
 	remove_zsh_dracula
 	install_zsh_dracula
@@ -129,18 +94,6 @@ function remove_zsh_dracula() {
 	check_retval "rm -rf $HOME/my/src/zsh_dracula"
 }
 
-function install_zsh_dracula() {
-	path=$HOME/my/src/zsh_dracula
-	need_dir $HOME/my/src
-	check_dir $path
-
-	git clone https://github.com/dracula/zsh.git $path
-	check_retval "git clone https://github.com/dracula/zsh.git $path"
-
-	ln -sf $path/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme
-	check_retval "ln -sf $path/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme"
-}
-
 function reinstall_zsh_autosuggestions() {
 	remove_zsh_autosuggestions
 	install_zsh_autosuggestions
@@ -150,65 +103,11 @@ function remove_zsh_autosuggestions() {
 	rm -rf $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
 }
 
-function install_zsh_autosuggestions() {
-	git clone git://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
-}
-
-function reinstall_nodejs() {
-	remove_nodejs
-	install_nodejs
-}
-
 function remove_nodejs() {
 	need_dir $HOME/my/src
 	rm -rf $HOME/my/src/nodejs
 	check_retval "rm -rf $HOME/my/src/nodejs"
 	sudo rm /usr/bin/npm /usr/bin/node
-}
-
-function install_nodejs() {
-	need_dir $HOME/my/src
-	check_dir $HOME/my/src/nodejs
-	url=https://npm.taobao.org/mirrors/node/v12.10.0/node-v12.10.0-linux-x64.tar.xz
-
-	cd $HOME
-	check_retval "cd $HOME"
-
-	wget $url
-	check_retval "wget $url"
-
-	tar -axf node-v12.10.0-linux-x64.tar.xz
-	check_retval "tar -axvf node-v12.10.0-linux-x64.tar.xz"
-
-	mv node-v12.10.0-linux-x64 nodejs
-	check_retval "mv node-v12.10.0-linux-x64 nodejs"
-
-	mv nodejs $HOME/my/src
-	check_retval "mv nodejs $HOME/my/src"
-
-	sudo ln -sf $HOME/my/src/nodejs/bin/npm /usr/bin/
-	check_retval "sudo ln -sf $HOME/my/src/nodejs/bin/npm /usr/bin/"
-
-	sudo ln -sf $HOME/my/src/nodejs/bin/node /usr/bin/
-	check_retval "sudo ln -sf $HOME/my/src/nodejs/bin/node /usr/bin/"
-
-	rm node-v12.10.0-linux-x64.tar.xz
-	check_retval "rm node-v12.10.0-linux-x64.tar.xz"
-}
-
-function install_neovim() {
-	if [[ "$ubuntu" == "0" ]]; then
-		sudo add-apt-repository -yu ppa:neovim-ppa/unstable
-		sudo aptitude install neovim
-		sudo ln -sf nvim /usr/bin/vim
-		sudo ln -sf nvim /usr/bin/vi
-		sudo ln -sf nvim /usr/bin/nano
-	elif [[ "$manjaro" == "0" ]]; then
-		sudo pacman -Sy neovim
-		sudo ln -sf nvim /usr/bin/vim
-		sudo ln -sf nvim /usr/bin/vi
-		sudo ln -sf nvim /usr/bin/nano
-	fi
 }
 
 function install_rg() {

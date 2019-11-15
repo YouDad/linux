@@ -146,6 +146,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#sudo mount /dev/sda4 /mnt/win10.c
+#sudo mount /dev/sda5 /mnt/win10.g
+#sudo mount /dev/sdb1 /mnt/win10.d
+#sudo mount /dev/sdb2 /mnt/win10.e
+#sudo mount /dev/sdb3 /mnt/win10.f
+
 ###############################
 # user set
 ###############################
