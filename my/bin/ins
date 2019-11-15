@@ -87,13 +87,14 @@ function install_zsh_powerlevel9k() {
 	path=$HOME/my/src/powerlevel9k
 	need_dir $HOME/my/src
 	need_dir $HOME/.fonts
-	check_dir $path
 
-	git clone https://github.com/bhilburn/powerlevel9k.git $path
-	check_retval "git clone https://github.com/bhilburn/powerlevel9k.git $path"
+	if [ ! -e $path ]; then
+		git clone https://github.com/bhilburn/powerlevel9k.git $path
+		check_retval "git clone https://github.com/bhilburn/powerlevel9k.git $path"
+	fi
 
 	url=https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/DroidSansMono.zip
-	wget $url
+	wget -c $url
 	check_retval "wget $url"
 
 	unzip DroidSansMono.zip

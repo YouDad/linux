@@ -12,7 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ###############################
 # theme
 ###############################
-if [ -e $HOME/my/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
+if false && [ -e $HOME/my/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
 	if [ ! -e $HOME/.oh-my-zsh/themes/powerlevel9k.zsh-theme ]; then
 		ln -sf $HOME/my/src/powerlevel9k/powerlevel9k.zsh-theme $HOME/.oh-my-zsh/themes/
 	fi
