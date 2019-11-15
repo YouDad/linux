@@ -192,8 +192,6 @@ exec_always thunderbird
 exec_always fcitx
 exec_always compton
 
-exec_always "[ -z /media/luwh/d810e560-9eb5-474e-b89c-86b4d94111da ] && sudo mkdir /media/luwh/d810e560-9eb5-474e-b89c-86b4d94111da ; sudo mount /dev/sda2 /media/luwh/d810e560-9eb5-474e-b89c-86b4d94111da"
-
 assign [class="Thunderbird"] 10
 
 for_window [class="Gedit"] floating enable

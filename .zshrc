@@ -146,11 +146,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#sudo mount /dev/sda4 /mnt/win10.c
-#sudo mount /dev/sda5 /mnt/win10.g
-#sudo mount /dev/sdb1 /mnt/win10.d
-#sudo mount /dev/sdb2 /mnt/win10.e
-#sudo mount /dev/sdb3 /mnt/win10.f
+[ -e /mnt/win10.c ] && sudo mount /dev/sda4 /mnt/win10.c 1>/dev/null 2>&1 &&
+[ -e /mnt/win10.g ] && sudo mount /dev/sda5 /mnt/win10.g 1>/dev/null 2>&1 &&
+[ -e /mnt/win10.d ] && sudo mount /dev/sdb1 /mnt/win10.d 1>/dev/null 2>&1 &&
+[ -e /mnt/win10.e ] && sudo mount /dev/sdb2 /mnt/win10.e 1>/dev/null 2>&1 &&
+[ -e /mnt/win10.f ] && sudo mount /dev/sdb3 /mnt/win10.f 1>/dev/null 2>&1
+[ -e /media/luwh/d810e560-9eb5-474e-b89c-86b4d94111da ] && sudo mount /dev/sda2 /media/luwh/d810e560-9eb5-474e-b89c-86b4d94111da 1>/dev/null 2>&1
 
 ###############################
 # user set
