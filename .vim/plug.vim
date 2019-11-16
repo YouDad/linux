@@ -140,7 +140,7 @@ endif
         nmap <silent> <leader>s	:cs find s <C-R>=expand("<cword>")<cr><cr>
         nmap <silent> <leader>g	:cs find g <C-R>=expand("<cword>")<cr><cr>
         nmap <silent> <leader>c	:cs find c <C-R>=expand("<cword>")<cr><cr>
-        "nmap <silent> <leader>t	:cs find t <C-R>=expand("<cword>")<cr><cr>
+        nmap <silent> <leader>t	:cs find t <C-R>=expand("<cword>")<cr><cr>
         "nmap <silent> <leader>e	:cs find e <C-R>=expand("<cword>")<cr><cr>
         nmap <silent> <leader>f	:cs find f \<
         nmap <silent> <leader>i	:cs find f <C-R>=strpart(expand("<cWORD>"),1,strlen(expand("<cWORD>"))-2)<cr><cr>

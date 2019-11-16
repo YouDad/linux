@@ -13,6 +13,14 @@ function! A_FlushCscope()
 endfunction
 command! LUWHFlushCscope call A_FlushCscope()
 
+" 刷新js&html的cscope
+function! A_FlushJsCscope()
+    exec "!find html js -name '*.js' -or -name '*.html' > cscope.files"
+    exec "!cscope -bkq -i cscope.files"
+    exec "cs add cscope.out"
+endfunction
+command! LUWHFlushJsCscope call A_FlushJsCscope()
+
 " 让修改过的Log重新变成root的
 function! A_Log2Root()
 	exec "!sudo chown root.root %"
