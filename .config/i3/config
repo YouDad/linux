@@ -186,8 +186,9 @@ bindsym Scroll_Lock exec "screenshot"
 bindsym $alt+d exec "mocp --toggle-pause"
 bindsym $alt+q exec "mocp --previous"
 bindsym $alt+e exec "mocp --next"
-bindsym $alt+w exec "mocp --volume +5"
-bindsym $alt+s exec "mocp --volume -5"
+bindsym $alt+w exec "mocp --volume +15"
+bindsym $alt+s exec "mocp --volume -15"
+bindsym $alt+a exec "mocp -v 45 && mocp -o shuffle && mocp --next"
 
 #new_window 1pixel
 gaps inner 8
@@ -199,6 +200,7 @@ exec_always thunderbird
 exec_always fcitx
 exec_always compton
 exec_always blueman-tray
+exec_always "mocp --server"
 
 assign [class="Thunderbird"] 10
 assign [class="Variety"] 10
