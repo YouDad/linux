@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -178,9 +179,15 @@ bindsym $mod+c exec "firefox"
 bindsym $mod+q kill
 bindsym $mod+Ctrl+l exec "i3lock  -c 000000"
 bindsym $mod+Shift+Return exec alacritty
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 bindsym Ctrl+Scroll_Lock exec "screenshot --window"
 bindsym Scroll_Lock exec "screenshot"
+
+bindsym $alt+d exec "mocp --toggle-pause"
+bindsym $alt+q exec "mocp --previous"
+bindsym $alt+e exec "mocp --next"
+bindsym $alt+w exec "mocp --volume +5"
+bindsym $alt+s exec "mocp --volume -5"
 
 #new_window 1pixel
 gaps inner 8
@@ -191,8 +198,10 @@ exec_always xcompmgr
 exec_always thunderbird
 exec_always fcitx
 exec_always compton
+exec_always blueman-tray
 
 assign [class="Thunderbird"] 10
+assign [class="Variety"] 10
 
 for_window [class="Gedit"] floating enable
 for_window [class="Thunar"] floating enable
