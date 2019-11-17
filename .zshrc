@@ -1,13 +1,5 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
 ###############################
 # theme
@@ -176,10 +168,10 @@ if [ -e /mnt/win10.f ]; then
 		sudo mount /dev/sdb3 /mnt/win10.f 1>/dev/null 2>&1
 	fi
 fi
-if [ -e /media/luwh/d810e560-9eb5-474e-b89c-86b4d94111da ]; then
-	mountpoint /media/luwh/d810e560-9eb5-474e-b89c-86b4d94111da 1>/dev/null 2>&1
+if [ -e /mnt/other.ubuntu1604 ]; then
+	mountpoint /mnt/other.ubuntu1604 1>/dev/null 2>&1
 	if [[ "$?" == "1" ]]; then
-		sudo mount /dev/sda2 /media/luwh/d810e560-9eb5-474e-b89c-86b4d94111da 1>/dev/null 2>&1
+		sudo mount /dev/sda2 /mnt/other.ubuntu1604 1>/dev/null 2>&1
 	fi
 fi
 
