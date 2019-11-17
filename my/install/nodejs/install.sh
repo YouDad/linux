@@ -1,3 +1,4 @@
+#!/bin/bash
 source ../preinstall.sh
 
 url=https://npm.taobao.org/mirrors/node/v12.10.0/node-v12.10.0-linux-x64.tar.xz

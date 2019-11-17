@@ -1,3 +1,4 @@
+#!/bin/bash
 source ../preinstall.sh
 
 if [ ! -e $SRC/powerlevel9k ]; then
@@ -11,6 +12,8 @@ wget -c $_ /tmp/DroidSansMono.zip
 check_retval "wget -c $_"
 
 cp /tmp/DroidSansMono.zip ./
+check_retval "cp /tmp/DroidSansMono.zip ./"
+
 unzip DroidSansMono.zip
 check_retval "unzip DroidSansMono.zip"
 
