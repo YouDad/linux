@@ -1,4 +1,10 @@
-source ../preinstall.sh
+#!/bin/bash
+if [ -e ../preinstall.sh ]; then
+	source ../preinstall.sh
+else
+	echo "success until you can see install.sh"
+	exit 1
+fi
 
 if [ ! -e $SRC/zsh_dracula ]; then
 	_=https://github.com/dracula/zsh.git $SRC/zsh_dracula

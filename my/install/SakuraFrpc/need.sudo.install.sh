@@ -1,9 +1,15 @@
 #!/bin/bash
-source ../preinstall.sh
+if [ -e ../preinstall.sh ]; then
+	source ../preinstall.sh
+else
+	echo "success until you can see install.sh"
+	exit 1
+fi
 
 if [[ "$USER" != "root" ]]; then
 	echo "need root privilege"
-	exit 1 fi
+	exit 1
+fi
 
 wget --continue https://cdn.tcotp.cn:4443/client/Sakura_frpc_linux_amd64.tar.gz
 check_retval "wget --continue https://cdn.tcotp.cn:4443/client/Sakura_frpc_linux_amd64.tar.gz"
@@ -30,10 +36,10 @@ Wants=network-online.target
 After=network-online.target
 [Service]
 User=root
-WorkingDirectory=/opt/sakurafrp/
+WorkingDirectory=/opt/SakuraFrpc/
 LimitNOFILE=4096
-PIDFile=/var/run/sakurafrp/client.pid
-ExecStart=/opt/sakurafrp/SakuraFrpc --su=* --sp=* --sid=*
+PIDFile=/var/run/SakuraFrpc/client.pid
+ExecStart=/opt/SakuraFrpc/SakuraFrpc --su=* --sp=* --sid=*
 Restart=on-failure
 StartLimitInterval=600
 [Install]

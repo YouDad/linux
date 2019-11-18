@@ -1,5 +1,10 @@
 #!/bin/bash
-source ../preinstall.sh
+if [ -e ../preinstall.sh ]; then
+	source ../preinstall.sh
+else
+	echo "success until you can see install.sh"
+	exit 1
+fi
 
 url=https://npm.taobao.org/mirrors/node/v12.10.0/node-v12.10.0-linux-x64.tar.xz
 
