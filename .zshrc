@@ -2,6 +2,14 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 ###############################
+# zsh setting
+###############################
+
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000000
+SAVEHIST=10000000
+
+###############################
 # theme
 ###############################
 if false && [ -e $HOME/my/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
