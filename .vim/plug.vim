@@ -63,6 +63,9 @@ endif
 
         "nerdcommenter
         Plug 'scrooloose/nerdcommenter'
+
+        "vim javascript highlight
+        Plug 'pangloss/vim-javascript'
     call plug#end()
 
     "vim-airline
