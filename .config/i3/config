@@ -188,7 +188,7 @@ bindsym $alt+q exec "mocp --previous"
 bindsym $alt+e exec "mocp --next"
 bindsym $alt+w exec "mocp --volume +15"
 bindsym $alt+s exec "mocp --volume -15"
-bindsym $alt+a exec "mocp -v 45 && mocp -o shuffle && mocp --next"
+bindsym $alt+a exec "mocp -v 45 && mocp -o shuffle && mocp --next && mocp --play"
 
 #new_window 1pixel
 gaps inner 8

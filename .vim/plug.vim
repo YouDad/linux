@@ -66,6 +66,12 @@ endif
 
         "vim javascript highlight
         Plug 'pangloss/vim-javascript'
+
+		"vim wiki
+		Plug 'vimwiki/vimwiki'
+
+		"vim-go
+		Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     call plug#end()
 
     "vim-airline
@@ -123,32 +129,6 @@ endif
 
     "undotree
         map su			:UndotreeToggle<cr>
-
-    "cscope config
-    if has ("cscope")
-        set cscopeverbose
-        set cscopetag
-        set csto=0
-        if filereadable("cscope.out")
-            silent cs add cscope.out
-        endif
-        "s  symbol:     find all references to the token under cursor
-        "g  global:     find global definitions of the token under cursor
-        "c  calls:      find all calls to the funtion name under cursor
-        "t  text:       find all instances of the text under cursor
-        "e  egrep:      egrep search for the word under cursor
-        "f  file:       open the filename under cursor
-        "i  incudes:    find files that incude the filename under cursor
-        "d  called:     find funtions that funtion under cursor calls
-        nmap <silent> <leader>s	:cs find s <C-R>=expand("<cword>")<cr><cr>
-        nmap <silent> <leader>g	:cs find g <C-R>=expand("<cword>")<cr><cr>
-        nmap <silent> <leader>c	:cs find c <C-R>=expand("<cword>")<cr><cr>
-        nmap <silent> <leader>t	:cs find t <C-R>=expand("<cword>")<cr><cr>
-        "nmap <silent> <leader>e	:cs find e <C-R>=expand("<cword>")<cr><cr>
-        nmap <silent> <leader>f	:cs find f \<
-        nmap <silent> <leader>i	:cs find f <C-R>=strpart(expand("<cWORD>"),1,strlen(expand("<cWORD>"))-2)<cr><cr>
-        nmap <silent> <leader>d	:cs find d <C-R>=expand("<cword>")<cr><cr>
-    endif
 
     "vim-markdown
         let g:vim_markdown_folding_disabled = 1
@@ -227,7 +207,8 @@ endif
         let g:vtm_enable_history= 1
         "	保存查询记录的数目 默认：5000
         let g:vtm_max_history_count= 100
-        "	历史记录文件的目录 默认：插件根目录 let g:vtm_history_dir= 
+        "	历史记录文件的目录 默认：插件根目录
+		" let g:vtm_history_dir=
 
     "riv.vim
         "nmap <silent> <leader>t :Riv2HtmlAndBrowse<cr>
@@ -282,3 +263,13 @@ endif
         let g:NERDCommentEmptyLines = 1
         let g:NERDTrimTrailingWhitespace = 1
         let g:NERDToggleCheckAllLines = 1
+
+	"vim wiki
+		let g:vimwiki_list = [
+			 \{"path": "~/vimwiki/wiki/",
+			 \ "path_html": "~/vimwiki/html/",
+			 \ "syntax": "markdown",
+			 \ "ext": ".md",
+			 \ "css_file": '~/vimwiki/style.css',
+			 \ "custom_wiki2html": "~/vimwiki/md2html.py",
+			 \}]
