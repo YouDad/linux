@@ -224,3 +224,9 @@ fi
 if [ -f $HOME/my/src/hhistory/hhistory.sh ]; then
 	source $HOME/my/src/hhistory/hhistory.sh
 fi
+
+### GO
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+export GO111MODULE=on
+export GOPROXY=https://goproxy.cn,direct

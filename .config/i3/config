@@ -188,9 +188,9 @@ bindsym $alt+q exec "mocp --previous"
 bindsym $alt+e exec "mocp --next"
 bindsym $alt+w exec "mocp --volume +15"
 bindsym $alt+s exec "mocp --volume -15"
-bindsym $alt+a exec "mocp -v 45 && mocp -o shuffle && mocp --next && mocp --play"
+bindsym $alt+a exec "mocp --play"
 
-#new_window 1pixel
+new_window 1pixel
 gaps inner 8
 gaps outer 6
 
@@ -201,9 +201,12 @@ exec_always fcitx
 exec_always compton
 exec_always blueman-tray
 exec_always "mocp --server"
+exec_always "bash ~/bin/startup.sh"
 
 assign [class="Thunderbird"] 10
 assign [class="Variety"] 10
+assign [class="tim.exe"] 8
+assign [class="wechat.exe"] 7
 
 for_window [class="Gedit"] floating enable
 for_window [class="Thunar"] floating enable
