@@ -14,18 +14,18 @@ endif
 
     "插件的声明区
     call plug#begin('~/.vim/plugged')
-        "外观
+        "appearance
         Plug 'vim-airline/vim-airline'
         Plug 'connorholyday/vim-snazzy'
         Plug 'Rigellute/rigel'
         Plug 'dracula/vim'
         Plug 'lmintmate/blue-mood-vim'
 
-        "文件导航
+        "filetree
         Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
         Plug 'Xuyuanp/nerdtree-git-plugin'
 
-        "重做树
+        "undotree
         Plug 'mbbill/undotree'
 
         "markdown
@@ -36,20 +36,20 @@ endif
         	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
         endif
 
-        "翻译
+        "translate
         Plug 'voldikss/vim-translate-me'
 
         "rst2html (deprecated)
         "Plug 'gu-fan/riv.vim'
 
-        "书签
+        "bookmark
         Plug 'kshenoy/vim-signature'
 
-        "快速查找文件
+        "fzf
         Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
         Plug 'junegunn/fzf.vim'
 
-        "开始页
+        "startify
         Plug 'mhinz/vim-startify'
 
         "coc
@@ -58,19 +58,19 @@ endif
         "taglist
         Plug 'vim-scripts/taglist.vim'
 
-        "emmet-vim
+        "html, css
         Plug 'mattn/emmet-vim'
 
-        "nerdcommenter
+        "comment
         Plug 'scrooloose/nerdcommenter'
 
-        "vim javascript highlight
+        "javascript
         Plug 'pangloss/vim-javascript'
 
-		"vim wiki
+		"wiki
 		Plug 'vimwiki/vimwiki'
 
-		"vim-go
+		"go
 		Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     call plug#end()
 
@@ -252,7 +252,7 @@ endif
     "emmet-vim
         let g:user_emmet_mode='inv'
         let g:user_emmet_install_global = 0
-        autocmd FileType html,css EmmetInstall
+        autocmd filetype html,css EmmetInstall
 
     "nerdcommenter
         let g:NERDSpaceDelims = 1
@@ -264,7 +264,7 @@ endif
         let g:NERDTrimTrailingWhitespace = 1
         let g:NERDToggleCheckAllLines = 1
 
-	"vim wiki
+	"vimwiki
 		let g:vimwiki_list = [
 			 \{"path": "~/vimwiki/wiki/",
 			 \ "path_html": "~/vimwiki/html/",
@@ -273,3 +273,31 @@ endif
 			 \ "css_file": '~/vimwiki/style.css',
 			 \ "custom_wiki2html": "~/vimwiki/md2html.py",
 			 \}]
+
+	"vim-go
+		autocmd filetype go nnoremap gr :GoReferrers<cr>
+		autocmd filetype qf nnoremap J j<cr>zz<c-w>j
+		autocmd filetype qf nnoremap K k<cr>zz<c-w>j
+		let g:go_template_autocreate = 0
+		let g:go_textobj_enabled = 0
+		let g:go_auto_type_info = 1
+		"let g:go_def_mapping_enabled = 1
+		let g:go_highlight_array_whitespace_error    = 1
+		let g:go_highlight_build_constraints         = 1
+		let g:go_highlight_chan_whitespace_error     = 1
+		let g:go_highlight_extra_types               = 1
+		let g:go_highlight_fields                    = 1
+		let g:go_highlight_format_strings            = 1
+		let g:go_highlight_function_calls            = 1
+		let g:go_highlight_function_parameters       = 1
+		let g:go_highlight_functions                 = 1
+		let g:go_highlight_generate_tags             = 1
+		let g:go_highlight_methods                   = 1
+		let g:go_highlight_operators                 = 1
+		let g:go_highlight_space_tab_error           = 1
+		let g:go_highlight_string_spellcheck         = 1
+		let g:go_highlight_structs                   = 1
+		let g:go_highlight_trailing_whitespace_error = 1
+		let g:go_highlight_types                     = 1
+		let g:go_highlight_variable_assignments      = 0
+		let g:go_highlight_variable_declarations     = 0
