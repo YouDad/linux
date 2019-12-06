@@ -146,43 +146,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -e /mnt/win10.c ]; then
-	mountpoint /mnt/win10.c 1>/dev/null 2>&1
-	if [[ "$?" == "1" ]]; then
-		sudo mount /dev/sda4 /mnt/win10.c 1>/dev/null 2>&1
-	fi
-fi
-if [ -e /mnt/win10.g ]; then
-	mountpoint /mnt/win10.g 1>/dev/null 2>&1
-	if [[ "$?" == "1" ]]; then
-		sudo mount /dev/sda5 /mnt/win10.g 1>/dev/null 2>&1
-	fi
-fi
-if [ -e /mnt/win10.d ]; then
-	mountpoint /mnt/win10.d 1>/dev/null 2>&1
-	if [[ "$?" == "1" ]]; then
-		sudo mount /dev/sdb1 /mnt/win10.d 1>/dev/null 2>&1
-	fi
-fi
-if [ -e /mnt/win10.e ]; then
-	mountpoint /mnt/win10.e 1>/dev/null 2>&1
-	if [[ "$?" == "1" ]]; then
-		sudo mount /dev/sdb2 /mnt/win10.e 1>/dev/null 2>&1
-	fi
-fi
-if [ -e /mnt/win10.f ]; then
-	mountpoint /mnt/win10.f 1>/dev/null 2>&1
-	if [[ "$?" == "1" ]]; then
-		sudo mount /dev/sdb3 /mnt/win10.f 1>/dev/null 2>&1
-	fi
-fi
-if [ -e /mnt/other.ubuntu1604 ]; then
-	mountpoint /mnt/other.ubuntu1604 1>/dev/null 2>&1
-	if [[ "$?" == "1" ]]; then
-		sudo mount /dev/sda2 /mnt/other.ubuntu1604 1>/dev/null 2>&1
-	fi
-fi
-
 ###############################
 # user set
 ###############################
