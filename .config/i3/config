@@ -178,7 +178,7 @@ bar {
 bindsym $mod+c exec "firefox"
 bindsym $mod+q kill
 bindsym $mod+Ctrl+l exec "i3lock  -c 000000"
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec st
 bindsym $mod+Shift+Return exec gnome-terminal
 bindsym Ctrl+Scroll_Lock exec "screenshot --window"
 bindsym Scroll_Lock exec "screenshot"
