@@ -266,12 +266,9 @@ endif
 
 	"vimwiki
 		let g:vimwiki_list = [
-			 \{"path": "~/vimwiki/wiki/",
-			 \ "path_html": "~/vimwiki/html/",
+			 \{"path": "~/my/link/wiki/",
 			 \ "syntax": "markdown",
-			 \ "ext": ".md",
-			 \ "css_file": '~/vimwiki/style.css',
-			 \ "custom_wiki2html": "~/vimwiki/md2html.py",
+			 \ "ext": ".md"
 			 \}]
 
 	"vim-go
