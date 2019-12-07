@@ -94,7 +94,7 @@ bindsym $win+space focus mode_toggle
 # bindsym $win+d focus child
 
 set $ws1 " 1-main "
-set $ws2 " 2 "
+set $ws2 " 2-main "
 set $ws3 " 3-wiki "
 set $ws4 " 4 "
 set $ws5 " 5 "
