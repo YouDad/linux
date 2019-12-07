@@ -93,29 +93,40 @@ bindsym $win+space focus mode_toggle
 # focus the child container
 # bindsym $win+d focus child
 
+set $ws1 " 1-main "
+set $ws2 " 2 "
+set $ws3 " 3-wiki "
+set $ws4 " 4 "
+set $ws5 " 5 "
+set $ws6 " 6-mocp "
+set $ws7 " 7-😂 "
+set $ws8 " 8 "
+set $ws9 " 9 "
+set $ws0 " 10-tmp "
+
 # switch to workspace
-bindsym $win+1 workspace 1
-bindsym $win+2 workspace 2
-bindsym $win+3 workspace 3
-bindsym $win+4 workspace 4
-bindsym $win+5 workspace 5
-bindsym $win+6 workspace 6
-bindsym $win+7 workspace 7
-bindsym $win+8 workspace 8
-bindsym $win+9 workspace 9
-bindsym $win+0 workspace 10
+bindsym $win+1 workspace $ws1
+bindsym $win+2 workspace $ws2
+bindsym $win+3 workspace $ws3
+bindsym $win+4 workspace $ws4
+bindsym $win+5 workspace $ws5
+bindsym $win+6 workspace $ws6
+bindsym $win+7 workspace $ws7
+bindsym $win+8 workspace $ws8
+bindsym $win+9 workspace $ws9
+bindsym $win+0 workspace $ws0
 
 # move focused container to workspace
-bindsym $win+shift+1 move container to workspace 1
-bindsym $win+shift+2 move container to workspace 2
-bindsym $win+shift+3 move container to workspace 3
-bindsym $win+shift+4 move container to workspace 4
-bindsym $win+shift+5 move container to workspace 5
-bindsym $win+shift+6 move container to workspace 6
-bindsym $win+shift+7 move container to workspace 7
-bindsym $win+shift+8 move container to workspace 8
-bindsym $win+shift+9 move container to workspace 9
-bindsym $win+shift+0 move container to workspace 10
+bindsym $win+shift+1 move container to workspace $ws1
+bindsym $win+shift+2 move container to workspace $ws2
+bindsym $win+shift+3 move container to workspace $ws3
+bindsym $win+shift+4 move container to workspace $ws4
+bindsym $win+shift+5 move container to workspace $ws5
+bindsym $win+shift+6 move container to workspace $ws6
+bindsym $win+shift+7 move container to workspace $ws7
+bindsym $win+shift+8 move container to workspace $ws8
+bindsym $win+shift+9 move container to workspace $ws9
+bindsym $win+shift+0 move container to workspace $ws0
 
 # reload the configuration file
 bindsym $win+shift+c reload
@@ -150,30 +161,30 @@ mode "resize" {
 
 bindsym $win+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-    #status_command i3status
-    #tray_output primary
-    position bottom
-    status_command i3status
-    colors {
-        background #000000
-        statusline #00FF00
-        separator #00FFFF
-        # focused_workspace #B8F788 #000000AA
-        # active_workspace #FFFFFF #FFFFFFAA
-        # inactive_workspace #AAAAAA #000000AA #AAAAAA
-        # urgent_workspace #E57B85 #000000AA
-
-        # 工作区颜色         边框    背景    文字
-        focused_workspace  #3297FD #11111100 #FFFFFF
-        active_workspace   #FFFFFF #FFFFFF00 #FFFFFF
-        inactive_workspace #111111 #11111100 #FFFFFF
-        urgent_workspace   #990000 #11111100 #FFFFFF
-        binding_mode       #990000 #99000000 #FFFFFF
-    }
-}
+# # Start i3bar to display a workspace bar (plus the system information i3status
+# # finds out, if available)
+# bar {
+#     #status_command i3status
+#     #tray_output primary
+#     position bottom
+#     status_command i3status
+#     colors {
+#         background #000000
+#         statusline #00FF00
+#         separator #00FFFF
+#         # focused_workspace #B8F788 #000000AA
+#         # active_workspace #FFFFFF #FFFFFFAA
+#         # inactive_workspace #AAAAAA #000000AA #AAAAAA
+#         # urgent_workspace #E57B85 #000000AA
+#
+#         # 工作区颜色         边框    背景    文字
+#         focused_workspace  #3297FD #11111100 #FFFFFF
+#         active_workspace   #FFFFFF #FFFFFF00 #FFFFFF
+#         inactive_workspace #111111 #11111100 #FFFFFF
+#         urgent_workspace   #990000 #11111100 #FFFFFF
+#         binding_mode       #990000 #99000000 #FFFFFF
+#     }
+# }
 
 # from bindsym $win+e layout toggle split to:
 bindsym $win+$alt+e                      layout toggle split
@@ -202,10 +213,8 @@ exec_always                              "blueman-tray"
 exec_always                              "mocp --server"
 exec_always                              "bash ~/bin/startup.sh"
 
-assign [class="Thunderbird"]             10
-assign [class="Variety"]                 10
-assign [class="tim.exe"]                 8
-assign [class="wechat.exe"]              7
+assign [class="Thunderbird"]             $ws0
+assign [class="Variety"]                 $ws0
 
 for_window [class="Gedit"]               floating enable
 for_window [class="Org.gnome.gedit"]     floating enable
@@ -218,5 +227,44 @@ for_window [class="Org.gnome.Nautilus"]  floating enable
 # new_window 1pixel
 gaps inner 8
 gaps outer 6
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders on
+
 focus_follows_mouse no
 
+bar {
+	id bar-1
+	i3bar_command i3bar
+	status_command i3status
+	position bottom
+
+	font xft:URWGothic-Book 12
+	strip_workspace_numbers yes
+
+	colors {
+		background #222222
+		statusline #eeeeee
+		separator #666666
+
+        #                  border  backgr. text
+		focused_workspace  #F9FAF9 #16a085 #292F34
+		active_workspace   #595B5B #353836 #FDF6E3
+		inactive_workspace #595B5B #222D31 #EEE8D5
+		binding_mode       #16a085 #2C2C2C #F9FAF9
+		urgent_workspace   #16a085 #FDF6E3 #E5201D
+	}
+}
+
+# Theme colors
+# class                 border  backgr. text    indic.   child_border
+client.focused          #556064 #556064 #80FFF9 #FDF6E3
+client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
+client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
+client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+client.placeholder      #000000 #0c0c0c #ffffff #000000
+client.background       #2B2C2B
