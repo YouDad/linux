@@ -167,10 +167,14 @@ fi
 ###############################
 # export environment variable
 ###############################
-export PATH="$PATH:$HOME/my/src/nodejs/bin"
+export MY_BIN="$HOME/my/bin"
+export MY_SRC="$HOME/my/src"
+export MY_LINK="$HOME/my/link"
+
+export PATH="$PATH:$MY_BIN"
 export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/my/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/my/src/nodejs/bin"
 
 ###############################
 # source
