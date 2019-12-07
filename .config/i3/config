@@ -79,7 +79,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -175,6 +175,10 @@ bar {
     }
 }
 
+# from bindsym $mod+e layout toggle split to:
+bindsym $mod+$alt+e layout toggle split
+bindsym $mod+e exec "nautilus"
+
 bindsym $mod+c exec "firefox"
 bindsym $mod+q kill
 bindsym $mod+Ctrl+l exec "i3lock  -c 000000"
@@ -214,5 +218,6 @@ for_window [class="Thunar"] floating enable
 for_window [class="finger"] floating enable
 for_window [class="Gnome-terminal"] floating enable
 for_window [class="Zenity"] floating enable
+for_window [class="Org.gnome.Nautilus"] floating enable
 
 focus_follows_mouse no
