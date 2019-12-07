@@ -49,7 +49,7 @@ log('verbose = ' + verbose)
 var source_file = filename
 
 var markd_config = {
-	debug: false
+	debug: verbose
 }
 
 var source_file_name = pwd + '/' + source_file

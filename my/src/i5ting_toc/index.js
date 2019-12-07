@@ -100,7 +100,7 @@ function generator(pwd, source_file_name, dest_file_path, is_open, options) {
 					"path": path
 				}
 
-				var final_html_content = new Buffer(template(data1))
+				var final_html_content = new Buffer.from(template(data1))
 
 				log(dest_file_path)
 

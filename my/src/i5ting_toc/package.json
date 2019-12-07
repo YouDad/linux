@@ -31,22 +31,16 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "bufferhelper": "^0.2.0",
-    "commander": "^2.5.0",
-    "config": "^1.7.0",
-    "handlebars": "^2.0.0",
-    "marked": "^0.3.2",
-    "object-assign": "^1.0.0",
-    "open": "0.0.5",
-    "shelljs": "^0.3.0"
+    "bufferhelper": "^0.2.1",
+    "commander": "^4.0.1",
+    "handlebars": "^4.5.3",
+    "marked": "^0.7.0",
+    "object-assign": "^4.1.1",
+    "open": "^7.0.0",
+    "shelljs": "^0.8.3"
   },
   "deprecated": false,
   "description": "tocmd.npm:a npm wrapper of i5ting_ztree_toc",
-  "devDependencies": {
-    "gulp-livereload": "^2.1.1",
-    "gulp-watch": "^0.7.0",
-    "mocha": "*"
-  },
   "homepage": "https://github.com/i5ting/tocmd.npm",
   "keywords": [
     "doc",
