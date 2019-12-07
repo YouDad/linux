@@ -79,7 +79,7 @@ bindsym $win+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $win+s layout stacking
 bindsym $win+w layout tabbed
-#bindsym $win+e layout toggle split
+bindsym $win+e layout toggle split
 
 # toggle tiling / floating
 bindsym $win+shift+space floating toggle
@@ -186,57 +186,6 @@ bindsym $win+r mode "resize"
 #     }
 # }
 
-# from bindsym $win+e layout toggle split to:
-bindsym $win+$alt+e                      layout toggle split
-bindsym $win+e                           exec "nautilus"
-
-bindsym $win+q                           kill
-bindsym $win+c                           exec "firefox"
-bindsym $win+Return                      exec "alacritty"
-bindsym $win+shift+Return                exec "gnome-terminal"
-bindsym ctrl+Scroll_Lock                 exec "screenshot --window"
-bindsym Scroll_Lock                      exec "screenshot"
-
-bindsym $alt+d                           exec "mocp --toggle-pause"
-bindsym $alt+q                           exec "mocp --previous"
-bindsym $alt+e                           exec "mocp --next"
-bindsym $alt+w                           exec "mocp --volume +15"
-bindsym $alt+s                           exec "mocp --volume -15"
-bindsym $alt+a                           exec "mocp --play"
-
-exec_always                              "variety"
-exec_always                              "xcompmgr"
-exec_always                              "thunderbird"
-exec_always                              "fcitx"
-exec_always                              "compton"
-exec_always                              "blueman-tray"
-exec_always                              "mocp --server"
-exec_always                              "bash ~/bin/startup.sh"
-
-assign [class="Thunderbird"]             $ws0
-assign [class="Variety"]                 $ws0
-
-for_window [class="Gedit"]               floating enable
-for_window [class="Org.gnome.gedit"]     floating enable
-for_window [class="Thunar"]              floating enable
-for_window [class="finger"]              floating enable
-for_window [class="Gnome-terminal"]      floating enable
-for_window [class="Zenity"]              floating enable
-for_window [class="Org.gnome.Nautilus"]  floating enable
-
-# new_window 1pixel
-gaps inner 8
-gaps outer 6
-
-# Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
-
-focus_follows_mouse no
-
 bar {
 	id bar-1
 	i3bar_command i3bar
@@ -268,3 +217,54 @@ client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
 client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #2B2C2B
+
+# new_window 1pixel
+gaps inner 8
+gaps outer 6
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders on
+
+focus_follows_mouse no
+
+bindsym $win+q                           kill
+bindsym $win+c                           exec "firefox"
+bindsym $win+Return                      exec "alacritty"
+bindsym $win+shift+Return                exec "gnome-terminal"
+bindsym $win+ctrl+k                      exec "blueman-manager"
+bindsym $win+ctrl+e                      exec "nautilus"
+
+bindsym $alt+d                           exec "mocp --toggle-pause"
+bindsym $alt+q                           exec "mocp --previous"
+bindsym $alt+e                           exec "mocp --next"
+bindsym $alt+w                           exec "mocp --volume +15"
+bindsym $alt+s                           exec "mocp --volume -15"
+bindsym $alt+a                           exec "mocp --play"
+
+bindsym ctrl+Scroll_Lock                 exec "screenshot --window"
+bindsym Scroll_Lock                      exec "screenshot"
+
+exec_always                              "variety"
+exec_always                              "xcompmgr"
+exec_always                              "thunderbird"
+exec_always                              "fcitx"
+exec_always                              "compton"
+exec_always                              "blueman-tray"
+exec_always                              "mocp --server"
+exec_always                              "bash ~/bin/startup.sh"
+
+assign [class="Thunderbird"]             $ws0
+assign [class="Variety"]                 $ws0
+
+for_window [class="Gedit"]               floating enable
+for_window [class="Org.gnome.gedit"]     floating enable
+for_window [class="Thunar"]              floating enable
+for_window [class="finger"]              floating enable
+for_window [class="Gnome-terminal"]      floating enable
+for_window [class="Zenity"]              floating enable
+for_window [class="Org.gnome.Nautilus"]  floating enable
+for_window [class="Blueman-manager"]     floating enable
