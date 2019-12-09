@@ -75,15 +75,13 @@
 <script type="text/javascript" src="{{path}}toc/js/jquery.ztree.all-3.5.min.js"></script>
 <script type="text/javascript" src="{{path}}toc/js/ztree_toc.js"></script>
 <script type="text/javascript" src="{{path}}toc_conf.js"></script>
-
+<script type="text/javascript" src="{{path}}mathjax/2.7.5/MathJax.js?config=Tex-MML-AM_CHTML"></script>
 <SCRIPT type="text/javascript" >
-	<!--
-$(document).ready(function(){
-	var css_conf = eval(markdown_panel_style);
-	$('#readme').css(css_conf)
+	$(document).ready(function(){
+		var css_conf = eval(markdown_panel_style);
+		$('#readme').css(css_conf)
 
-	var conf = eval(jquery_ztree_toc_opts);
+		var conf = eval(jquery_ztree_toc_opts);
 		$('#tree').ztree_toc(conf);
-});
-	//-->
+	});
 </SCRIPT>

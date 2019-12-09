@@ -174,7 +174,6 @@ function factor(opts ,count,current) {
 	 * 日志
 	 */	
 	function log(str) {
-		return;
 		if($.fn.ztree_toc.defaults.debug == true) {
 			console.log(str);
 		}

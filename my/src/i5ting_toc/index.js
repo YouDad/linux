@@ -46,6 +46,7 @@ function generator(pwd, source_file_name, dest_file_path, is_open, options) {
 		log(i)
 
 		cp('-R', _cur_dir + '/vendor/toc', _dest_dir + '/')
+		cp('-R', _cur_dir + '/vendor/mathjax', _dest_dir + '/')
 	}
 
 	function _toc_config(_cur_dir, _dest_dir) {
@@ -95,7 +96,7 @@ function generator(pwd, source_file_name, dest_file_path, is_open, options) {
 				}
 
 				var data1 = {
-					"title": "i5ting_ztree_toc:" + _file_name,
+					"title": _file_name,
 					"parse_markdown": data,
 					"path": path
 				}
