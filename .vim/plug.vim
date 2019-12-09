@@ -275,9 +275,10 @@ endif
 		autocmd filetype go nnoremap gr :GoReferrers<cr>
 		autocmd filetype qf nnoremap J j<cr>zz<c-w>j
 		autocmd filetype qf nnoremap K k<cr>zz<c-w>j
+		autocmd filetype go nnoremap ga :GoInfo<cr>
 		let g:go_template_autocreate = 0
 		let g:go_textobj_enabled = 0
-		let g:go_auto_type_info = 1
+		let g:go_auto_type_info = 0
 		"let g:go_def_mapping_enabled = 1
 		let g:go_highlight_array_whitespace_error    = 1
 		let g:go_highlight_build_constraints         = 1
