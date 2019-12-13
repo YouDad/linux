@@ -276,6 +276,7 @@ endif
 		autocmd filetype qf nnoremap J j<cr>zz<c-w>j
 		autocmd filetype qf nnoremap K k<cr>zz<c-w>j
 		autocmd filetype go nnoremap ga :GoInfo<cr>
+		autocmd filetype go nmap <C-RightMouse> <C-t>
 		let g:go_template_autocreate = 0
 		let g:go_textobj_enabled = 0
 		let g:go_auto_type_info = 0

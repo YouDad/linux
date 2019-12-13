@@ -47,7 +47,7 @@ set tabstop=4
 set shiftwidth=4
 
 "文本显示折行保证单词完整
-set wrap
+set nowrap
 
 "总是显示状态行
 set laststatus=2
