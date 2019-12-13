@@ -1,0 +1,45 @@
+#!/bin/bash
+while true; do
+	if [[ "$1" != "" ]] && (( $1 > 0 )); then
+		time=$1
+	else
+		time=35
+	fi
+
+	echo "工作${time}分钟"
+	total_min=$time
+	((time=$time*60))
+	total=$time
+	while (($time != 0)); do
+		((time=$time-1))
+		echo -en "\r$time/$total        "
+		sleep 1
+	done;
+	echo ""
+
+	echo `date +"%Y%m%d_%H:%M:%S"` ${total_min}min >> ~/tomato.log
+
+	ring
+	zenity --question --text="番茄钟${total_min}分钟到了" --ok-label="休息继续" --cancel-label="跳过休息"
+	if [[ "$?" == "0" ]]; then
+		time=5
+		echo "休息${time}分钟"
+		((time=$time*60))
+		total=$time
+		while (($time != 0)); do
+			((time=$time-1))
+			echo -en "\r$time/$total        "
+			sleep 1
+		done;
+		echo ""
+
+		ring
+	fi
+
+	zenity --question --text="番茄钟休息完毕" --ok-label="继续奋战" --cancel-label="算了算了"
+	if [[ "$?" == "1" ]]; then
+		break;
+	else
+		continue;
+	fi
+done;
