@@ -20,8 +20,8 @@ while true; do
 	echo `date +"%Y%m%d_%H:%M:%S"` ${total_min}min >> ~/tomato.log
 
 	ring
-	zenity --question --text="番茄钟${total_min}分钟到了" --ok-label="休息继续" --cancel-label="跳过休息"
-	if [[ "$?" == "0" ]]; then
+	zenity --question --text="番茄钟${total_min}分钟到了" --ok-label="跳过休息" --cancel-label="休息继续"
+	if [[ "$?" == "1" ]]; then
 		time=5
 		echo "休息${time}分钟"
 		((time=$time*60))
