@@ -256,12 +256,17 @@ bindsym $win+shift+Return                exec "gnome-terminal"
 bindsym $win+ctrl+k                      exec "blueman-manager"
 bindsym $win+ctrl+e                      exec "nautilus"
 
-bindsym $alt+d                           exec "mocp --toggle-pause"
-bindsym $alt+q                           exec "mocp --previous"
-bindsym $alt+e                           exec "mocp --next"
-bindsym $alt+w                           exec "mocp --volume +15"
-bindsym $alt+s                           exec "mocp --volume -15"
-bindsym $alt+a                           exec "mocp --play"
+# mocp (music on console player) config
+# exec_always                              "mocp --server"
+# bindsym $alt+d                           exec "mocp --toggle-pause"
+# bindsym $alt+q                           exec "mocp --previous"
+# bindsym $alt+e                           exec "mocp --next"
+# bindsym $alt+w                           exec "mocp --volume +15"
+# bindsym $alt+s                           exec "mocp --volume -15"
+# bindsym $alt+a                           exec "mocp --play"
+# music config
+exec_always                              "clementine"
+assign [class="Clementine"]              $ws6
 
 bindsym ctrl+Scroll_Lock                 exec "screenshot --window"
 bindsym Scroll_Lock                      exec "screenshot"
@@ -272,7 +277,6 @@ exec_always                              "thunderbird"
 exec_always                              "fcitx"
 exec_always                              "compton"
 exec_always                              "blueman-tray"
-exec_always                              "mocp --server"
 exec_always                              "bash ~/bin/startup.sh"
 
 assign [class="Thunderbird"]             $ws0
