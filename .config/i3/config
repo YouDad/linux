@@ -275,7 +275,7 @@ exec_always                              "variety"
 exec_always                              "xcompmgr"
 exec_always                              "thunderbird"
 exec_always                              "fcitx"
-exec_always                              "compton"
+exec_always                              "picom"
 exec_always                              "blueman-tray"
 exec_always                              "bash ~/bin/startup.sh"
 
