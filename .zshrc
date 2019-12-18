@@ -155,7 +155,11 @@ umask 022
 # alias command
 ###############################
 alias gvv="git status -vv"
+
 alias ra="ranger"
+
+alias mkdir="mkdir -p "
+
 type colorls > /dev/null
 if [[ "$?" == "0" ]]; then
 	alias cll="colorls -l --sd"

@@ -1,7 +1,8 @@
 " 替换光标下的词
 nnoremap <leader>p	viwpyiw
 nnoremap <F5> :e!<cr>
-if &filetype == 'c'
-	set fdm=syntax
-	set foldnestmax=1
-endif
+
+autocmd filetype go,c set fdm=syntax
+autocmd filetype go,c set foldnestmax=1
+autocmd filetype go,c set nofoldenable
+autocmd filetype go,c nnoremap sc :set foldenable!<cr>
