@@ -6,8 +6,8 @@ else
 	exit 1
 fi
 
-git clone git@github.com:paoloantinori/hhighlighter.git $ZSH/plugins/h
-check_retval "git clone git@github.com:paoloantinori/hhighlighter.git $ZSH/plugins/h"
+git clone git@github.com:paoloantinori/hhighlighter.git $ZSH_CUSTOM/plugins/h
+check_retval "git clone git@github.com:paoloantinori/hhighlighter.git $ZSH_CUSTOM/plugins/h"
 
-mv $ZSH/plugins/h/h.sh $ZSH/plugins/h/h.plugin.zsh
-check_retval "mv $ZSH/plugins/h/h.sh $ZSH/plugins/h/h.plugin.zsh"
+mv $ZSH_CUSTOM/plugins/h/h.sh $ZSH_CUSTOM/plugins/h/h.plugin.zsh
+check_retval "mv $ZSH_CUSTOM/plugins/h/h.sh $ZSH_CUSTOM/plugins/h/h.plugin.zsh"

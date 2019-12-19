@@ -6,11 +6,11 @@ else
 	exit 1
 fi
 
-if [ ! -e $SRC/zsh_dracula ]; then
-	_=https://github.com/dracula/zsh.git $SRC/zsh_dracula
+if [ ! -e $MY_SRC/zsh_dracula ]; then
+	_=https://github.com/dracula/zsh.git $MY_SRC/zsh_dracula
 	git clone $_
 	check_retval "git clone $_"
 fi
 
-ln -sf $SRC/zsh_dracula/dracula.zsh-theme $ZSH/themes/dracula.zsh-theme
-check_retval "ln -sf $SRC/zsh_dracula/dracula.zsh-theme $ZSH/themes/dracula.zsh-theme"
+ln -sf $MY_SRC/zsh_dracula/dracula.zsh-theme $ZSH_CUSTOM/plugins/dracula.zsh-theme
+check_retval "ln -sf $MY_SRC/zsh_dracula/dracula.zsh-theme $ZSH_CUSTOM/plugins/dracula.zsh-theme"

@@ -16,11 +16,11 @@ case $OS in
 		check_retval "curl https://sh.rustup.rs -sSf | sh"
 
 		source $HOME/.cargo/env
-		git clone https://github.com/BurntSushi/ripgrep ~/my/src/
-		check_retval "git clone https://github.com/BurntSushi/ripgrep ~/my/src/"
+		git clone https://github.com/BurntSushi/ripgrep $MY_SRC
+		check_retval "git clone https://github.com/BurntSushi/ripgrep $MY_SRC"
 
-		cd ~/my/src/ripgrep
-		check_retval "cd ~/my/src/ripgrep"
+		cd $MY_SRC/ripgrep
+		check_retval "cd $MY_SRC/ripgrep"
 
 		cargo build --release
 		check_retval "cargo build --release"

@@ -6,8 +6,8 @@ else
 	exit 1
 fi
 
-if [ ! -e $SRC/powerlevel9k ]; then
-	_=https://github.com/bhilburn/powerlevel9k.git $SRC/powerlevel9k
+if [ ! -e $MY_SRC/powerlevel9k ]; then
+	_=https://github.com/bhilburn/powerlevel9k.git $MY_SRC/powerlevel9k
 	git clone $_
 	check_retval "git clone $_"
 fi

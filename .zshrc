@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$ZSH/custom"
+export MY_BIN="$HOME/my/bin"
+export MY_SRC="$HOME/my/src"
+export MY_LINK="$HOME/my/link"
 
 ###############################
 # zsh setting
@@ -12,9 +16,9 @@ SAVEHIST=10000000
 ###############################
 # theme
 ###############################
-if false && [ -e $HOME/my/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
-	if [ ! -e $HOME/.oh-my-zsh/themes/powerlevel9k.zsh-theme ]; then
-		ln -sf $HOME/my/src/powerlevel9k/powerlevel9k.zsh-theme $HOME/.oh-my-zsh/themes/
+if false && [ -e $MY_SRC/powerlevel9k/powerlevel9k.zsh-theme ]; then
+	if [ ! -e $ZSH_CUSTOM/powerlevel9k.zsh-theme ]; then
+		ln -sf $MY_SRC/powerlevel9k/powerlevel9k.zsh-theme $ZSH_CUSTOM/
 	fi
 	ZSH_THEME="powerlevel9k"
 	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir background_jobs newline status)
@@ -29,7 +33,7 @@ if false && [ -e $HOME/my/src/powerlevel9k/powerlevel9k.zsh-theme ]; then
 	POWERLEVEL9K_MODE='nerdfont-complete'
 	POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
 	POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
-elif [ -e $HOME/.oh-my-zsh/themes/dracula.zsh-theme ]; then
+elif [ -e $ZSH_CUSTOM/dracula.zsh-theme ]; then
 	ZSH_THEME="dracula"
 else
 	ZSH_THEME="robbyrussell"
@@ -41,7 +45,7 @@ fi
 remote=`who am i | wc | sed "s/ //g"`
 
 if [[ $remote != "000" && $ZSH_THEME == "powerlevel9k" ]]; then
-	if [ -e $HOME/.oh-my-zsh/themes/dracula.zsh-theme ]; then
+	if [ -e $ZSH_CUSTOM/dracula.zsh-theme ]; then
 		ZSH_THEME="dracula"
 	else
 		ZSH_THEME="robbyrussell"
@@ -114,7 +118,7 @@ if [[ "$TMUX" == "" ]]; then
 else
 fi
 
-if [ -e "$ZSH/plugins/h" ]; then
+if [ -e "$ZSH_CUSTOM/h" ]; then
 	plugins+=(h)
 fi
 
@@ -180,6 +184,6 @@ if [ -e $HOME/.fzf ]; then
 fi
 
 ### HHISTORY
-if [ -f $HOME/my/src/hhistory/hhistory.sh ]; then
-	source $HOME/my/src/hhistory/hhistory.sh
+if [ -f $MY_SRC/hhistory/hhistory.sh ]; then
+	source $MY_SRC/hhistory/hhistory.sh
 fi

@@ -1,6 +1,3 @@
-MY="$HOME/my"
-BIN="$MY/bin"
-SRC="$MY/src"
 OS=`lsb_release -i | cut -d : -f 2 | cut -f 2`
 
 function check_retval() {
