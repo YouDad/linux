@@ -1,10 +1,4 @@
 *
 .*
 !/.gitignore
-!/.install.sh
-!/bin
-!/.config/nvim
-!/.oh-my-zsh
 !/.vim/[^.]*
-!/.vimrc
-!/.zshrc
