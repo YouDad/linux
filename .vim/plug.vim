@@ -72,6 +72,9 @@ endif
 
 		"go
 		Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+		"ack!
+		Plug 'mileszs/ack.vim'
     call plug#end()
 
     "vim-airline
@@ -242,7 +245,12 @@ endif
         nmap sp :FZF<CR>
 
     "coc
-        "nmap <leader>rn <Plug>(coc-rename)
+		nmap <leader>rn <Plug>(coc-rename)
+		set hidden
+		set nobackup
+		set nowritebackup
+		set cmdheight=2
+		set updatetime=300
 
     "taglist
         nmap sg	:TlistToggle<CR>
@@ -272,11 +280,9 @@ endif
 			 \}]
 
 	"vim-go
-		autocmd filetype go nnoremap gr :GoReferrers<cr>
-		autocmd filetype qf nnoremap J j<cr>zz<c-w>j
-		autocmd filetype qf nnoremap K k<cr>zz<c-w>j
-		autocmd filetype go nnoremap ga :GoInfo<cr>
-		autocmd filetype go nmap <C-RightMouse> <C-t>
+		autocmd filetype go nnoremap <buffer> gr :GoReferrers<cr>
+		autocmd filetype go nnoremap <buffer> ga :GoInfo<cr>
+		autocmd filetype go nmap     <buffer> <C-RightMouse> <C-t>
 		let g:go_template_autocreate = 0
 		let g:go_textobj_enabled = 0
 		let g:go_auto_type_info = 0
@@ -300,3 +306,6 @@ endif
 		let g:go_highlight_types                     = 1
 		let g:go_highlight_variable_assignments      = 0
 		let g:go_highlight_variable_declarations     = 0
+
+	"ack!
+		nnoremap sa :Ack<cr>
