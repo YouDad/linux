@@ -119,7 +119,7 @@ if [[ "$TMUX" == "" ]]; then
 else
 fi
 
-if [ -e "$ZSH_CUSTOM/h" ]; then
+if [ -e "$ZSH_CUSTOM/plugins/h" ]; then
 	plugins+=(h)
 fi
 
