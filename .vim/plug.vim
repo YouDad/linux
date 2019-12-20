@@ -56,7 +56,8 @@ endif
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
         "taglist
-        Plug 'vim-scripts/taglist.vim'
+        "Plug 'vim-scripts/taglist.vim'
+		Plug 'majutsushi/tagbar'
 
         "html, css
         Plug 'mattn/emmet-vim'
@@ -252,10 +253,17 @@ endif
 		set cmdheight=2
 		set updatetime=300
 
-    "taglist
-        nmap sg	:TlistToggle<CR>
-        let g:Tlist_Use_Right_Window = 1
-        let g:Tlist_WinWidth = 50
+    "tagbar
+		nnoremap sg :TagbarToggle<cr>
+
+		let g:tagbar_width = 50
+		let g:tarbar_autoclose = 1
+		let g:tarbar_autofocus = 0
+		let g:tarbar_sort = 0
+		let g:tarbar_indent = 1
+		let g:tarbar_foldlevel = 1
+		let g:tarbar_autoshowtag = 0
+		let g:tarbar_autopreview = 0
 
     "emmet-vim
         let g:user_emmet_mode='inv'
@@ -322,5 +330,5 @@ endif
 		let g:go_highlight_diagnostic_errors         = 0
 		let g:go_highlight_diagnostic_warnings       = 0
 
-		"ack!
+	"ack!
 		nnoremap sa :Ack<cr>

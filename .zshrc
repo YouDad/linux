@@ -1,9 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
-export MY_BIN="$HOME/my/bin"
-export MY_SRC="$HOME/my/src"
-export MY_LINK="$HOME/my/link"
+source $HOME/.profile
 
 ###############################
 # zsh setting
@@ -159,6 +157,7 @@ umask 022
 # alias command
 ###############################
 alias gvv="git status -vv"
+alias grs="git restore --staged"
 
 alias ra="ranger"
 
