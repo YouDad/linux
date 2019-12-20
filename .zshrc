@@ -42,11 +42,14 @@ fi
 ###############################
 remote=`who am i | wc | sed "s/ //g"`
 
-if [[ $remote != "000" && $ZSH_THEME == "powerlevel9k" ]]; then
-	if [ -e $ZSH_CUSTOM/dracula.zsh-theme ]; then
-		ZSH_THEME="dracula"
-	else
-		ZSH_THEME="robbyrussell"
+if [[ $remote != "000" ]]; then
+	echo "Welcome, SSH_USER, "`who am i`
+	if [[ $ZSH_THEME == "powerlevel9k" ]]; then
+		if [ -e $ZSH_CUSTOM/dracula.zsh-theme ]; then
+			ZSH_THEME="dracula"
+		else
+			ZSH_THEME="robbyrussell"
+		fi
 	fi
 fi
 
