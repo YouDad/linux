@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# gnome setting deamon
+/usr/lib/gsd-xsettings 1>/dev/null 2>&1 &
+
+clementine &
+variety &
+# xcompmgr &
+# thunderbird &
+fcitx &
+picom &
+blueman-tray &
+bash $MY_SRC/dwm-bar/dwm_bar.sh &

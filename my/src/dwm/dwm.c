@@ -1507,7 +1507,7 @@ run(void)
 
 void
 runAutostart(void) {
-	system("source $HOME/bin/startup.sh");
+	system("bash $MY_BIN/startup.sh");
 }
 
 
