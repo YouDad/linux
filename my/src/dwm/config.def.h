@@ -7,9 +7,9 @@ static const unsigned int gappih    = 10;       /* horiz inner gap between windo
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
-static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
+static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
@@ -70,13 +70,19 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "alacritty", "-t", scratchpadname, "-d", "120", "34", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
+static const char *rofiruncmd[]  = { "rofi", "-show", "run", NULL };
+static const char *rofidruncmd[]  = { "rofi", "-show", "drun", NULL };
+static const char *winkcmd[]  = { "blueman-manager", NULL };
+static const char *winecmd[]  = { "nautilus", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ WINKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	// { WINKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ WINKEY,                       XK_d,      spawn,          {.v = rofiruncmd } },
+	{ WINKEY|SHIFTKEY,              XK_d,      spawn,          {.v = rofidruncmd } },
 	{ WINKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ WINKEY,                       XK_c,      spawn,          {.v = browsercmd } },
-	{ WINKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+	{ WINKEY|SHIFTKEY,              XK_Return, togglescratch,  {.v = scratchpadcmd } },
 	{ WINKEY,                       XK_b,      togglebar,      {0} },
 	{ WINKEY|SHIFTKEY,              XK_j,      rotatestack,    {.i = +1 } },
 	{ WINKEY|SHIFTKEY,              XK_k,      rotatestack,    {.i = -1 } },
@@ -103,6 +109,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ WINKEY|SHIFTKEY,              XK_e,      quit,           {0} },
+	{ WINKEY|CTRLKEY,               XK_e,      spawn,          { .v = winecmd } },
+	{ WINKEY|CTRLKEY,               XK_k,      spawn,          { .v = winkcmd } },
 
 	// { WINKEY,                       XK_0,      view,           {.ui = ~0 } },
 	// { WINKEY,                       XK_Return, zoom,           {0} },
