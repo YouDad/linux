@@ -86,7 +86,7 @@ static Key keys[] = {
 	{ WINKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ WINKEY,                       XK_Tab,    view,           {0} },
 	{ WINKEY,                       XK_q,      killclient,     {0} },
-	{ WINKEY,                       XK_f,      fullscreen,     {0} },
+	{ WINKEY,                       XK_f,      togglefullscr,  {0} },
 	{ WINKEY|SHIFTKEY,              XK_space,  togglefloating, {0} },
 	{ WINKEY|SHIFTKEY,              XK_0,      tag,            {.ui = ~0 } },
 	{ WINKEY,                       XK_comma,  focusmon,       {.i = -1 } },
