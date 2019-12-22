@@ -1,5 +1,8 @@
 "# 改键映射
 
+"修改默认键
+nnoremap Y y$
+
 "Leader键设置为空格键
 let mapleader=' '
 nmap <leader>                       <nop>
@@ -13,7 +16,6 @@ map <c-s>                           <nop>
 map <c-q>                           <nop>
 nmap <c-s>                          :w<cr>
 nmap <c-q>                          :q<cr>
-vmap <c-c>                          :!xsel -bi<cr>u
 
 "缓冲区移动键
 nnoremap <silent> <leader>1<leader> :b 1<cr>
@@ -41,12 +43,6 @@ nnoremap <leader>h                  <c-w>h
 nnoremap <leader>j                  <c-w>j
 nnoremap <leader>k                  <c-w>k
 nnoremap <leader>l                  <c-w>l
-
-"重载方向键为改变布局的键
-nnoremap <up>                       5kzz
-nnoremap <down>                     5jzz
-nnoremap <left>                     50h
-nnoremap <right>                    50l
 
 "按sn去掉高亮
 nnoremap <silent> sn                :nohl<cr>

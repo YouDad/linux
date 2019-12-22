@@ -76,6 +76,12 @@ endif
 
 		"ack!
 		Plug 'mileszs/ack.vim'
+
+		"clipboard
+		Plug 'junegunn/vim-peekaboo'
+
+		"pdf
+		Plug 'makerj/vim-pdf'
     call plug#end()
 
     "vim-airline
