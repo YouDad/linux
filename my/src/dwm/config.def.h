@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -15,25 +15,35 @@ static const char dmenufont[]       = "Source Code Pro:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_gray4[]       = "#ffffff";
+static const char col_cyan[]        = "#37474f";
+static const char col_border[]      = "#42a5f5";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_border },
 };
 
 /* tagging */
-static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
+static const char *tags[] = { "临", "一", "二", "三", "四", "五", "六", "七", "八", "九" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class                instance    title       tags mask     isfloating   monitor */
+	{ "Clementine",         NULL,       NULL,       1 << 6,       0,           -1 },
+	{ "Gedit",              NULL,       NULL,       0,            1,           -1 },
+	{ "Org.gnome.gedit",    NULL,       NULL,       0,            1,           -1 },
+	{ "Thunar",             NULL,       NULL,       0,            1,           -1 },
+	{ "finger",             NULL,       NULL,       0,            1,           -1 },
+	{ "Gnome-terminal",     NULL,       NULL,       0,            1,           -1 },
+	{ "Zenity",             NULL,       NULL,       0,            1,           -1 },
+	{ "Org.gnome.Nautilus", NULL,       NULL,       0,            1,           -1 },
+	{ "Blueman-manager",    NULL,       NULL,       0,            1,           -1 },
+	{ "Thunderbird",        NULL,       NULL,       1 << 0,       0,           -1 },
+	{ "Variety",            NULL,       NULL,       1 << 0,       0,           -1 }
 };
 
 /* layout(s) */
@@ -94,25 +104,26 @@ static Key keys[] = {
 	{ WINKEY,                       XK_q,      killclient,     {0} },
 	{ WINKEY,                       XK_f,      togglefullscr,  {0} },
 	{ WINKEY|SHIFTKEY,              XK_space,  togglefloating, {0} },
-	{ WINKEY|SHIFTKEY,              XK_0,      tag,            {.ui = ~0 } },
 	{ WINKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ WINKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ WINKEY|SHIFTKEY,              XK_comma,  tagmon,         {.i = -1 } },
 	{ WINKEY|SHIFTKEY,              XK_period, tagmon,         {.i = +1 } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_0,                      0)
+	TAGKEYS(                        XK_1,                      1)
+	TAGKEYS(                        XK_2,                      2)
+	TAGKEYS(                        XK_3,                      3)
+	TAGKEYS(                        XK_4,                      4)
+	TAGKEYS(                        XK_5,                      5)
+	TAGKEYS(                        XK_6,                      6)
+	TAGKEYS(                        XK_7,                      7)
+	TAGKEYS(                        XK_8,                      8)
+	TAGKEYS(                        XK_9,                      9)
 	{ WINKEY|SHIFTKEY,              XK_e,      quit,           {0} },
 	{ WINKEY|CTRLKEY,               XK_e,      spawn,          { .v = winecmd } },
 	{ WINKEY|CTRLKEY,               XK_k,      spawn,          { .v = winkcmd } },
 
 	// { WINKEY,                       XK_0,      view,           {.ui = ~0 } },
+	// { WINKEY|SHIFTKEY,              XK_0,      tag,            {.ui = ~0 } },
 	// { WINKEY,                       XK_Return, zoom,           {0} },
 	// { WINKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	// { WINKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
