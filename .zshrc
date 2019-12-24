@@ -183,21 +183,6 @@ fi
 # source
 ###############################
 
-bindkey -v
-function zle-keymap-select {
-	if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-		echo -ne '\e[1 q'
-	elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
-		echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-echo -ne '\e[5 q'
-preexec() { echo -ne '\e[5 q' }
-_fix_cursor() { echo -ne '\e[5 q' }
-precmd_functions+=(_fix_cursor)
-KEYTIMEOUT=1
-
 ### FZF
 if [ -e $HOME/.fzf ]; then
 	export PATH="$PATH:$HOME/.fzf/bin"
