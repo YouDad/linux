@@ -17,4 +17,4 @@ export PATH="$PATH:$HOME/my/src/nodejs/bin"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export GO111MODULE=on
-export GOPROXY=https://goproxy.cn,direct
+export GOPROXY=https://goproxy.cn
