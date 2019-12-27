@@ -11,9 +11,40 @@ struct YMDHMS {
 	int Y, M, D, h, m, s;
 };
 
+void exec_cmd(const char *cmd, char *result)
+{
+	char buf_ps[1024];
+	char ps[1024] = {};
+
+	strcpy(ps, cmd);
+	FILE *ptr = popen(ps, "r");
+	if (ptr != NULL) {
+		while (fgets(buf_ps, 1024, ptr) != NULL) {
+			strcat(result, buf_ps);
+			if(strlen(result) > 1024) {
+				break;
+			}
+		}
+		pclose(ptr);
+		ptr = NULL;
+	} else {
+		printf("popen %s error\n", ps);
+	}
+}
+
 void fast_date(struct YMDHMS *date, int ts)
 {
-	ts += 8 * 3600;
+	static bool isCalled = false;
+	static int add = 0;
+	if (!isCalled) {
+		char result[64] = {};
+		exec_cmd("date +\"%Z\"", result);
+		if (strcmp("GMT", result) != 0) {
+			add = 8 * 3600;
+		}
+		isCalled = true;
+	}
+	ts += add;
 	date->h = ts % 86400 / 3600;
 	date->m = ts % 3600 / 60;
 	date->s = ts % 60;

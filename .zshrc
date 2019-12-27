@@ -33,6 +33,7 @@ if false && [ -e $MY_SRC/powerlevel9k/powerlevel9k.zsh-theme ]; then
 	POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
 elif [ -e $ZSH_CUSTOM/dracula.zsh-theme ]; then
 	ZSH_THEME="dracula"
+	DRACULA_DISPLAY_CONTEXT=1
 else
 	ZSH_THEME="robbyrussell"
 fi
@@ -49,6 +50,7 @@ if [[ "$?" == "0" ]]; then
 		if [[ $ZSH_THEME == "powerlevel9k" ]]; then
 			if [ -e $ZSH_CUSTOM/dracula.zsh-theme ]; then
 				ZSH_THEME="dracula"
+				DRACULA_DISPLAY_CONTEXT=1
 			else
 				ZSH_THEME="robbyrussell"
 			fi
