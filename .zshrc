@@ -35,7 +35,7 @@ elif [ -e $ZSH_CUSTOM/dracula.zsh-theme ]; then
 	ZSH_THEME="dracula"
 	DRACULA_DISPLAY_CONTEXT=1
 else
-	ZSH_THEME="robbyrussell"
+	ZSH_THEME="risto"
 fi
 
 ###############################
@@ -52,7 +52,7 @@ if [[ "$?" == "0" ]]; then
 				ZSH_THEME="dracula"
 				DRACULA_DISPLAY_CONTEXT=1
 			else
-				ZSH_THEME="robbyrussell"
+				ZSH_THEME="risto"
 			fi
 		fi
 	else
