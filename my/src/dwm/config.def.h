@@ -42,12 +42,13 @@ static const Rule rules[] = {
 	{ "Zenity",             NULL,       NULL,       0,            1,           -1 },
 	{ "Org.gnome.Nautilus", NULL,       NULL,       0,            1,           -1 },
 	{ "Blueman-manager",    NULL,       NULL,       0,            1,           -1 },
-	{ "Thunderbird",        NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "Variety",            NULL,       NULL,       1 << 0,       0,           -1 }
+	{ "Thunderbird",        NULL,       NULL,       0,            0,           -1 },
+	{ "Variety",            NULL,       NULL,       0,            0,           -1 },
+	{ "Wine",               "gba.exe",  NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
@@ -72,16 +73,22 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define OPTIRUN(name, ...) static const char *name[] = { "optirun", ##__VA_ARGS__, NULL }
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+// static const char *termcmd[]  = { "alacritty", NULL };
+OPTIRUN(termcmd, "alacritty");
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "alacritty", "-t", scratchpadname, "-d", "120", "34", NULL };
-static const char *browsercmd[]  = { "firefox", NULL };
-static const char *rofiruncmd[]  = { "rofi", "-show", "run", NULL };
-static const char *rofidruncmd[]  = { "rofi", "-show", "drun", NULL };
+// static const char *scratchpadcmd[] = { "alacritty", "-t", scratchpadname, "-d", "120", "34", NULL };
+OPTIRUN(scratchpadcmd, "alacritty", "-t", scratchpadname, "-d", "120", "34");
+// static const char *browsercmd[]  = { "firefox", NULL };
+OPTIRUN(browsercmd, "firefox");
+// static const char *rofiruncmd[]  = { "rofi", "-show", "run", NULL };
+OPTIRUN(rofiruncmd, "rofi", "-show", "run");
+// static const char *rofidruncmd[]  = { "rofi", "-show", "drun", NULL };
+OPTIRUN(rofidruncmd, "rofi", "-show", "drun");
 static const char *winkcmd[]  = { "blueman-manager", NULL };
 static const char *winecmd[]  = { "nautilus", NULL };
 

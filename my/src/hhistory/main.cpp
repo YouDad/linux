@@ -39,7 +39,7 @@ void fast_date(struct YMDHMS *date, int ts)
 	if (!isCalled) {
 		char result[64] = {};
 		exec_cmd("date +\"%Z\"", result);
-		if (strcmp("GMT", result) != 0) {
+		if (strcmp("GMT\n", result) != 0) {
 			add = 8 * 3600;
 		}
 		isCalled = true;
