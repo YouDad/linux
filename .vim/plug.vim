@@ -212,9 +212,16 @@ endif
 					\ 'coc-go',
 					\ 'coc-lists',
 					\ ]
-		"
+		"MAPS
 		nmap <leader>rn <Plug>(coc-rename)
-		nnoremap <leader>p  :<c-u>CocList -A --normal yank<cr>
+		nnoremap <silent> <leader>p  :<c-u>CocList -A --normal yank<cr>
+		nnoremap <silent> gd         <Plug>(coc-definition)
+		" nnoremap <silent> gy         <Plug>(coc-type-definition)
+		nnoremap <silent> gi         <Plug>(coc-implementation)
+		nnoremap <silent> gr         <Plug>(coc-references)
+		"AUTOCMD
+		autocmd CursorHold * silent call CocActionAsync('highlight')
+		"SET VARIABLE
 		set hidden
 		set nobackup
 		set nowritebackup
@@ -255,7 +262,6 @@ endif
 			 \}]
 
 	"vim-go
-		autocmd filetype go nnoremap <buffer> gr :GoReferrers<cr>
 		autocmd filetype go nnoremap <buffer> ga :GoInfo<cr>
 		autocmd filetype go nmap     <buffer> <C-RightMouse> <C-t>
 		"
