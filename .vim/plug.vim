@@ -114,9 +114,9 @@ endif
         colorscheme dracula
             "启用定位光标的行列，设置行列样式
             set cursorline
-            highlight CursorLine ctermfg=None ctermbg=236 guifg=None guibg=#224466
+            highlight CursorLine ctermfg=None ctermbg=236 guifg=None guibg=#555555
             set cursorcolumn
-            highlight CursorColumn ctermfg=None ctermbg=236 guifg=None guibg=#224466
+            highlight CursorColumn ctermfg=None ctermbg=236 guifg=None guibg=#556677
         "colorscheme blue-mood
         highlight Normal guibg=NONE ctermbg=None
 
@@ -211,6 +211,9 @@ endif
 					\ 'coc-json',
 					\ 'coc-go',
 					\ 'coc-lists',
+					\ 'coc-sh',
+					\ 'coc-vetur',
+					\ 'coc-tsserver',
 					\ ]
 		"MAPS
 		nmap <leader>rn <Plug>(coc-rename)
