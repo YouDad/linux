@@ -18,6 +18,7 @@ nmap <c-s>                          :w<cr>
 nmap <c-q>                          :q<cr>
 
 "缓冲区移动键
+nnoremap sw                         :b<space>
 nnoremap <silent> <leader>1<leader> :b 1<cr>
 nnoremap <silent> <leader>2         :b 2<cr>
 nnoremap <silent> <leader>3         :b 3<cr>
