@@ -255,6 +255,10 @@ bindsym $win+Return                      exec "alacritty"
 bindsym $win+shift+Return                exec "gnome-terminal"
 bindsym $win+ctrl+k                      exec "blueman-manager"
 bindsym $win+ctrl+e                      exec "nautilus"
+bindsym XF86AudioLowerVolume             exec "amixer -D pulse sset Master 5%-"
+bindsym XF86AudioRaiseVolume             exec "amixer -D pulse sset Master 5%+"
+bindsym XF86MonBrightnessDown            exec "brightness -"
+bindsym XF86MonBrightnessUp              exec "brightness +"
 
 # mocp (music on console player) config
 # exec_always                              "mocp --server"

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+dir=/sys/class/backlight/intel_backlight
+
+now=`cat ${dir}/actual_brightness`
+max=`cat ${dir}/max_brightness`
+step=$(($max/20))
+if [[ "$1" == "+" ]]; then
+	target=$(( $now + $step ))
+	sudo bash -c "echo -en ${target} > ${dir}/brightness"
+fi
+if [[ "$1" == "-" ]]; then
+	target=$(( $now - $step +1 ))
+	sudo bash -c "echo -en ${target} > ${dir}/brightness"
+fi
+
