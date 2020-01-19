@@ -171,6 +171,7 @@ alias gvv="git status -vv"
 alias grs="git restore --staged"
 
 alias ra="ranger"
+alias lg="lazygit"
 
 alias mkdir="mkdir -p "
 
