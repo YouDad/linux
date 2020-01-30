@@ -1,5 +1,5 @@
 " 替换光标下的词
-nnoremap <F5> :e!<cr>
+let b:coc_root_patterns = ['.git', '.env']
 
 autocmd filetype go,c set fdm=syntax
 autocmd filetype go,c set foldnestmax=1

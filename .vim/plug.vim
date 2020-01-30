@@ -82,6 +82,10 @@ endif
 
 		"pdf
 		Plug 'makerj/vim-pdf'
+
+		"vim highlight
+		Plug 'posva/vim-vue'
+		Plug 'digitaltoad/vim-pug'
     call plug#end()
 
     "vim-airline
@@ -206,13 +210,12 @@ endif
 
     "coc
 	    let g:coc_global_extensions = [
-					\ 'coc-yank',
-					\ 'coc-git',
-					\ 'coc-json',
-					\ 'coc-go',
-					\ 'coc-lists',
-					\ 'coc-sh',
-					\ 'coc-tsserver',
+					\ 'coc-lists', 'coc-pairs', 'coc-yank',
+					\ 'coc-git', 'coc-snippets',
+					\ 'coc-json', 'coc-go', 'coc-sh',
+					\ 'coc-html', 'coc-tsserver', 'coc-css',
+					\ 'coc-python', 'coc-java',
+					\ 'coc-vimlsp',
 					\ ]
 		"MAPS
 		nmap <leader>rn <Plug>(coc-rename)
@@ -220,6 +223,9 @@ endif
 		nnoremap <silent> gd         <Plug>(coc-definition)
 		nnoremap <silent> gi         <Plug>(coc-implementation)
 		nnoremap <silent> gr         <Plug>(coc-references)
+		imap <c-j> <plug>(coc-snippets-expand)
+		let g:coc_snippet_next = '<c-j>'
+		let g:coc_snippet_prev = '<c-k>'
 		"AUTOCMD
 		autocmd CursorHold * silent call CocActionAsync('highlight')
 		"SET VARIABLE
@@ -295,3 +301,6 @@ endif
 
 	"ack!
 		nnoremap sa :Ack<cr>
+
+	"vim-vue
+		let g:vue_pre_processors = ['pug']

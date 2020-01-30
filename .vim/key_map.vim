@@ -89,6 +89,8 @@ nnoremap <leader>v                  :vs ~/.vim/temp.vim<cr>
 nnoremap <leader>z                  :vs ~/.vim/temp<cr><c-w>L
 nnoremap <leader>V                  :so %<cr>
 inoremap jk                         <esc>
+inoremap kj                         <esc>
+nnoremap <F5>                       :e!<cr>
 
 "qf即列表
 autocmd filetype qf nnoremap <buffer> J j<cr>zz<c-w>j

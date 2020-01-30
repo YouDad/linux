@@ -95,14 +95,14 @@ bindsym $win+space focus mode_toggle
 
 set $ws1 " 1-main "
 set $ws2 " 2-main "
-set $ws3 " 3-wiki "
-set $ws4 " 4 "
-set $ws5 " 5 "
-set $ws6 " 6-mocp "
-set $ws7 " 7-😂 "
-set $ws8 " 8 "
-set $ws9 " 9 "
-set $ws0 " 10-tmp "
+set $ws3 " 3-🐴 "
+set $ws4 " 4-🐶 "
+set $ws5 " 5-🐄 "
+set $ws6 " 6-🐓 "
+set $ws7 " 7-🐘 "
+set $ws8 " 8-🐼 "
+set $ws9 " 9-🐬 "
+set $ws0 " 10-main "
 
 # switch to workspace
 bindsym $win+1 workspace $ws1
@@ -136,6 +136,8 @@ bindsym $win+shift+r restart
 bindsym $win+shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
+
+bindsym $win+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -159,11 +161,19 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $win+r mode "resize"
+set $print_mode print
+bindsym $win+ctrl+p mode "$print_mode"
+mode "$print_mode" {
+	bindsym $win+ctrl+q exec --no-startup-id "bash ~/bin/xrandr0.sh"
+	bindsym $win+ctrl+p exec --no-startup-id "bash ~/bin/xrandr1.sh"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
 
 # Set shut down, restart and locking features
-bindsym $win+ctrl+Escape mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)hutdown, (h)ibernate, (r)eboot
+bindsym $win+ctrl+Escape mode "$mode_system"
 mode "$mode_system" {
 	bindsym l exec --no-startup-id i3exit lock, mode "default"
 	bindsym s exec --no-startup-id i3exit shutdown, mode "default"
@@ -281,7 +291,7 @@ exec_always                              "thunderbird"
 exec_always                              "fcitx"
 exec_always                              "picom"
 exec_always                              "blueman-tray"
-exec_always                              "bash ~/bin/startup.sh"
+exec_always                              "bash ~/my/bin/startup.sh"
 
 assign [class="Thunderbird"]             $ws0
 assign [class="Variety"]                 $ws0
