@@ -104,6 +104,17 @@ set $ws8 " 8-🐼 "
 set $ws9 " 9-🐬 "
 set $ws0 " 10-main "
 
+workspace $ws1 output primary
+workspace $ws2 output primary
+workspace $ws3 output primary
+workspace $ws4 output primary
+workspace $ws5 output primary
+workspace $ws6 output primary
+workspace $ws7 output primary
+workspace $ws8 output primary
+workspace $ws9 output primary
+workspace $ws0 output eDP1
+
 # switch to workspace
 bindsym $win+1 workspace $ws1
 bindsym $win+2 workspace $ws2
@@ -164,8 +175,10 @@ mode "resize" {
 set $print_mode print
 bindsym $win+ctrl+p mode "$print_mode"
 mode "$print_mode" {
-	bindsym $win+ctrl+q exec --no-startup-id "bash ~/bin/xrandr0.sh"
-	bindsym $win+ctrl+p exec --no-startup-id "bash ~/bin/xrandr1.sh"
+	bindsym $win+ctrl+q exec --no-startup-id "bash ~/bin/xrandr-q.sh"
+	bindsym $win+ctrl+w exec --no-startup-id "bash ~/bin/xrandr-w.sh"
+	bindsym $win+ctrl+e exec --no-startup-id "bash ~/bin/xrandr-e.sh"
+	bindsym $win+ctrl+p exec --no-startup-id "bash ~/bin/xrandr-p.sh"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
