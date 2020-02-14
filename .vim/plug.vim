@@ -14,59 +14,59 @@ endif
 
     "插件的声明区
     call plug#begin('~/.vim/plugged')
-        "appearance
-        Plug 'vim-airline/vim-airline'
-        Plug 'connorholyday/vim-snazzy'
-        Plug 'Rigellute/rigel'
-        Plug 'dracula/vim'
-        Plug 'lmintmate/blue-mood-vim'
+		"appearance
+		Plug 'vim-airline/vim-airline'
+		Plug 'connorholyday/vim-snazzy'
+		Plug 'Rigellute/rigel'
+		Plug 'dracula/vim'
+		Plug 'lmintmate/blue-mood-vim'
 
-        "filetree
-        Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-        Plug 'Xuyuanp/nerdtree-git-plugin'
+		"filetree
+		Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+		Plug 'Xuyuanp/nerdtree-git-plugin'
 
-        "undotree
-        Plug 'mbbill/undotree'
+		"undotree
+		Plug 'mbbill/undotree'
 
-        "markdown
-        Plug 'godlygeek/tabular'
-        Plug 'plasticboy/vim-markdown'
-        Plug 'dhruvasagar/vim-table-mode'
-        if has ("nvim")
-        	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-        endif
+		"markdown
+		Plug 'godlygeek/tabular'
+		Plug 'plasticboy/vim-markdown'
+		Plug 'dhruvasagar/vim-table-mode'
+		if has ("nvim")
+			Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+		endif
 
-        "translate
-        Plug 'voldikss/vim-translate-me'
+		"translate
+		Plug 'voldikss/vim-translate-me'
 
-        "rst2html (deprecated)
-        "Plug 'gu-fan/riv.vim'
+		"rst2html (deprecated)
+		"Plug 'gu-fan/riv.vim'
 
-        "bookmark
-        Plug 'kshenoy/vim-signature'
+		"bookmark
+		Plug 'kshenoy/vim-signature'
 
-        "fzf
-        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-        Plug 'junegunn/fzf.vim'
+		"fzf
+		Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+		Plug 'junegunn/fzf.vim'
 
-        "startify
-        Plug 'mhinz/vim-startify'
+		"startify
+		Plug 'mhinz/vim-startify'
 
-        "coc
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+		"coc
+		Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-        "taglist
-        "Plug 'vim-scripts/taglist.vim'
+		"taglist
+		"Plug 'vim-scripts/taglist.vim'
 		Plug 'majutsushi/tagbar'
 
-        "html, css
-        Plug 'mattn/emmet-vim'
+		"html, css
+		Plug 'mattn/emmet-vim'
 
-        "comment
-        Plug 'scrooloose/nerdcommenter'
+		"comment
+		Plug 'scrooloose/nerdcommenter'
 
-        "javascript
-        Plug 'pangloss/vim-javascript'
+		"javascript
+		Plug 'pangloss/vim-javascript'
 
 		"wiki
 		Plug 'vimwiki/vimwiki'
