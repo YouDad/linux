@@ -1,0 +1,26 @@
+#!/bin/bash
+
+command="$1"
+echo "listen . and exec $command"
+
+ring -nosound
+can_ring=0
+if [[ "$?" == "0" ]]; then
+	can_ring=1
+	echo ring is on
+else
+	echo ring is off
+fi
+
+while true; do
+	if [[ "$?" == "0" ]]; then
+		echo "Run at: $(date +'%Y/%m/%d %p%T')"
+		echo "$command"
+		$command
+
+		if [[ $can_ring == "1" ]]; then
+			ring -af volume=-15
+		fi
+	fi
+	inotifywait -r -e modify . 1>/dev/null 2>&1
+done
