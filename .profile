@@ -12,6 +12,7 @@ export PATH="$PATH:$MY_BIN"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/my/src/nodejs/bin"
+export PATH="$PATH:$HOME/.yarn/bin"
 
 ### GO
 export GOPATH="$HOME/go"

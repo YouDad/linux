@@ -18,13 +18,13 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #BF000000
-background-alt = #444
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+background = #80000000
+background-alt = #80444444
+foreground = #c0dfdfdf
+foreground-alt = #c0555555
+primary = #c0ffb52a
+secondary = #c0e60053
+alert = #c0bd2c40
 
 [bar/27+15.6]
 width = 100%
@@ -60,7 +60,7 @@ font-4 = "material icons:pixelsize=16;3"
 modules-left = i3
 modules-center = xwindow
 
-modules-right = backlight-acpi alsa wlan eth battery temperature date
+modules-right = backlight alsa wlan eth battery temperature memory date
 
 tray-position = right
 tray-padding = 2
@@ -164,10 +164,9 @@ toggle-off-foreground = #55
 label-song-maxlen = 25
 label-song-ellipsis = true
 
-
-[module/xbacklight]
-type = internal/xbacklight
-
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
 format = <label> <bar>
 label = BL
 
@@ -181,11 +180,6 @@ bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
 
 [module/cpu]
 type = internal/cpu
@@ -319,7 +313,7 @@ animation-charging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 80
 
 format = <ramp> <label>
 format-underline = #f50a4d
