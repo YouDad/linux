@@ -93,16 +93,16 @@ bindsym $win+space focus mode_toggle
 # focus the child container
 # bindsym $win+d focus child
 
-set $ws1 " 1 "
+set $ws1 " 1-main "
 set $ws2 " 2 "
 set $ws3 " 3 "
-set $ws4 " 4 "
+set $ws4 " 4-todo "
 set $ws5 " 5 "
-set $ws6 " 6 "
-set $ws7 " 7 "
-set $ws8 " 8 "
-set $ws9 " 9 "
-set $ws0 " 10 "
+set $ws6 " 6-music "
+set $ws7 " 7-video "
+set $ws8 " 8-mysql "
+set $ws9 " 9-talk "
+set $ws0 " 10-tmp "
 
 workspace $ws1 output DP-1
 workspace $ws2 output DP-1
@@ -270,52 +270,77 @@ smart_borders on
 
 focus_follows_mouse no
 
-bindsym $win+q                           kill
-bindsym $win+d                           exec "rofi -show run"
-bindsym $win+shift+d                     exec "rofi -show drun"
-bindsym $win+c                           exec "firefox"
-bindsym $win+Return                      exec "alacritty"
-bindsym $win+shift+Return                exec "gnome-terminal"
-bindsym $win+ctrl+k                      exec "blueman-manager"
-bindsym $win+ctrl+e                      exec "nautilus"
-bindsym $win+ctrl+l                      exec "i3lock-fancy"
-bindsym XF86AudioLowerVolume             exec "amixer -D pulse sset Master 15%-"
-bindsym XF86AudioRaiseVolume             exec "amixer -D pulse sset Master 15%+"
-bindsym XF86MonBrightnessDown            exec "brightness -"
-bindsym XF86MonBrightnessUp              exec "brightness +"
+bindsym $win+q                              kill
+bindsym $win+d                              exec "rofi -show run"
+bindsym $win+shift+d                        exec "rofi -show drun"
+bindsym $win+c                              exec "firefox"
+bindsym $win+Return                         exec "alacritty"
+bindsym $win+shift+Return                   exec "gnome-terminal"
+bindsym $win+ctrl+k                         exec "blueman-manager"
+bindsym $win+ctrl+e                         exec "nautilus"
+bindsym $win+ctrl+l                         exec "i3lock-fancy"
+bindsym XF86AudioLowerVolume                exec "amixer -D pulse sset Master 15%-"
+bindsym XF86AudioRaiseVolume                exec "amixer -D pulse sset Master 15%+"
+bindsym XF86MonBrightnessDown               exec "brightness -"
+bindsym XF86MonBrightnessUp                 exec "brightness +"
 
-# mocp (music on console player) config
-# exec_always                              "mocp --server"
-# bindsym $alt+d                           exec "mocp --toggle-pause"
-# bindsym $alt+q                           exec "mocp --previous"
-# bindsym $alt+e                           exec "mocp --next"
-# bindsym $alt+w                           exec "mocp --volume +15"
-# bindsym $alt+s                           exec "mocp --volume -15"
-# bindsym $alt+a                           exec "mocp --play"
 # music config
-exec_always                              "clementine"
-assign [class="Clementine"]              $ws6
+exec_always                                 "clementine"
+assign [class="Clementine"]                 $ws6
 
-bindsym ctrl+Scroll_Lock                 exec "screenshot --window"
-bindsym Scroll_Lock                      exec "screenshot"
+bindsym ctrl+Scroll_Lock                    exec "screenshot --window"
+bindsym Scroll_Lock                         exec "screenshot"
 
-exec_always                              "variety"
-exec_always                              "xcompmgr"
-exec_always                              "thunderbird"
-exec_always                              "fcitx"
-exec_always                              "picom"
-exec_always                              "blueman-tray"
-exec_always                              "bash ~/my/bin/startup.sh"
-exec_always --no-startup-id              "$HOME/.config/polybar/launch.sh"
+exec_always --no-startup-id                 "variety"
+exec_always --no-startup-id                 "thunderbird"
+exec_always --no-startup-id                 "fcitx"
+exec_always --no-startup-id                 "picom"
+exec_always --no-startup-id                 "blueman-tray"
+exec_always --no-startup-id                 "bash ~/my/bin/startup.sh"
+exec_always --no-startup-id                 "$HOME/.config/polybar/launch.sh"
 
-assign [class="Thunderbird"]             $ws0
-assign [class="Variety"]                 $ws0
+assign [class="Thunderbird"]                $ws0
+assign [class="Variety"]                    $ws0
+assign [class="Wine" instance="wechat.exe"] $ws9
+assign [class="Wine" instance="tim.exe"]    $ws9
 
-for_window [class="Gedit"]               floating enable
-for_window [class="Org.gnome.gedit"]     floating enable
-for_window [class="Thunar"]              floating enable
-for_window [class="finger"]              floating enable
-for_window [class="Gnome-terminal"]      floating enable
-for_window [class="Zenity"]              floating enable
-for_window [class="Org.gnome.Nautilus"]  floating enable
-for_window [class="Blueman-manager"]     floating enable
+for_window [class="Gedit"]                  floating enable
+for_window [class="Org.gnome.gedit"]        floating enable
+for_window [class="Thunar"]                 floating enable
+for_window [class="finger"]                 floating enable
+for_window [class="Gnome-terminal"]         floating enable
+for_window [class="Zenity"]                 floating enable
+for_window [class="Org.gnome.Nautilus"]     floating enable
+for_window [class="Blueman-manager"]        floating enable
+
+
+# help
+#
+# The criteria which are currently implemented are:
+# 
+# class
+#     Compares the window class (the second part of WM_CLASS). Use the special value __focused__ to match all windows having the same window class as the currently focused window.
+# instance
+#     Compares the window instance (the first part of WM_CLASS). Use the special value __focused__ to match all windows having the same window instance as the currently focused window.
+# window_role
+#     Compares the window role (WM_WINDOW_ROLE). Use the special value __focused__ to match all windows having the same window role as the currently focused window.
+# window_type
+#     Compare the window type (_NET_WM_WINDOW_TYPE). Possible values are normal, dialog, utility, toolbar, splash, menu, dropdown_menu, popup_menu, tooltip and notification.
+# id
+#     Compares the X11 window ID, which you can get via xwininfo for example.
+# title
+#     Compares the X11 window title (_NET_WM_NAME or WM_NAME as fallback). Use the special value __focused__ to match all windows having the same window title as the currently focused window.
+# urgent
+#     Compares the urgent state of the window. Can be "latest" or "oldest". Matches the latest or oldest urgent window, respectively. (The following aliases are also available: newest, last, recent, first)
+# workspace
+#     Compares the workspace name of the workspace the window belongs to. Use the special value __focused__ to match all windows in the currently focused workspace.
+# con_mark
+#     Compares the marks set for this container, see [vim_like_marks]. A match is made if any of the container’s marks matches the specified mark.
+# con_id
+#     Compares the i3-internal container ID, which you can get via the IPC interface. Handy for scripting. Use the special value __focused__ to match only the currently focused window.
+# floating
+#     Only matches floating windows. This criterion requires no value.
+# tiling
+#     Only matches tiling windows. This criterion requires no value.
+# 
+# The criteria class, instance, role, title, workspace and mark are actually regular expressions (PCRE). See pcresyntax(3) or perldoc perlre for information on how to use them.

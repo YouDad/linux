@@ -1,3 +1,3 @@
 #!/bin/bash
 
-xprop|egrep "^(WM_CLASS|WM_NAME)"
+xprop|egrep "^(WM_CLASS|WM_NAME|WM_WINDOW_ROLE|_NET_WM_WINDOW_TYPE|_NET_WM_NAME|WM_NAME)"
