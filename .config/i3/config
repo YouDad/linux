@@ -103,6 +103,14 @@ set $ws7 " 7-video "
 set $ws8 " 8-mysql "
 set $ws9 " 9-talk "
 set $ws0 " 10-tmp "
+set $wsf1 " F1 "
+set $wsf2 " F2 "
+set $wsf3 " F3 "
+set $wsf4 " F4 "
+set $wsf5 " F5 "
+set $wsf6 " F6 "
+set $wsf7 " F7 "
+set $wsf8 " F8 "
 
 workspace $ws1 output DP-1
 workspace $ws2 output DP-1
@@ -126,6 +134,14 @@ bindsym $win+7 workspace $ws7
 bindsym $win+8 workspace $ws8
 bindsym $win+9 workspace $ws9
 bindsym $win+0 workspace $ws0
+bindsym $win+F1 workspace $wsf1
+bindsym $win+F2 workspace $wsf2
+bindsym $win+F3 workspace $wsf3
+bindsym $win+F4 workspace $wsf4
+bindsym $win+F5 workspace $wsf5
+bindsym $win+F6 workspace $wsf6
+bindsym $win+F7 workspace $wsf7
+bindsym $win+F8 workspace $wsf8
 
 # move focused container to workspace
 bindsym $win+shift+1 move container to workspace $ws1
@@ -138,6 +154,14 @@ bindsym $win+shift+7 move container to workspace $ws7
 bindsym $win+shift+8 move container to workspace $ws8
 bindsym $win+shift+9 move container to workspace $ws9
 bindsym $win+shift+0 move container to workspace $ws0
+bindsym $win+shift+F1 move container to workspace $wsf1
+bindsym $win+shift+F2 move container to workspace $wsf2
+bindsym $win+shift+F3 move container to workspace $wsf3
+bindsym $win+shift+F4 move container to workspace $wsf4
+bindsym $win+shift+F5 move container to workspace $wsf5
+bindsym $win+shift+F6 move container to workspace $wsf6
+bindsym $win+shift+F7 move container to workspace $wsf7
+bindsym $win+shift+F8 move container to workspace $wsf8
 
 # reload the configuration file
 bindsym $win+shift+c reload
@@ -280,9 +304,13 @@ bindsym $win+ctrl+k                         exec "blueman-manager"
 bindsym $win+ctrl+e                         exec "nautilus"
 bindsym $win+ctrl+l                         exec "i3lock-fancy"
 bindsym XF86AudioLowerVolume                exec "amixer -D pulse sset Master 15%-"
+bindsym $win+F9                             exec "amixer -D pulse sset Master 15%-"
 bindsym XF86AudioRaiseVolume                exec "amixer -D pulse sset Master 15%+"
+bindsym $win+F10                            exec "amixer -D pulse sset Master 15%+"
 bindsym XF86MonBrightnessDown               exec "brightness -"
+bindsym $win+F11                            exec "brightness -"
 bindsym XF86MonBrightnessUp                 exec "brightness +"
+bindsym $win+F12                            exec "brightness +"
 
 # music config
 exec_always                                 "clementine"
