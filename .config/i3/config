@@ -340,6 +340,7 @@ for_window [class="Gnome-terminal"]         floating enable
 for_window [class="Zenity"]                 floating enable
 for_window [class="Org.gnome.Nautilus"]     floating enable
 for_window [class="Blueman-manager"]        floating enable
+for_window [class="Gnome-calculator"]       floating enable
 
 
 # help
