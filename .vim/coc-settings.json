@@ -1,5 +1,4 @@
 {
-	"tsserver.enableJavascript": true,
 	"languageserver": {
 		"golang": {
 			"command": "gopls",

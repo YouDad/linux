@@ -163,37 +163,23 @@ bindsym $win+shift+F6 move container to workspace $wsf6
 bindsym $win+shift+F7 move container to workspace $wsf7
 bindsym $win+shift+F8 move container to workspace $wsf8
 
-# reload the configuration file
 bindsym $win+shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $win+shift+r restart
-# exit i3 (logs you out of your X session)
 bindsym $win+shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-
 bindsym $win+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 1 px or 1 ppt
-        bindsym j resize grow height 1 px or 1 ppt
-        bindsym k resize shrink height 1 px or 1 ppt
-        bindsym l resize grow width 1 px or 1 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 1 px or 1 ppt
-        bindsym Down resize grow height 1 px or 1 ppt
-        bindsym Up resize shrink height 1 px or 1 ppt
-        bindsym Right resize grow width 1 px or 1 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+	bindsym h resize shrink width 1 px or 1 ppt
+	bindsym j resize grow height 1 px or 1 ppt
+	bindsym k resize shrink height 1 px or 1 ppt
+	bindsym l resize grow width 1 px or 1 ppt
+	bindsym Left resize shrink width 1 px or 1 ppt
+	bindsym Down resize grow height 1 px or 1 ppt
+	bindsym Up resize shrink height 1 px or 1 ppt
+	bindsym Right resize grow width 1 px or 1 ppt
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
 set $print_mode print
@@ -224,53 +210,15 @@ mode "$mode_system" {
 	bindsym Escape mode "default"
 }
 
-# # Start i3bar to display a workspace bar (plus the system information i3status
-# # finds out, if available)
-# bar {
-#     #status_command i3status
-#     #tray_output primary
-#     position bottom
-#     status_command i3status
-#     colors {
-#         background #000000
-#         statusline #00FF00
-#         separator #00FFFF
-#         # focused_workspace #B8F788 #000000AA
-#         # active_workspace #FFFFFF #FFFFFFAA
-#         # inactive_workspace #AAAAAA #000000AA #AAAAAA
-#         # urgent_workspace #E57B85 #000000AA
-#
-#         # 工作区颜色         边框    背景    文字
-#         focused_workspace  #3297FD #11111100 #FFFFFF
-#         active_workspace   #FFFFFF #FFFFFF00 #FFFFFF
-#         inactive_workspace #111111 #11111100 #FFFFFF
-#         urgent_workspace   #990000 #11111100 #FFFFFF
-#         binding_mode       #990000 #99000000 #FFFFFF
-#     }
-# }
-
-# bar {
-# 	id bar-1
-# 	i3bar_command i3bar
-# 	status_command i3status
-# 	position bottom
-# 
-# 	font xft:URWGothic-Book 12
-# 	strip_workspace_numbers yes
-# 
-# 	colors {
-# 		background #222222
-# 		statusline #eeeeee
-# 		separator #666666
-# 
-#         #                  border  backgr. text
-# 		focused_workspace  #F9FAF9 #16a085 #292F34
-# 		active_workspace   #595B5B #353836 #FDF6E3
-# 		inactive_workspace #595B5B #222D31 #EEE8D5
-# 		binding_mode       #16a085 #2C2C2C #F9FAF9
-# 		urgent_workspace   #16a085 #FDF6E3 #E5201D
-# 	}
-# }
+set $F1System dict
+bindsym $win+ctrl+shift+F1 mode "$F1System"
+mode "$F1System" {
+	bindsym z      floating toggle
+	bindsym x      exec "adb shell input tap 400 2200"
+	bindsym c      exec "adb shell input tap 700 2200"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
 
 # Theme colors
 # class                 border  backgr. text    indic.   child_border
@@ -285,11 +233,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 gaps inner 8
 gaps outer 6
 
-# Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
 focus_follows_mouse no
@@ -319,7 +264,7 @@ assign [class="Clementine"]                 $ws6
 bindsym ctrl+Scroll_Lock                    exec "screenshot --window"
 bindsym Scroll_Lock                         exec "screenshot"
 
-exec_always --no-startup-id                 "variety"
+# exec_always --no-startup-id                 "variety"
 exec_always --no-startup-id                 "thunderbird"
 exec_always --no-startup-id                 "fcitx"
 exec_always --no-startup-id                 "picom"
@@ -374,3 +319,53 @@ for_window [class="scrcpy"]                 floating enable
 #     Only matches tiling windows. This criterion requires no value.
 # 
 # The criteria class, instance, role, title, workspace and mark are actually regular expressions (PCRE). See pcresyntax(3) or perldoc perlre for information on how to use them.
+
+
+# # Start i3bar to display a workspace bar (plus the system information i3status
+# # finds out, if available)
+# bar {
+#     #status_command i3status
+#     #tray_output primary
+#     position bottom
+#     status_command i3status
+#     colors {
+#         background #000000
+#         statusline #00FF00
+#         separator #00FFFF
+#         # focused_workspace #B8F788 #000000AA
+#         # active_workspace #FFFFFF #FFFFFFAA
+#         # inactive_workspace #AAAAAA #000000AA #AAAAAA
+#         # urgent_workspace #E57B85 #000000AA
+#
+#         # 工作区颜色         边框    背景    文字
+#         focused_workspace  #3297FD #11111100 #FFFFFF
+#         active_workspace   #FFFFFF #FFFFFF00 #FFFFFF
+#         inactive_workspace #111111 #11111100 #FFFFFF
+#         urgent_workspace   #990000 #11111100 #FFFFFF
+#         binding_mode       #990000 #99000000 #FFFFFF
+#     }
+# }
+
+# bar {
+# 	id bar-1
+# 	i3bar_command i3bar
+# 	status_command i3status
+# 	position bottom
+# 
+# 	font xft:URWGothic-Book 12
+# 	strip_workspace_numbers yes
+# 
+# 	colors {
+# 		background #222222
+# 		statusline #eeeeee
+# 		separator #666666
+# 
+#         #                  border  backgr. text
+# 		focused_workspace  #F9FAF9 #16a085 #292F34
+# 		active_workspace   #595B5B #353836 #FDF6E3
+# 		inactive_workspace #595B5B #222D31 #EEE8D5
+# 		binding_mode       #16a085 #2C2C2C #F9FAF9
+# 		urgent_workspace   #16a085 #FDF6E3 #E5201D
+# 	}
+# }
+
