@@ -221,9 +221,9 @@ endif
 		"MAPS
 		nmap <leader>rn <Plug>(coc-rename)
 		nnoremap <silent> <leader>p  :<c-u>CocList -A --normal yank<cr>
-		nnoremap <silent> gd         <Plug>(coc-definition)
-		nnoremap <silent> gi         <Plug>(coc-implementation)
-		nnoremap <silent> gr         <Plug>(coc-references)
+		nmap <silent> gd <Plug>(coc-definition)
+		nmap <silent> gi <Plug>(coc-implementation)
+		nmap <silent> gr <Plug>(coc-references)
 		imap <c-j> <plug>(coc-snippets-expand)
 		let g:coc_snippet_next = '<c-j>'
 		let g:coc_snippet_prev = '<c-k>'
