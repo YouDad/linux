@@ -61,6 +61,8 @@ endif
 
 		"html, css
 		Plug 'mattn/emmet-vim'
+		Plug 'JulesWang/css.vim'
+		Plug 'cakebaker/scss-syntax.vim'
 
 		"comment
 		Plug 'scrooloose/nerdcommenter'
@@ -245,7 +247,9 @@ endif
     "emmet-vim
         let g:user_emmet_mode='inv'
         let g:user_emmet_install_global = 0
-        autocmd filetype html,css EmmetInstall
+        autocmd filetype html,css,scss.css EmmetInstall
+		au BufRead,BufNewFile *.scss set filetype=scss.css
+		autocmd FileType scss set iskeyword+=-
 
     "nerdcommenter
         let g:NERDSpaceDelims = 1
