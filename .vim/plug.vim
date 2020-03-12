@@ -37,7 +37,7 @@ endif
 		endif
 
 		"translate
-		Plug 'voldikss/vim-translate-me'
+		Plug 'voldikss/vim-translator'
 
 		"rst2html (deprecated)
 		"Plug 'gu-fan/riv.vim'
@@ -183,13 +183,7 @@ endif
         nmap <silent> <leader>r <plug>TranslateR
         vmap <silent> <leader>r <plug>TranslateRV
 		"
-        let g:vtm_default_mapping = 0
         let g:vtm_default_to_lang = 'zh'
-        let g:vtm_default_engines = ['bing', 'ciba', 'youdao']
-        let g:vtm_proxy_url= ''
-        let g:vtm_enable_history= 1
-        let g:vtm_max_history_count= 100
-		" let g:vtm_history_dir=
 
     "riv.vim
         "nmap <silent> <leader>t :Riv2HtmlAndBrowse<cr>
