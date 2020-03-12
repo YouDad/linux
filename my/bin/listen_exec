@@ -22,5 +22,5 @@ while true; do
 			ring -af volume=-15
 		fi
 	fi
-	inotifywait --exclude "\./\..*" -r -e modify . 1>/dev/null 2>&1
+	inotifywait --exclude "\./\..*" -r -e modify .
 done
