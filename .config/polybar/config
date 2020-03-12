@@ -192,7 +192,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "▦"
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
@@ -227,7 +227,7 @@ interface = enp3s0f1
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = "📶"
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
@@ -241,13 +241,13 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date = %Y-%m-%d
-date-alt = 
+date =
+date-alt = %Y-%m-%d
 
-time = %H:%M:%S
-time-alt = %u
+time = %H:%M:%S 
+time-alt = %u 
 
-format-prefix = 
+format-prefix = " "
 ;format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
@@ -312,6 +312,7 @@ animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
+interval = 0.5
 thermal-zone = 0
 warn-temperature = 80
 
