@@ -220,6 +220,8 @@ endif
 		nmap <silent> gd <Plug>(coc-definition)
 		nmap <silent> gi <Plug>(coc-implementation)
 		nmap <silent> gr <Plug>(coc-references)
+		nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+		nmap <silent> g] <Plug>(coc-diagnostic-next)
 		imap <c-j> <plug>(coc-snippets-expand)
 		let g:coc_snippet_next = '<c-j>'
 		let g:coc_snippet_prev = '<c-k>'
