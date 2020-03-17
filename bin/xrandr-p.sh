@@ -8,7 +8,7 @@ PRIRate=144
 
 # 内置屏 15.6'
 SECName=eDP-1
-SECMode=1600x900
+SECMode=1920x1080
 SECPos=1920x0
 SECRate=60
 
