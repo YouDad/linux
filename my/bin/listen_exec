@@ -12,8 +12,13 @@ else
 	echo ring is off
 fi
 
+retcode=0
+if [[ "$2" == "--listen" || "$2" == "--once" ]]; then
+	retcode=1
+fi
+
 while true; do
-	if [[ "$?" == "0" ]]; then
+	if [[ "$retcode" == "0" ]]; then
 		echo "Run at: $(date +'%Y/%m/%d %p%T')"
 		echo "$command"
 		$command
@@ -21,6 +26,10 @@ while true; do
 		if [[ $can_ring == "1" ]]; then
 			ring -af volume=-15
 		fi
+		if [[ "$2" == "--once" ]]; then
+			exit
+		fi
 	fi
-	inotifywait --exclude "\./\..*" -r -e modify .
+	ack -g ".*\.(go|vue|js|html)" | xargs inotifywait -e modify
+	retcode=0
 done
