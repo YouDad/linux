@@ -23,4 +23,4 @@ cat > "$folder/package.json" << EOF
 }
 EOF
 
-electron "$folder"
+optirun electron "$folder" || electron "$folder"
