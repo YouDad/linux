@@ -93,24 +93,24 @@ bindsym $win+space focus mode_toggle
 # focus the child container
 # bindsym $win+d focus child
 
-set $ws1 " 1-main "
+set $ws1 " 1 "
 set $ws2 " 2 "
 set $ws3 " 3 "
-set $ws4 " 4-todo "
+set $ws4 " 4 "
 set $ws5 " 5 "
-set $ws6 " 6-music "
-set $ws7 " 7-video "
-set $ws8 " 8-mysql "
-set $ws9 " 9-talk "
+set $ws6 " 6 "
+set $ws7 " 7 "
+set $ws8 " 8 "
+set $ws9 " 9 "
 set $ws0 " 10-tmp "
-set $wsf1 " F1 "
-set $wsf2 " F2 "
-set $wsf3 " F3 "
-set $wsf4 " F4 "
-set $wsf5 " F5 "
-set $wsf6 " F6 "
-set $wsf7 " F7 "
-set $wsf8 " F8 "
+set $wsf1 " A-talk "
+set $wsf2 " B-music "
+set $wsf3 " C-todo "
+set $wsf4 " D "
+set $wsf5 " E "
+set $wsf6 " F "
+set $wsf7 " G "
+set $wsf8 " H "
 
 workspace $ws1 output DP-1
 workspace $ws2 output DP-1
@@ -214,8 +214,8 @@ set $F1System dict
 bindsym $win+ctrl+shift+F1 mode "$F1System"
 mode "$F1System" {
 	bindsym z      floating toggle
-	bindsym x      exec "adb shell input tap 400 2200"
-	bindsym c      exec "adb shell input tap 700 2200"
+	bindsym g      exec "adb shell input tap 700 2200"
+	bindsym m      floating toggle exec "adb shell input tap 400 2200"
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
@@ -259,7 +259,7 @@ bindsym $win+F12                            exec "brightness +"
 
 # music config
 exec_always                                 "clementine"
-assign [class="Clementine"]                 $ws6
+assign [class="Clementine"]                 $wsf2
 
 bindsym ctrl+Scroll_Lock                    exec "screenshot --window"
 bindsym Scroll_Lock                         exec "screenshot"
@@ -274,8 +274,9 @@ exec_always --no-startup-id                 "$HOME/.config/polybar/launch.sh"
 
 assign [class="Thunderbird"]                $ws0
 assign [class="Variety"]                    $ws0
-assign [class="Wine" instance="wechat.exe"] $ws9
-assign [class="Wine" instance="tim.exe"]    $ws9
+
+assign [class="Wine" instance="wechat.exe"] $wsf1
+assign [class="Wine" instance="tim.exe"]    $wsf1
 
 for_window [class="Gedit"]                  floating enable
 for_window [class="Org.gnome.gedit"]        floating enable
