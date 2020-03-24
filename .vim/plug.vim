@@ -70,8 +70,8 @@ endif
 		"javascript
 		Plug 'pangloss/vim-javascript'
 
-		"wiki
-		Plug 'vimwiki/vimwiki'
+		" "wiki
+		" Plug 'vimwiki/vimwiki'
 
 		"go
 		Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -262,12 +262,12 @@ endif
         let g:NERDTrimTrailingWhitespace = 1
         let g:NERDToggleCheckAllLines = 1
 
-	"vimwiki
-		let g:vimwiki_list = [
-			 \{"path": "~/my/link/wiki/",
-			 \ "syntax": "markdown",
-			 \ "ext": ".md"
-			 \}]
+	" "vimwiki
+	"     let g:vimwiki_list = [
+	"          \{"path": "~/my/link/wiki/",
+	"          \ "syntax": "markdown",
+	"          \ "ext": ".md"
+	"          \}]
 
 	"vim-go
 		autocmd filetype go nnoremap <buffer> ga :GoInfo<cr>
