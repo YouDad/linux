@@ -172,6 +172,7 @@ alias grs="git restore --staged"
 
 alias ra="ranger"
 alias lg="lazygit"
+alias vim="nvim"
 
 alias mkdir="mkdir -p "
 
