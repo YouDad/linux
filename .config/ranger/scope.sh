@@ -101,7 +101,7 @@ handle_extension() {
             exiftool "${FILE_PATH}" && exit 5
             ;; # Continue with next handler on failure
 
-		go|vue|json|html|js|ts|cpp|c|sh|makefile|md)
+		go|vue|json|html|js|ts|cpp|c|sh|makefile|md|log)
             ## Syntax highlight
             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
                 exit 2
