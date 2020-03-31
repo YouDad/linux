@@ -122,10 +122,13 @@ fi
 # Add wisely, as too many plugins slow down shell startup.
 
 ### PLUGINS
-plugins=(git zsh-syntax-highlighting)
-if [[ "$TMUX" == "" ]]; then
+plugins=(git)
+if [ -e "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+	plugins+=(zsh-syntax-highlighting)
+fi
+
+if [ -e "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
 	plugins+=(zsh-autosuggestions)
-else
 fi
 
 if [ -e "$ZSH_CUSTOM/plugins/h" ]; then
