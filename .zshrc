@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
+export TERM=xterm-256color
 [ -e $HOME/.profile ] && source $HOME/.profile
 [ -e $HOME/.tmp_profile ] && source $HOME/.tmp_profile
 
