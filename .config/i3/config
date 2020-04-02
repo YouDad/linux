@@ -103,8 +103,8 @@ set $ws7 " 7 "
 set $ws8 " 8 "
 set $ws9 " 9 "
 set $ws0 " 10-tmp "
-set $wsf1 " A-talk "
-set $wsf2 " B-music "
+set $wsf1 " A-music "
+set $wsf2 " B-talk "
 set $wsf3 " C-todo "
 set $wsf4 " D "
 set $wsf5 " E "
@@ -259,7 +259,7 @@ bindsym $win+F12                            exec "brightness +"
 
 # music config
 exec_always                                 "clementine"
-assign [class="Clementine"]                 $wsf2
+assign [class="Clementine"]                 $wsf1
 
 bindsym ctrl+Scroll_Lock                    exec "screenshot --window"
 bindsym Scroll_Lock                         exec "screenshot"
@@ -275,8 +275,8 @@ exec_always --no-startup-id                 "$HOME/.config/polybar/launch.sh"
 assign [class="Thunderbird"]                $ws0
 assign [class="Variety"]                    $ws0
 
-assign [class="Wine" instance="wechat.exe"] $wsf1
-assign [class="Wine" instance="tim.exe"]    $wsf1
+assign [class="Wine" instance="wechat.exe"] $wsf2
+assign [class="Wine" instance="tim.exe"]    $wsf2
 
 for_window [class="Gedit"]                  floating enable
 for_window [class="Org.gnome.gedit"]        floating enable
