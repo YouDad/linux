@@ -171,16 +171,16 @@ endif
         let g:mkdp_highlight_css = ''
         let g:mkdp_port = ''
         let g:mkdp_page_title = '「${name}」'
-       let g:mkdp_preview_options = {
-            \ 'mkit': {},
-            \ 'katex': {},
-            \ 'uml': {},
-            \ 'maid': {},
-            \ 'disable_sync_scroll': 0,
-            \ 'sync_scroll_type': 'middle',
-            \ 'hide_yaml_meta': 1,
-            \ 'sequence_diagrams': {}
-            \ }
+		let g:mkdp_preview_options = {
+			\ 'mkit': {},
+			\ 'katex': {},
+			\ 'uml': {},
+			\ 'maid': {},
+			\ 'disable_sync_scroll': 0,
+			\ 'sync_scroll_type': 'middle',
+			\ 'hide_yaml_meta': 1,
+			\ 'sequence_diagrams': {}
+			\ }
 
     "vim-translate-me
         "<leader>w 翻译光标下的文本，在窗口中显示
