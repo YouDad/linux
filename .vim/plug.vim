@@ -16,78 +16,83 @@ endif
     call plug#begin('~/.vim/plugged')
 		"appearance
 		Plug 'vim-airline/vim-airline'
-		Plug 'connorholyday/vim-snazzy'
-		Plug 'Rigellute/rigel'
 		Plug 'dracula/vim'
-		Plug 'lmintmate/blue-mood-vim'
+		" Plug 'connorholyday/vim-snazzy'
+		" Plug 'Rigellute/rigel'
+		" Plug 'lmintmate/blue-mood-vim'
 
-		"filetree
-		Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-		Plug 'Xuyuanp/nerdtree-git-plugin'
-
-		"undotree
-		Plug 'mbbill/undotree'
-
-		"markdown
-		Plug 'godlygeek/tabular'
-		Plug 'plasticboy/vim-markdown'
-		Plug 'dhruvasagar/vim-table-mode'
-		if has ("nvim")
-			Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+		if exists("g:my_module_coc") && g:my_module_coc == 1
+			"coc
+			Plug 'neoclide/coc.nvim', {'branch': 'release'}
 		endif
 
-		"translate
-		Plug 'voldikss/vim-translator'
+		if exists("g:my_module_go") && g:my_module_go == 1
+			"go
+			Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+		endif
 
-		"rst2html (deprecated)
-		"Plug 'gu-fan/riv.vim'
+		if exists("g:my_module_web") && g:my_module_web == 1
+			"html, css
+			Plug 'mattn/emmet-vim'
+			Plug 'JulesWang/css.vim'
+			Plug 'cakebaker/scss-syntax.vim'
+			"vim highlight
+			Plug 'posva/vim-vue'
+			Plug 'digitaltoad/vim-pug'
+			"javascript
+			Plug 'pangloss/vim-javascript'
+		endif
 
-		"bookmark
-		Plug 'kshenoy/vim-signature'
+		if exists("g:my_module_markdown") && g:my_module_markdown == 1
+			"markdown
+			Plug 'godlygeek/tabular'
+			Plug 'plasticboy/vim-markdown'
+			Plug 'dhruvasagar/vim-table-mode'
+			if has ("nvim")
+				Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+			endif
+			" "wiki
+			" Plug 'vimwiki/vimwiki'
+			" "rst2html (deprecated)
+			"Plug 'gu-fan/riv.vim'
+		endif
 
-		"fzf
-		Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-		Plug 'junegunn/fzf.vim'
+		if exists("g:my_module_other") && g:my_module_other == 1
+			"filetree
+			Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+			Plug 'Xuyuanp/nerdtree-git-plugin'
+			"undotree
+			Plug 'mbbill/undotree'
+			"bookmark
+			Plug 'kshenoy/vim-signature'
+			"startify
+			Plug 'mhinz/vim-startify'
+			"comment
+			Plug 'scrooloose/nerdcommenter'
+			"ack!
+			Plug 'mileszs/ack.vim'
+			"clipboard
+			Plug 'junegunn/vim-peekaboo'
+			"fzf
+			Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+			Plug 'junegunn/fzf.vim'
+		endif
 
-		"startify
-		Plug 'mhinz/vim-startify'
+		if exists("g:my_module_translator") && g:my_module_translator == 1
+			"translate
+			Plug 'voldikss/vim-translator'
+		endif
 
-		"coc
-		Plug 'neoclide/coc.nvim', {'branch': 'release'}
+		if exists("g:my_module_tagbar") && g:my_module_tagbar == 1
+			"taglist
+			"Plug 'vim-scripts/taglist.vim'
+			Plug 'majutsushi/tagbar'
+		endif
 
-		"taglist
-		"Plug 'vim-scripts/taglist.vim'
-		Plug 'majutsushi/tagbar'
-
-		"html, css
-		Plug 'mattn/emmet-vim'
-		Plug 'JulesWang/css.vim'
-		Plug 'cakebaker/scss-syntax.vim'
-
-		"comment
-		Plug 'scrooloose/nerdcommenter'
-
-		"javascript
-		Plug 'pangloss/vim-javascript'
-
-		" "wiki
-		" Plug 'vimwiki/vimwiki'
-
-		"go
-		Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-		"ack!
-		Plug 'mileszs/ack.vim'
-
-		"clipboard
-		Plug 'junegunn/vim-peekaboo'
-
-		"pdf
-		Plug 'makerj/vim-pdf'
-
-		"vim highlight
-		Plug 'posva/vim-vue'
-		Plug 'digitaltoad/vim-pug'
+		if exists("g:my_module_pdf") && g:my_module_pdf == 1
+			"pdf
+			Plug 'makerj/vim-pdf'
+		endif
     call plug#end()
 
     "vim-airline
@@ -131,182 +136,192 @@ endif
         "colorscheme blue-mood
         highlight Normal guibg=NONE ctermbg=None
 
+	if exists("g:my_module_coc") && g:my_module_coc == 1
+		"coc
+			let g:coc_global_extensions = ['coc-lists', 'coc-pairs',
+						\ 'coc-yank', 'coc-git', 'coc-json', 'coc-vimlsp']
+			if exists("g:my_module_web") && g:my_module_web == 1
+				let g:coc_global_extensions += ['coc-html', 'coc-css']
+			endif
+			"'coc-snippets', 'coc-tsserver', 'coc-go', 'coc-sh',
+			"'coc-python', 'coc-java',
+			"MAPS
+			nmap <leader>rn <Plug>(coc-rename)
+			nnoremap <silent> <leader>p  :<c-u>CocList -A --normal yank<cr>
+			nmap <silent> gd <Plug>(coc-definition)
+			nmap <silent> gi <Plug>(coc-implementation)
+			nmap <silent> gr <Plug>(coc-references)
+			nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+			nmap <silent> g] <Plug>(coc-diagnostic-next)
+			imap <c-j> <plug>(coc-snippets-expand)
+			let g:coc_snippet_next = '<c-j>'
+			let g:coc_snippet_prev = '<c-k>'
+			"AUTOCMD
+			autocmd CursorHold * silent call CocActionAsync('highlight')
+			"SET VARIABLE
+			set hidden
+			set nobackup
+			set nowritebackup
+			set cmdheight=2
+			set updatetime=300
+		"coc-pairs
+			autocmd FileType markdown let b:coc_pairs_disabled = ['`']
+	endif
 
-    "nerdtree
-        map st			:NERDTreeToggle<cr>
+	if exists("g:my_module_go") && g:my_module_go == 1
+		"vim-go
+			autocmd filetype go nnoremap <buffer> ga :GoInfo<cr>
+			autocmd filetype go nmap     <buffer> <C-RightMouse> <C-t>
+			"
+			let g:go_template_autocreate                 = 0
+			let g:go_textobj_enabled                     = 0
+			let g:go_auto_type_info                      = 0
+			"
+			let g:go_highlight_array_whitespace_error    = 1
+			let g:go_highlight_build_constraints         = 1
+			let g:go_highlight_chan_whitespace_error     = 1
+			let g:go_highlight_extra_types               = 1
+			let g:go_highlight_fields                    = 1
+			let g:go_highlight_format_strings            = 1
+			let g:go_highlight_function_calls            = 1
+			let g:go_highlight_function_parameters       = 1
+			let g:go_highlight_functions                 = 1
+			let g:go_highlight_generate_tags             = 1
+			let g:go_highlight_methods                   = 1
+			let g:go_highlight_operators                 = 1
+			let g:go_highlight_space_tab_error           = 1
+			let g:go_highlight_string_spellcheck         = 1
+			let g:go_highlight_structs                   = 1
+			let g:go_highlight_trailing_whitespace_error = 1
+			let g:go_highlight_types                     = 1
+			let g:go_highlight_variable_assignments      = 0
+			let g:go_highlight_variable_declarations     = 0
+			"
+			let g:go_highlight_diagnostic_errors         = 0
+			let g:go_highlight_diagnostic_warnings       = 0
+	endif
 
-    "nerdtree-git-plugin
-        let g:NERDTreeIndicatorMapCustom = {
-            \ "Modified" : "✹",
-            \ "Staged"   : "✚",
-            \ "Untracked": "✭",
-            \ "Renamed"  : "➜",
-            \ "Unmerged" : "═",
-            \ "Deleted"  : "✖",
-            \ "Dirty"    : "✗",
-            \ "Clean"    : "✔︎",
-            \ "Unknown"  : "?"
-        \ }
+	if exists("g:my_module_web") && g:my_module_web == 1
+		"emmet-vim
+			let g:user_emmet_mode='inv'
+			let g:user_emmet_install_global = 0
+			autocmd filetype html,css,scss.css EmmetInstall
+			au BufRead,BufNewFile *.scss set filetype=scss.css
+			autocmd FileType scss set iskeyword+=-
 
-    "undotree
-        map su			:UndotreeToggle<cr>
+		"vim-vue
+			let g:vue_pre_processors = ['pug']
+	endif
 
-    "vim-markdown
-        let g:vim_markdown_folding_disabled = 1
+	if exists("g:my_module_markdown") && g:my_module_markdown == 1
+		"vim-markdown
+			let g:vim_markdown_folding_disabled = 1
 
-    "markdown-preview.nvim
-        nmap <leader>m	:MarkdownPreview<cr>
-        nmap <leader>mt	:TableFormat<cr>
-		"
-        let g:mkdp_auto_start = 0
-        let g:mkdp_auto_close = 1
-        let g:mkdp_refresh_slow = 0
-        let g:mkdp_command_for_global = 0
-        let g:mkdp_open_to_the_world = 0
-        let g:mkdp_open_ip = ''
-        let g:mkdp_browser = 'firefox'
-        let g:mkdp_echo_preview_url = 1
-        let g:mkdp_browserfunc = ''
-        let g:mkdp_markdown_css = ''
-        let g:mkdp_highlight_css = ''
-        let g:mkdp_port = ''
-        let g:mkdp_page_title = '「${name}」'
-		let g:mkdp_preview_options = {
-			\ 'mkit': {},
-			\ 'katex': {},
-			\ 'uml': {},
-			\ 'maid': {},
-			\ 'disable_sync_scroll': 0,
-			\ 'sync_scroll_type': 'middle',
-			\ 'hide_yaml_meta': 1,
-			\ 'sequence_diagrams': {}
+		"markdown-preview.nvim
+			nmap <leader>m	:MarkdownPreview<cr>
+			nmap <leader>mt	:TableFormat<cr>
+			"
+			let g:mkdp_auto_start = 0
+			let g:mkdp_auto_close = 1
+			let g:mkdp_refresh_slow = 0
+			let g:mkdp_command_for_global = 0
+			let g:mkdp_open_to_the_world = 0
+			let g:mkdp_open_ip = ''
+			let g:mkdp_browser = 'firefox'
+			let g:mkdp_echo_preview_url = 1
+			let g:mkdp_browserfunc = ''
+			let g:mkdp_markdown_css = ''
+			let g:mkdp_highlight_css = ''
+			let g:mkdp_port = ''
+			let g:mkdp_page_title = '「${name}」'
+			let g:mkdp_preview_options = {
+				\ 'mkit': {},
+				\ 'katex': {},
+				\ 'uml': {},
+				\ 'maid': {},
+				\ 'disable_sync_scroll': 0,
+				\ 'sync_scroll_type': 'middle',
+				\ 'hide_yaml_meta': 1,
+				\ 'sequence_diagrams': {}
+				\ }
+
+		" "vimwiki
+		"     let g:vimwiki_list = [
+		"          \{"path": "~/my/link/wiki/",
+		"          \ "syntax": "markdown",
+		"          \ "ext": ".md"
+		"          \}]
+
+		"riv.vim
+			"nmap <silent> <leader>t :Riv2HtmlAndBrowse<cr>
+	endif
+
+	if exists("g:my_module_other") && g:my_module_other == 1
+		"nerdtree
+			map st			:NERDTreeToggle<cr>
+
+		"nerdtree-git-plugin
+			let g:NERDTreeIndicatorMapCustom = {
+				\ "Modified" : "✹",
+				\ "Staged"   : "✚",
+				\ "Untracked": "✭",
+				\ "Renamed"  : "➜",
+				\ "Unmerged" : "═",
+				\ "Deleted"  : "✖",
+				\ "Dirty"    : "✗",
+				\ "Clean"    : "✔︎",
+				\ "Unknown"  : "?"
 			\ }
 
-    "vim-translate-me
-        "<leader>w 翻译光标下的文本，在窗口中显示
-        nmap <silent> <leader>w <plug>TranslateW
-        vmap <silent> <leader>w <plug>TranslateWV
-        "<leader>r 替换光标下的文本为翻译内容
-        nmap <silent> <leader>r <plug>TranslateR
-        vmap <silent> <leader>r <plug>TranslateRV
-		"
-        let g:vtm_default_to_lang = 'zh'
+		"undotree
+			map su			:UndotreeToggle<cr>
 
-    "riv.vim
-        "nmap <silent> <leader>t :Riv2HtmlAndBrowse<cr>
+		"vim-signature
+			let g:SignatureMap = {
+				\ 'Leader'             :  "m",
+				\ 'PlaceNextMark'      :  "m,",
+				\ 'DeleteMark'         :  "sd",
+				\ 'GotoNextSpotAlpha'  :  "m<LEADER>",
+				\ 'GotoNextSpotByPos'  :  "mn",
+				\ 'GotoPrevSpotByPos'  :  "mp",
+				\ 'ListLocalMarks'     :  "m/",
+				\ }
 
-    "vim-signature
-        let g:SignatureMap = {
-            \ 'Leader'             :  "m",
-            \ 'PlaceNextMark'      :  "m,",
-            \ 'DeleteMark'         :  "sd",
-            \ 'GotoNextSpotAlpha'  :  "m<LEADER>",
-            \ 'GotoNextSpotByPos'  :  "mn",
-            \ 'GotoPrevSpotByPos'  :  "mp",
-            \ 'ListLocalMarks'     :  "m/",
-            \ }
+		"nerdcommenter
+			let g:NERDSpaceDelims = 1
+			let g:NERDCompactSexyComs = 1
+			let g:NERDDefaultAlign = 'left'
+			let g:NERDAltDelims_java = 1
+			let g:NERDCommentEmptyLines = 1
+			let g:NERDTrimTrailingWhitespace = 1
+			let g:NERDToggleCheckAllLines = 1
 
-    "fzf
-        nmap sp :FZF<CR>
+		"ack!
+			nnoremap sa :Ack<cr>
+	endif
 
-    "coc
-	    let g:coc_global_extensions = [
-					\ 'coc-lists', 'coc-pairs', 'coc-yank',
-					\ 'coc-git',
-					\ 'coc-json',
-					\ 'coc-html', 'coc-css',
-					\ 'coc-python', 'coc-java',
-					\ 'coc-vimlsp',
-					\ ]
-		"'coc-snippets', 'coc-tsserver', 'coc-go', 'coc-sh',
-		"MAPS
-		nmap <leader>rn <Plug>(coc-rename)
-		nnoremap <silent> <leader>p  :<c-u>CocList -A --normal yank<cr>
-		nmap <silent> gd <Plug>(coc-definition)
-		nmap <silent> gi <Plug>(coc-implementation)
-		nmap <silent> gr <Plug>(coc-references)
-		nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-		nmap <silent> g] <Plug>(coc-diagnostic-next)
-		imap <c-j> <plug>(coc-snippets-expand)
-		let g:coc_snippet_next = '<c-j>'
-		let g:coc_snippet_prev = '<c-k>'
-		"AUTOCMD
-		autocmd CursorHold * silent call CocActionAsync('highlight')
-		"SET VARIABLE
-		set hidden
-		set nobackup
-		set nowritebackup
-		set cmdheight=2
-		set updatetime=300
+	if exists("g:my_module_translator") && g:my_module_translator == 1
+		"vim-translate-me
+			"<leader>w 翻译光标下的文本，在窗口中显示
+			nmap <silent> <leader>w <plug>TranslateW
+			vmap <silent> <leader>w <plug>TranslateWV
+			"<leader>r 替换光标下的文本为翻译内容
+			nmap <silent> <leader>r <plug>TranslateR
+			vmap <silent> <leader>r <plug>TranslateRV
+			"
+			let g:vtm_default_to_lang = 'zh'
+	endif
 
-    "tagbar
-		nnoremap sg :TagbarToggle<cr>
-		"
-		let g:tagbar_width = 50
-		let g:tarbar_autoclose = 1
-		let g:tarbar_autofocus = 0
-		let g:tarbar_sort = 0
-		let g:tarbar_indent = 1
-		let g:tarbar_foldlevel = 1
-		let g:tarbar_autoshowtag = 0
-		let g:tarbar_autopreview = 0
-
-    "emmet-vim
-        let g:user_emmet_mode='inv'
-        let g:user_emmet_install_global = 0
-        autocmd filetype html,css,scss.css EmmetInstall
-		au BufRead,BufNewFile *.scss set filetype=scss.css
-		autocmd FileType scss set iskeyword+=-
-
-    "nerdcommenter
-        let g:NERDSpaceDelims = 1
-        let g:NERDCompactSexyComs = 1
-        let g:NERDDefaultAlign = 'left'
-        let g:NERDAltDelims_java = 1
-        let g:NERDCommentEmptyLines = 1
-        let g:NERDTrimTrailingWhitespace = 1
-        let g:NERDToggleCheckAllLines = 1
-
-	" "vimwiki
-	"     let g:vimwiki_list = [
-	"          \{"path": "~/my/link/wiki/",
-	"          \ "syntax": "markdown",
-	"          \ "ext": ".md"
-	"          \}]
-
-	"vim-go
-		autocmd filetype go nnoremap <buffer> ga :GoInfo<cr>
-		autocmd filetype go nmap     <buffer> <C-RightMouse> <C-t>
-		"
-		let g:go_template_autocreate                 = 0
-		let g:go_textobj_enabled                     = 0
-		let g:go_auto_type_info                      = 0
-		"
-		let g:go_highlight_array_whitespace_error    = 1
-		let g:go_highlight_build_constraints         = 1
-		let g:go_highlight_chan_whitespace_error     = 1
-		let g:go_highlight_extra_types               = 1
-		let g:go_highlight_fields                    = 1
-		let g:go_highlight_format_strings            = 1
-		let g:go_highlight_function_calls            = 1
-		let g:go_highlight_function_parameters       = 1
-		let g:go_highlight_functions                 = 1
-		let g:go_highlight_generate_tags             = 1
-		let g:go_highlight_methods                   = 1
-		let g:go_highlight_operators                 = 1
-		let g:go_highlight_space_tab_error           = 1
-		let g:go_highlight_string_spellcheck         = 1
-		let g:go_highlight_structs                   = 1
-		let g:go_highlight_trailing_whitespace_error = 1
-		let g:go_highlight_types                     = 1
-		let g:go_highlight_variable_assignments      = 0
-		let g:go_highlight_variable_declarations     = 0
-		"
-		let g:go_highlight_diagnostic_errors         = 0
-		let g:go_highlight_diagnostic_warnings       = 0
-
-	"ack!
-		nnoremap sa :Ack<cr>
-
-	"vim-vue
-		let g:vue_pre_processors = ['pug']
+	if exists("g:my_module_tagbar") && g:my_module_tagbar == 1
+		"tagbar
+			nnoremap sg :TagbarToggle<cr>
+			"
+			let g:tagbar_width = 50
+			let g:tarbar_autoclose = 1
+			let g:tarbar_autofocus = 0
+			let g:tarbar_sort = 0
+			let g:tarbar_indent = 1
+			let g:tarbar_foldlevel = 1
+			let g:tarbar_autoshowtag = 0
+			let g:tarbar_autopreview = 0
+	endif
