@@ -213,12 +213,12 @@ endif
 	    let g:coc_global_extensions = [
 					\ 'coc-lists', 'coc-pairs', 'coc-yank',
 					\ 'coc-git',
-					\ 'coc-json', 'coc-go', 'coc-sh',
+					\ 'coc-json',
 					\ 'coc-html', 'coc-css',
 					\ 'coc-python', 'coc-java',
 					\ 'coc-vimlsp',
 					\ ]
-		"'coc-snippets', 'coc-tsserver',
+		"'coc-snippets', 'coc-tsserver', 'coc-go', 'coc-sh',
 		"MAPS
 		nmap <leader>rn <Plug>(coc-rename)
 		nnoremap <silent> <leader>p  :<c-u>CocList -A --normal yank<cr>
