@@ -8,11 +8,11 @@ export MY_BIN="$HOME/my/bin"
 export MY_SRC="$HOME/my/src"
 export MY_LINK="$HOME/my/link"
 
-export PATH="$PATH:$MY_BIN"
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/my/src/nodejs/bin"
-export PATH="$PATH:$HOME/.yarn/bin"
+export PATH="$MY_BIN:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/my/src/nodejs/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
 
 ### GO
 export GOPATH="$HOME/go"

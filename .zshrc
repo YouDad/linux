@@ -178,7 +178,6 @@ alias gs="git status"
 
 alias ra="ranger"
 alias lg="lazygit"
-alias vim="nvim"
 
 alias mkdir="mkdir -p "
 
