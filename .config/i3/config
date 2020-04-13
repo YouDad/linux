@@ -256,13 +256,11 @@ bindsym XF86MonBrightnessDown               exec "brightness -"
 bindsym $win+F11                            exec "brightness -"
 bindsym XF86MonBrightnessUp                 exec "brightness +"
 bindsym $win+F12                            exec "brightness +"
+bindsym $win+ctrl+shift+s                   exec "deepin-screenshot --save-path $HOME/Picture/ScreenShot/"
 
 # music config
 exec_always                                 "clementine"
 assign [class="Clementine"]                 $wsf1
-
-bindsym ctrl+Scroll_Lock                    exec "screenshot --window"
-bindsym Scroll_Lock                         exec "screenshot"
 
 # exec_always --no-startup-id                 "variety"
 exec_always --no-startup-id                 "thunderbird"
