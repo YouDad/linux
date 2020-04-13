@@ -31,7 +31,7 @@ function! HEADER_VUE()
 	call setline(10, '})')
 	call setline(11, '</script>')
 	call setline(12, '')
-	call setline(13, '<style lang="less" scoped>')
+	call setline(13, '<style lang="scss" scoped>')
 	call setline(14, '')
 	call setline(15, '</style>')
 	normal 2G
