@@ -215,7 +215,7 @@ bindsym $win+ctrl+shift+F1 mode "$F1System"
 mode "$F1System" {
 	bindsym z      floating toggle
 	bindsym g      exec "adb shell input tap 700 2200"
-	bindsym m      floating toggle exec "adb shell input tap 400 2200"
+	bindsym m      exec "adb shell input tap 400 2200"
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
