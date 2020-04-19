@@ -96,7 +96,7 @@ endif
     call plug#end()
 
     "vim-airline
-        let g:airline#extensions#coc#enabled = 0
+        let g:airline#extensions#coc#enabled = 1
         let g:airline#extensions#branch#enabled = 1
         let g:airline#extensions#tabline#enabled = 1
         let g:airline#extensions#tabline#show_buffers = 1
@@ -105,15 +105,6 @@ endif
         let g:airline_powerline_fonts = 0
         let g:airline_left_sep = ''
         let g:airline_right_sep = ''
-        let g:airline_mode_map = {
-              \ 'n'  : 'N',
-              \ 'i'  : 'I',
-              \ 'R'  : 'R',
-              \ 'c'  : 'C',
-              \ 'v'  : 'V',
-              \ 'V'  : 'L',
-              \ '' : 'B',
-              \ }
 
     "vim-colorscheme
         if has ("nvim")
