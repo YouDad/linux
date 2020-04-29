@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
+export ZPLUG_HOME="$HOME/.config/zplug"
 export TERM=xterm-256color
 [ -e $HOME/.profile ] && source $HOME/.profile
 [ -e $HOME/.tmp_profile ] && source $HOME/.tmp_profile
@@ -14,26 +15,35 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 
 ###############################
+# zsh plugins
+###############################
+
+alias szplug="source $ZPLUG_HOME/init.zsh"
+if [ -e $ZPLUG_HOME/init.zsh ]; then
+	plugins=(git zsh-syntax-highlighting zsh-autosuggestions h)
+else
+	alias installzplug="git clone https://github.com/zplug/zplug $ZPLUG_HOME && zpluginstall"
+	function zpluginstall() {
+		szplug
+		zplug 'dracula/zsh', as:theme
+		zplug 'zsh-users/zsh-syntax-highlighting'
+		zplug 'zsh-users/zsh-autosuggestions'
+		zplug 'YouDad/h'
+		zplug install
+		ln -sf $ZPLUG_HOME/repos/dracula/zsh/dracula.zsh-theme $ZSH_CUSTOM/
+		function __plug() {
+			ln -sf $ZPLUG_HOME/repos/$1/$2 $ZSH_CUSTOM/plugins/$2
+		}
+		__plug zsh-users zsh-syntax-highlighting
+		__plug zsh-users zsh-autosuggestions
+		__plug YouDad h
+	}
+fi
+
+###############################
 # theme
 ###############################
-if false && [ -e $MY_SRC/powerlevel9k/powerlevel9k.zsh-theme ]; then
-	if [ ! -e $ZSH_CUSTOM/powerlevel9k.zsh-theme ]; then
-		ln -sf $MY_SRC/powerlevel9k/powerlevel9k.zsh-theme $ZSH_CUSTOM/
-	fi
-	ZSH_THEME="powerlevel9k"
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir background_jobs newline status)
-	POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-#	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs status newline os_icon)
-#	POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs time history)
-	POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-#	POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
-	
-	POWERLEVEL9K_SHORTEN_DIR_LENGTH=8
-	POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
-	POWERLEVEL9K_MODE='nerdfont-complete'
-	POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
-	POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
-elif [ -e $ZSH_CUSTOM/dracula.zsh-theme ]; then
+if [ -e $ZSH_CUSTOM/dracula.zsh-theme ]; then
 	ZSH_THEME="dracula"
 	DRACULA_DISPLAY_CONTEXT=1
 else
@@ -49,14 +59,6 @@ if [[ "$?" == "0" ]]; then
 	if [[ "$?" == "0" ]]; then
 		# remote
 		echo "Welcome, SSH_USER, "`who am i`
-		if [[ $ZSH_THEME == "powerlevel9k" ]]; then
-			if [ -e $ZSH_CUSTOM/dracula.zsh-theme ]; then
-				ZSH_THEME="dracula"
-				DRACULA_DISPLAY_CONTEXT=1
-			else
-				ZSH_THEME="risto"
-			fi
-		fi
 	else
 		# local
 	fi
@@ -120,20 +122,6 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-
-### PLUGINS
-plugins=(git)
-if [ -e "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-	plugins+=(zsh-syntax-highlighting)
-fi
-
-if [ -e "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-	plugins+=(zsh-autosuggestions)
-fi
-
-if [ -e "$ZSH_CUSTOM/plugins/h" ]; then
-	plugins+=(h)
-fi
 
 source $ZSH/oh-my-zsh.sh
 

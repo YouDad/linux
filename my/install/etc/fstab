@@ -14,4 +14,5 @@ tmpfs                                     /tmp           tmpfs   defaults,noatim
 /dev/sdb2                                 /mnt/win10.e   ntfs    defaults                   0       0
 /dev/sdb3                                 /mnt/win10.f   ntfs    defaults                   0       0
 /dev/sda5                                 /mnt/win10.g   ntfs    defaults                   0       0
+/.swap                                    swap           swap    defaults                   0       0
 
