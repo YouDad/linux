@@ -76,6 +76,8 @@ endif
 			"fzf
 			Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 			Plug 'junegunn/fzf.vim'
+			"clever-f
+			Plug 'rhysd/clever-f.vim'
 		endif
 
 		if exists("g:my_module_translator") && g:my_module_translator == 1
@@ -289,6 +291,10 @@ endif
 
 		"ack!
 			nnoremap sa :Ack<cr>
+
+		"clever-f
+			map ; <Plug>(clever-f-repeat-forward)
+			map , <Plug>(clever-f-repeat-back)
 	endif
 
 	if exists("g:my_module_translator") && g:my_module_translator == 1
