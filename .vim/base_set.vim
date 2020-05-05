@@ -1,5 +1,6 @@
-"显示行号
+"显示行号(相对模式)
 set number
+set relativenumber
 
 set ttyfast "should make scrolling faster
 set lazyredraw "same as above
