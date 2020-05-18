@@ -256,7 +256,7 @@ bindsym XF86MonBrightnessDown               exec "brightness -"
 bindsym $win+F11                            exec "brightness -"
 bindsym XF86MonBrightnessUp                 exec "brightness +"
 bindsym $win+F12                            exec "brightness +"
-bindsym $win+ctrl+shift+s                   exec "deepin-screenshot --save-path $HOME/Picture/ScreenShot/"
+bindsym $win+ctrl+shift+s                   exec "deepin-screen-recorder --save-path $HOME/Picture/ScreenShot/"
 
 # music config
 exec_always                                 "clementine"
