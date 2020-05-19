@@ -286,6 +286,7 @@ for_window [class="Org.gnome.Nautilus"]     floating enable
 for_window [class="Blueman-manager"]        floating enable
 for_window [class="Gnome-calculator"]       floating enable
 for_window [class="scrcpy"]                 floating enable
+for_window [class="Gthumb"]                 floating enable
 
 
 # help
