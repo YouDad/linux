@@ -3,8 +3,6 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
 export ZPLUG_HOME="$HOME/.config/zplug"
 export TERM=xterm-256color
-[ -e $HOME/.profile ] && source $HOME/.profile
-[ -e $HOME/.tmp_profile ] && source $HOME/.tmp_profile
 
 ###############################
 # zsh setting
@@ -192,3 +190,6 @@ fi
 if [ -f $MY_SRC/hhistory/hhistory.sh ]; then
 	source $MY_SRC/hhistory/hhistory.sh
 fi
+
+[ -e $HOME/.profile ] && source $HOME/.profile
+[ -e $HOME/.tmp_profile ] && source $HOME/.tmp_profile

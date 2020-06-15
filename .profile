@@ -23,3 +23,5 @@ export GOPROXY=https://goproxy.cn
 export TMOUT=1000000
 
 export EDITOR=nvim
+
+export LD_PRELOAD=""
