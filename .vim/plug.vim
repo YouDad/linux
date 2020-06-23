@@ -41,6 +41,8 @@ endif
 			Plug 'digitaltoad/vim-pug'
 			"javascript
 			Plug 'pangloss/vim-javascript'
+			"color
+			Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 		endif
 
 		if exists("g:my_module_markdown") && g:my_module_markdown == 1
@@ -204,6 +206,9 @@ endif
 
 		"vim-vue
 			let g:vue_pre_processors = ['pug']
+
+		"vim-hexokinase
+			let g:Hexokinase_highlighters = ['background']
 	endif
 
 	if exists("g:my_module_markdown") && g:my_module_markdown == 1
