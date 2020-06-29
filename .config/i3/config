@@ -259,11 +259,8 @@ bindsym $win+F12                            exec "brightness +"
 bindsym $win+ctrl+shift+s                   exec "deepin-screen-recorder --save-path $HOME/Picture/ScreenShot/"
 
 # music config
-exec_always                                 "clementine"
 assign [class="Clementine"]                 $wsf1
 
-# exec_always --no-startup-id                 "variety"
-exec_always --no-startup-id                 "thunderbird"
 exec_always --no-startup-id                 "fcitx"
 exec_always --no-startup-id                 "picom"
 exec_always --no-startup-id                 "blueman-tray"
