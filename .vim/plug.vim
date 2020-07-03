@@ -130,6 +130,7 @@ endif
 			endif
         "colorscheme blue-mood
         highlight Normal guibg=NONE ctermbg=None
+		highlight comment ctermfg=DarkGreen guifg=#008800
 
 	if exists("g:my_module_coc") && g:my_module_coc == 1
 		"coc
