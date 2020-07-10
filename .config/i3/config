@@ -112,16 +112,19 @@ set $wsf6 " F "
 set $wsf7 " G "
 set $wsf8 " H "
 
-workspace $ws1 output DP-1
-workspace $ws2 output DP-1
-workspace $ws3 output DP-1
-workspace $ws4 output DP-1
-workspace $ws5 output DP-1
-workspace $ws6 output DP-1
-workspace $ws7 output DP-1
-workspace $ws8 output DP-1
-workspace $ws9 output DP-1
-workspace $ws0 output eDP-1
+set $PRIOutput "DP-0"
+set $SECOutput "HDMI-0"
+
+workspace $ws1 output $PRIOutput
+workspace $ws2 output $PRIOutput
+workspace $ws3 output $PRIOutput
+workspace $ws4 output $PRIOutput
+workspace $ws5 output $PRIOutput
+workspace $ws6 output $PRIOutput
+workspace $ws7 output $PRIOutput
+workspace $ws8 output $PRIOutput
+workspace $ws9 output $PRIOutput
+workspace $ws0 output $SECOutput
 
 # switch to workspace
 bindsym $win+1 workspace $ws1
@@ -188,6 +191,8 @@ mode "$print_mode" {
 	bindsym $win+ctrl+q exec --no-startup-id "bash ~/bin/xrandr-q.sh"
 	bindsym $win+ctrl+w exec --no-startup-id "bash ~/bin/xrandr-w.sh"
 	bindsym $win+ctrl+e exec --no-startup-id "bash ~/bin/xrandr-e.sh"
+	bindsym $win+ctrl+i exec --no-startup-id "bash ~/bin/xrandr-i.sh"
+	bindsym $win+ctrl+o exec --no-startup-id "bash ~/bin/xrandr-o.sh"
 	bindsym $win+ctrl+p exec --no-startup-id "bash ~/bin/xrandr-p.sh"
 
 	bindsym Return mode "default"
