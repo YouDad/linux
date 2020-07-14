@@ -162,6 +162,7 @@ alias grs="git restore --staged"
 alias gbmv="git branch --move"
 alias gs="git status"
 alias gpod="git push origin --delete"
+alias gaf="git add -f"
 
 alias ra="ranger"
 alias lg="lazygit"
