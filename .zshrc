@@ -51,12 +51,14 @@ fi
 ###############################
 # is remote ?
 ###############################
+remote=0
 who am i >/dev/null 2>&1
 if [[ "$?" == "0" ]]; then
 	who am i | grep pts
 	if [[ "$?" == "0" ]]; then
 		# remote
 		echo "Welcome, SSH_USER, "`who am i`
+		remote=1
 	else
 		# local
 	fi
@@ -195,3 +197,6 @@ fi
 
 [ -e $HOME/.profile ] && source $HOME/.profile
 [ -e $HOME/.tmp_profile ] && source $HOME/.tmp_profile
+if [[ "$remote" == "1" ]]; then
+	tmux -2 a 2>/dev/null
+fi
