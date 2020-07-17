@@ -199,4 +199,6 @@ fi
 [ -e $HOME/.tmp_profile ] && source $HOME/.tmp_profile
 if [[ "$remote" == "1" ]]; then
 	tmux -2 a 2>/dev/null
+	# remove $1
+	ls > /dev/null 2>&1
 fi
