@@ -229,10 +229,10 @@ endif
 			let g:mkdp_browser = 'firefox'
 			let g:mkdp_echo_preview_url = 1
 			let g:mkdp_browserfunc = ''
-			let g:mkdp_markdown_css = ''
-			let g:mkdp_highlight_css = ''
+			let g:mkdp_markdown_css = expand('~/my/src/markdown/markdown.css')
+			let g:mkdp_highlight_css = expand('~/my/src/markdown/highlight.css')
 			let g:mkdp_port = ''
-			let g:mkdp_page_title = '「${name}」'
+			let g:mkdp_page_title = '${name}'
 			let g:mkdp_preview_options = {
 				\ 'mkit': {},
 				\ 'katex': {},

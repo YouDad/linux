@@ -1,0 +1,560 @@
+/*
+ * github like style
+ * https://github.com/iamcco/markdown.css/blob/master/dest/github/markdown.css
+ */
+.markdown-body ol ol,
+.markdown-body ul ol,
+.markdown-body ol ul,
+.markdown-body ul ul,
+.markdown-body ol ul ol,
+.markdown-body ul ul ol,
+.markdown-body ol ul ul,
+.markdown-body ul ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.markdown-body {
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  word-wrap: break-word;
+  padding: 45px;
+  background: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
+.markdown-body > *:first-child {
+  margin-top: 0 !important;
+}
+.markdown-body > *:last-child {
+  margin-bottom: 0 !important;
+}
+.markdown-body .table-of-contents ol {
+  list-style: none;
+}
+.markdown-body .table-of-contents > ol {
+  padding-left: 0;
+}
+.markdown-body * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+.markdown-body h1 .anchor,
+.markdown-body h2 .anchor,
+.markdown-body h3 .anchor,
+.markdown-body h4 .anchor,
+.markdown-body h5 .anchor,
+.markdown-body h6 .anchor {
+  margin-left: -24px;
+  visibility: hidden;
+}
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  visibility: visible;
+}
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.markdown-body h1 {
+  margin: 0.67em 0;
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+.markdown-body h5 {
+  font-size: 1em;
+}
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+.markdown-body hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+.markdown-body ol ul,
+.markdown-body ul ul {
+  list-style-type: circle;
+}
+.markdown-body ol ul ul,
+.markdown-body ul ul ul {
+  list-style-type: square;
+}
+.markdown-body ol {
+  list-style-type: decimal;
+}
+.markdown-body ul {
+  list-style-type: disc;
+}
+.markdown-body dl {
+  margin-bottom: 1.3em
+}
+.markdown-body dl dt {
+  font-weight: 700;
+}
+.markdown-body dl dd {
+  margin-left: 0;
+}
+.markdown-body dl dd p {
+  margin-bottom: 0.8em;
+}
+.markdown-body blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+.markdown-body kbd {
+  display: inline-block;
+  padding: 5px 6px;
+  font: 14px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+.markdown-body pre {
+  word-wrap: normal;
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  font-size: 100%;
+  line-height: inherit;
+  word-wrap: normal;
+  white-space: pre;
+  border: 0;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: transparent;
+}
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+  background: transparent;
+}
+.markdown-body img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.markdown-body strong {
+  font-weight: bold;
+}
+.markdown-body em {
+  font-style: italic;
+}
+.markdown-body del {
+  text-decoration: line-through;
+}
+.task-list-item {
+  list-style-type: none;
+}
+.task-list-item input {
+  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+.task-list-item input[disabled] {
+  cursor: default;
+}
+.task-list-item input[type="checkbox"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+.task-list-item input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+
+/*       --------------------------            */
+
+/* 段落，下方未标注标签参数均同此处
+ * 上边距 margin-top: 5px;
+ * 下边距 margin-bottom: 5px;
+ * 行高 line-height: 26px;
+ * 词间距 word-spacing: 3px;
+ * 字间距 letter-spacing: 3px;
+ * 对齐 text-align: left;
+ * 颜色 color: #3e3e3e;
+ * 字体大小 font-size: 16px;
+ * 首行缩进 text-indent: 2em;
+ */
+.markdown-body p {
+  font-size:14px;
+}
+
+/* 二级标题 */
+.markdown-body h2 {
+  	text-align:center;
+  	position:relative;
+    font-weight: bold;
+    color: black;
+    line-height: 1.1em;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin:70px 30px 30px;
+    border: 1px solid #000;
+}
+
+.markdown-body h2:before{
+  content: ' ';
+  float: left;
+  display: block;
+  width: 90%;
+  border-top: 1px solid #000;
+  height: 1px;
+  line-height: 1px;
+  margin-left: -5px;
+  margin-top: -17px;
+}
+.markdown-body h2:after{
+  content: ' ';
+  float: right;
+  display: block;
+  width: 90%;
+  border-bottom: 1px solid #000;
+  height: 1px;
+  line-height: 1px;
+  margin-right: -5px;
+  margin-top: 16px;
+}
+
+/* 三级标题 */
+.markdown-body h3 {
+  background-color:#000;
+  color:#fff;
+  padding:2px 10px;
+  width:fit-content;
+  font-size:17px;
+  margin:60px auto 10px;
+}
+.markdown-body h3 strong {
+  color:#fff;
+}
+
+/* 无序列表整体样式
+ * list-style-type: square|circle|disc;
+ */
+.markdown-body ul {
+  list-style-type: square;
+}
+/* 无序二级列表
+ */
+.markdown-body ul li ul li{
+  list-style-type: circle;
+}
+
+/* 有序列表整体样式
+ * list-style-type: upper-roman|lower-greek|lower-alpha;
+ */
+.markdown-body ol {
+}
+
+/* 列表内容，不要设置li
+ */
+.markdown-body li section {
+}
+
+/* 引用
+ * 左边缘颜色 border-left-color: black;
+ * 背景色 background: gray;
+ */
+.markdown-body blockquote {
+  border-left: 3px solid rgba(0, 0, 0, 0.65);
+  border-right: 1px solid rgba(0, 0, 0, 0.65);
+  background: rgb(249, 249, 249);
+}
+
+/* 引用文字 */
+.markdown-body blockquote p {
+}
+
+/* 链接 
+ * border-bottom: 1px solid #009688;
+ */
+.markdown-body a {
+}
+
+/* 加粗 */
+.markdown-body strong {
+}
+
+/* 斜体 */
+.markdown-body em {
+}
+
+/* 加粗斜体 */
+.markdown-body em strong {
+}
+
+/* 删除线 */
+.markdown-body del {
+}
+
+/* 分隔线
+ * 粗细、样式和颜色
+ * border-top: 1px solid #3e3e3e;
+ */
+.markdown-body hr {
+}
+
+/* 图片
+ * 宽度 width: 80%;
+ * 居中 margin: 0 auto;
+ * 居左 margin: 0 0;
+ */
+.markdown-body img {
+  box-shadow: rgba(170, 170, 170, 0.48) 0px 0px 6px 0px;
+  border-radius:4px;
+  margin-top:10px;
+}
+/* 行内代码 */
+.markdown-body p code, .markdown-body li code {
+  color:#ff6441;
+}
+
+/* 非微信代码块
+ * 代码块不换行 display: -webkit-box !important;
+ * 代码块换行 display: block;
+ */
+.markdown-body pre {
+  box-shadow: rgba(170, 170, 170, 0.48) 0px 0px 6px 0px;
+  max-width: 100%;
+  border-radius:4px;
+}
+.markdown-body pre code {
+}
+
+/*
+ * 表格内的单元格
+ * 字体大小 font-size: 16px;
+ * 边框 border: 1px solid #ccc;
+ * 内边距 padding: 5px 10px;
+ */
+.markdown-body table tr th,
+.markdown-body table tr td {
+  font-size:14px;
+}
+
+/* 脚注文字 */
+.markdown-body .footnote-word {
+}
+
+/* 脚注上标 */
+.markdown-body .footnote-ref {
+}
+
+/* "参考资料"四个字 
+ * 内容 content: "参考资料";
+ */
+.markdown-body .footnotes-sep {
+  font-size: 14px;
+  color: #888;
+  border-top: 1px solid #eee;
+  padding: 30px 0 10px 0px;
+  background-color: transparent;
+  margin: 0;
+  width: 100%;
+}
+.markdown-body .footnotes-sep:before {
+  content:'参考资料';
+}
+.markdown-body .footnotes{
+  border-left:5px solid #eee;
+  padding-left:10px;
+}
+
+/* 参考资料编号 */
+.markdown-body .footnote-num {
+  font-size:14px;
+  color:#999;
+}
+
+/* 参考资料文字 */
+.markdown-body .footnote-item p { 
+  font-size:14px;
+  color:#999;
+}
+
+/* 参考资料解释 */
+.markdown-body .footnote-item p em {
+  font-size:14px;
+  color:#999;
+}
+
+/* 行间公式
+ * 最大宽度 max-width: 300% !important;
+ */
+.markdown-body .block-equation svg {
+}
+
+/* 行内公式
+ */
+.markdown-body .inline-equation svg {  
+}
+/* 文章结尾 */
+.markdown-body:after{
+  content:'- END -';
+  font-size:15px;
+  display:block;
+  text-align:center;
+  margin-top:50px;
+  color:#999;
+  border-bottom:1px solid #eee;
+}
+
+body {
+    background: rgb(232, 234, 237);
+}
+
+#page-ctn {
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);
+  max-width: unset;
+  margin: 0;
+}
+
+.markdown-body .table-of-contents {
+    position: fixed;
+    right: 1%;
+    width: 20%;
+    overflow: scroll;
+    height: 80%;
+    top: 10%;
+}
+
+@media screen and (min-width:1000px) {
+  .markdown-body .table-of-contents {
+    width: 20%;
+  }
+
+  #page-ctn {
+      margin-left: 1%;
+      width: 77%;
+  }
+}
+@media screen and (max-width:1000px) {
+  .markdown-body .table-of-contents {
+    width: 3%;
+    border: 1px solid;
+    background: white;
+  }
+
+  .markdown-body .table-of-contents:hover {
+    width: 30%;
+  }
+
+  #page-ctn {
+      margin-left: 5%;
+      width: 90%;
+  }
+}
