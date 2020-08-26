@@ -6,8 +6,8 @@ set ttyfast "should make scrolling faster
 set lazyredraw "same as above
 
 set list
-"set listchars=tab:▸\ ,trail:·
-set listchars=tab:··,trail:·
+set listchars=tab:▸\ ,trail:·
+" set listchars=tab:··,trail:·
 
 "语法高亮
 syntax on

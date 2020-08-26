@@ -122,11 +122,11 @@ endif
             set cursorline
             set cursorcolumn
 			if has ("nvim")
-				highlight CursorLine ctermfg=None ctermbg=236 guifg=None guibg=#555555
-				highlight CursorColumn ctermfg=None ctermbg=236 guifg=None guibg=#556677
+				highlight CursorLine ctermfg=None ctermbg=236 guifg=None guibg=#111111
+				highlight CursorColumn ctermfg=None ctermbg=236 guifg=None guibg=#222222
 			else
-				highlight CursorLine ctermbg=236 guibg=#555555
-				highlight CursorColumn ctermbg=236 guibg=#556677
+				highlight CursorLine ctermbg=236 guibg=#111111
+				highlight CursorColumn ctermbg=236 guibg=#222222
 			endif
         "colorscheme blue-mood
         highlight Normal guibg=NONE ctermbg=None
