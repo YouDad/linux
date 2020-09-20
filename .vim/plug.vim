@@ -17,6 +17,7 @@ endif
 		"appearance
 		Plug 'vim-airline/vim-airline'
 		Plug 'dracula/vim'
+		Plug 'RRethy/vim-illuminate'
 		" Plug 'connorholyday/vim-snazzy'
 		" Plug 'Rigellute/rigel'
 		" Plug 'lmintmate/blue-mood-vim'
@@ -42,7 +43,7 @@ endif
 			"javascript
 			Plug 'pangloss/vim-javascript'
 			"color
-			Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+			Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 		endif
 
 		if exists("g:my_module_markdown") && g:my_module_markdown == 1
@@ -132,6 +133,10 @@ endif
         highlight Normal guibg=NONE ctermbg=None
 		highlight comment ctermfg=DarkGreen guifg=#008800
 
+	"vim-illuminate
+		let g:Illuminate_delay = 750
+		hi illuminatedWord cterm=undercurl gui=undercurl
+
 	if exists("g:my_module_coc") && g:my_module_coc == 1
 		"coc
 			let g:coc_global_extensions = ['coc-lists', 'coc-pairs',
@@ -152,8 +157,6 @@ endif
 			imap <c-j> <plug>(coc-snippets-expand)
 			let g:coc_snippet_next = '<c-j>'
 			let g:coc_snippet_prev = '<c-k>'
-			"AUTOCMD
-			autocmd CursorHold * silent call CocActionAsync('highlight')
 			"SET VARIABLE
 			set hidden
 			set nobackup
