@@ -140,7 +140,7 @@ endif
 
 	"vim-illuminate
 		let g:Illuminate_delay = 750
-		hi illuminatedWord cterm=undercurl gui=undercurl
+		hi illuminatedWord ctermbg=236 guibg=#333333
 
 	if exists("g:my_module_coc") && g:my_module_coc == 1
 		"coc
