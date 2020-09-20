@@ -139,6 +139,60 @@ endif
 
 	if exists("g:my_module_coc") && g:my_module_coc == 1
 		"coc
+			set hidden
+			set updatetime=100
+			set shortmess+=c
+			if has("patch-8.1.1564")
+			  set signcolumn=number
+			else
+			  set signcolumn=yes
+			endif
+			inoremap <silent><expr> <TAB>
+				  \ pumvisible() ? "\<C-n>" :
+				  \ <SID>check_back_space() ? "\<TAB>" :
+				  \ coc#refresh()
+			inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+			function! s:check_back_space() abort
+			  let col = col('.') - 1
+			  return !col || getline('.')[col - 1]  =~# '\s'
+			endfunction
+
+			inoremap <silent><expr> <c-o> coc#refresh()
+
+			if exists('*complete_info')
+			  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+			else
+			  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+			endif
+
+			nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+			nmap <silent> g] <Plug>(coc-diagnostic-next)
+
+			nmap <silent> gd <Plug>(coc-definition)
+			nmap <silent> gy <Plug>(coc-type-definition)
+			nmap <silent> gi <Plug>(coc-implementation)
+			nmap <silent> gr <Plug>(coc-references)
+
+			nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+			function! s:show_documentation()
+			  if (index(['vim','help'], &filetype) >= 0)
+				execute 'h '.expand('<cword>')
+			  else
+				call CocAction('doHover')
+			  endif
+			endfunction
+
+			nmap <leader>rn <Plug>(coc-rename)
+
+			xmap <leader>f  <Plug>(coc-format-selected)
+
+			xmap <leader>a  <Plug>(coc-codeaction-selected)
+			nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+			nmap <leader>ac  <Plug>(coc-codeaction)
+
 			let g:coc_global_extensions = ['coc-lists', 'coc-pairs',
 						\ 'coc-yank', 'coc-git', 'coc-json', 'coc-vimlsp']
 			if exists("g:my_module_web") && g:my_module_web == 1
@@ -147,22 +201,11 @@ endif
 			"'coc-snippets', 'coc-tsserver', 'coc-go', 'coc-sh',
 			"'coc-python', 'coc-java',
 			"MAPS
-			nmap <leader>rn <Plug>(coc-rename)
 			nnoremap <silent> <leader>p  :<c-u>CocList -A --normal yank<cr>
-			nmap <silent> gd <Plug>(coc-definition)
-			nmap <silent> gi <Plug>(coc-implementation)
-			nmap <silent> gr <Plug>(coc-references)
-			nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-			nmap <silent> g] <Plug>(coc-diagnostic-next)
 			imap <c-j> <plug>(coc-snippets-expand)
 			let g:coc_snippet_next = '<c-j>'
 			let g:coc_snippet_prev = '<c-k>'
-			"SET VARIABLE
-			set hidden
-			set nobackup
-			set nowritebackup
-			set cmdheight=2
-			set updatetime=300
+
 		"coc-pairs
 			autocmd FileType markdown let b:coc_pairs_disabled = ['`']
 	endif
