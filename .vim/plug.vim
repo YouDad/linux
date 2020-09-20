@@ -194,6 +194,7 @@ endif
 			nmap <leader>ac  <Plug>(coc-codeaction)
 
 			let g:coc_global_extensions = [
+						\ 'coc-snippets',
 						\ 'coc-actions',
 						\ 'coc-lists',
 						\ 'coc-pairs',
@@ -205,13 +206,14 @@ endif
 			if exists("g:my_module_web") && g:my_module_web == 1
 				let g:coc_global_extensions += ['coc-html', 'coc-css']
 			endif
-			"'coc-snippets', 'coc-tsserver', 'coc-go', 'coc-sh',
+			"'coc-tsserver', 'coc-go', 'coc-sh',
 			"'coc-python', 'coc-java',
-			"MAPS
-			nnoremap <silent> <leader>p  :<c-u>CocList -A --normal yank<cr>
+
 			imap <c-j> <plug>(coc-snippets-expand)
 			let g:coc_snippet_next = '<c-j>'
 			let g:coc_snippet_prev = '<c-k>'
+
+			nnoremap <silent> <leader>p  :<c-u>CocList -A --normal yank<cr>
 
 		"coc-pairs
 			autocmd FileType markdown let b:coc_pairs_disabled = ['`']

@@ -6,6 +6,9 @@
 	"coc.preferences.formatOnSaveFiletypes": [
 		"json"
 	],
+	"snippets.ultisnips.directories": [
+		"UltiSnips"
+	],
 	"suggest.completionItemKindLabels": {
 		"class": "\uf0e8",
 		"color": "\ue22b",
