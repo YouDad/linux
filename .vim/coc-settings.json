@@ -2,13 +2,28 @@
 	"languageserver": {
 		"golang": {
 			"command": "gopls",
-			"rootPatterns": ["go.mod"],
-			"filetypes": ["go"]
+			"rootPatterns": [
+				"go.mod"
+			],
+			"filetypes": [
+				"go"
+			]
 		},
 		"ccls": {
 			"command": "ccls",
-			"filetypes": ["c", "cpp", "objc", "objcpp"],
-			"rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+			"filetypes": [
+				"c",
+				"cpp",
+				"objc",
+				"objcpp"
+			],
+			"rootPatterns": [
+				".ccls",
+				"compile_commands.json",
+				".vim/",
+				".git/",
+				".hg/"
+			],
 			"initializationOptions": {
 				"cache": {
 					"directory": "/tmp/ccls"
@@ -17,18 +32,31 @@
 		},
 		"flow": {
 			"command": "flow",
-			"args": ["lsp"],
-			"filetypes": ["javascript", "javascriptreact"],
+			"args": [
+				"lsp"
+			],
+			"filetypes": [
+				"javascript",
+				"javascriptreact"
+			],
 			"initializationOptions": {},
 			"requireRootPattern": true,
 			"settings": {},
-			"rootPatterns": [".flowconfig"]
+			"rootPatterns": [
+				".flowconfig"
+			]
 		},
 		"bash": {
 			"command": "bash-language-server",
-			"args": ["start"],
-			"filetypes": ["sh"],
-			"ignoredRootPaths": ["~"]
+			"args": [
+				"start"
+			],
+			"filetypes": [
+				"sh"
+			],
+			"ignoredRootPaths": [
+				"~"
+			]
 		}
 	}
 }
