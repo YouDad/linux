@@ -193,8 +193,15 @@ endif
 
 			nmap <leader>ac  <Plug>(coc-codeaction)
 
-			let g:coc_global_extensions = ['coc-lists', 'coc-pairs',
-						\ 'coc-yank', 'coc-git', 'coc-json', 'coc-vimlsp']
+			let g:coc_global_extensions = [
+						\ 'coc-actions',
+						\ 'coc-lists',
+						\ 'coc-pairs',
+						\ 'coc-yank',
+						\ 'coc-git',
+						\ 'coc-json',
+						\ 'coc-vimlsp'
+						\]
 			if exists("g:my_module_web") && g:my_module_web == 1
 				let g:coc_global_extensions += ['coc-html', 'coc-css']
 			endif
