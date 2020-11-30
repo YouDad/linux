@@ -56,8 +56,10 @@ endif
 			if has ("nvim")
 				Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 			endif
-			" "wiki
-			" Plug 'vimwiki/vimwiki'
+			if exists("g:my_module_wiki") && g:my_module_wiki == 1
+				"wiki
+				Plug 'vimwiki/vimwiki'
+			endif
 			" "rst2html (deprecated)
 			"Plug 'gu-fan/riv.vim'
 		endif
@@ -318,12 +320,14 @@ endif
 				\ 'sequence_diagrams': {}
 				\ }
 
-		" "vimwiki
-		"     let g:vimwiki_list = [
-		"          \{"path": "~/my/link/wiki/",
-		"          \ "syntax": "markdown",
-		"          \ "ext": ".md"
-		"          \}]
+		if exists("g:my_module_wiki") && g:my_module_wiki == 1
+			"vimwiki
+				let g:vimwiki_list = [
+					 \{"path": "~/my/link/wiki/",
+					 \ "syntax": "markdown",
+					 \ "ext": ".md"
+					 \}]
+		endif
 
 		"riv.vim
 			"nmap <silent> <leader>t :Riv2HtmlAndBrowse<cr>
