@@ -286,11 +286,11 @@ tmux_conf_copy_to_os_clipboard=false
 #set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
-# set -gu prefix2
-# unbind C-a
-# unbind C-b
-# set -g prefix C-a
-# bind C-a send-prefix
+set -gu prefix2
+unbind C-a
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
 
 # move status line to top
 #set -g status-position top
@@ -298,8 +298,8 @@ set -as terminal-overrides ",gnome*:RGB"
 setw -g automatic-rename off
 set -g mode-keys vi
 
-# set -g @plugin 'tmux-plugins/tpm'
-# set -g @plugin 'tmux-plugins/tmux-sensible'
-# set -g @plugin 'seebi/tmux-colors-solarized'
-# set -g @plugin 'tmux-plugins/tmux-resurrect'
-# run ~/.tmux/plugins/tpm/tpm
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'seebi/tmux-colors-solarized'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+run ~/.tmux/plugins/tpm/tpm
