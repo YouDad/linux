@@ -18,6 +18,8 @@ endif
 		Plug 'vim-airline/vim-airline'
 		Plug 'dracula/vim'
 		Plug 'RRethy/vim-illuminate'
+		Plug 'tpope/vim-surround'
+		Plug 'gcmt/wildfire.vim'
 		" Plug 'connorholyday/vim-snazzy'
 		" Plug 'Rigellute/rigel'
 		" Plug 'lmintmate/blue-mood-vim'
@@ -141,6 +143,18 @@ endif
 	"vim-illuminate
 		let g:Illuminate_delay = 750
 		hi illuminatedWord ctermbg=236 guibg=#333333
+
+	"wildfire.vim
+		map  <enter>    <plug>(wildfire-fuel)
+		vmap <c-enter>  <plug>(wildfire-water)
+		let g:wildfire_objects = [
+					\ "iw", "iW",
+					\ "i'", "a'",
+					\ "i\"", "a\"",
+					\ "i)", "a)",
+					\ "i]", "a]",
+					\ "i}", "a}",
+					\]
 
 	if exists("g:my_module_coc") && g:my_module_coc == 1
 		"coc
