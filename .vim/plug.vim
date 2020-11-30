@@ -217,7 +217,9 @@ endif
 
 			nmap <leader>ac  <Plug>(coc-codeaction)
 
+			" coc-marketplace: CocList marketplace
 			let g:coc_global_extensions = [
+						\ 'coc-marketplace',
 						\ 'coc-snippets',
 						\ 'coc-actions',
 						\ 'coc-lists',
