@@ -321,7 +321,7 @@
   content: ' ';
   float: right;
   display: block;
-  width: 90%;
+  width: 100%;
   border-bottom: 1px solid #000;
   height: 1px;
   line-height: 1px;
@@ -528,6 +528,7 @@ body {
     right: 1%;
     width: 20%;
     overflow: scroll;
+	overflow-x: hidden;
     height: 80%;
     top: 10%;
 }
