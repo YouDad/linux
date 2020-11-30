@@ -38,7 +38,7 @@ endif
 			"html, css
 			Plug 'mattn/emmet-vim'
 			Plug 'JulesWang/css.vim'
-			Plug 'cakebaker/scss-syntax.vim'
+			" Plug 'cakebaker/scss-syntax.vim'
 			"vim highlight
 			Plug 'posva/vim-vue'
 			Plug 'digitaltoad/vim-pug'
@@ -228,7 +228,7 @@ endif
 						\ 'coc-vimlsp'
 						\]
 			if exists("g:my_module_web") && g:my_module_web == 1
-				let g:coc_global_extensions += ['coc-html', 'coc-css']
+				let g:coc_global_extensions += ['coc-html', 'coc-css', 'coc-scssmodules']
 			endif
 			"'coc-tsserver', 'coc-go', 'coc-sh',
 			"'coc-python', 'coc-java',
