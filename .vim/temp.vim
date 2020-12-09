@@ -5,3 +5,6 @@ autocmd filetype go,c set fdm=syntax
 autocmd filetype go,c set foldnestmax=1
 autocmd filetype go,c set nofoldenable
 autocmd filetype go,c nnoremap <buffer> sc :set foldenable!<cr>
+
+autocmd filetype c,cpp set colorcolumn=80
+autocmd filetype markdown set expandtab
