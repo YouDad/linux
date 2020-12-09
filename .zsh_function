@@ -49,9 +49,13 @@ function my_2_get_runtime_dts() {
 	adb shell "su root cat /sys/firmware/fdt" > fdt
 	if [[ "$?" != "0" ]]; then
 		echo 'adb shell "su root cat /sys/firmware/fdt" > fdt'
+		rm fdt
 		return $?
 	fi
+
 	dtc -Idtb -Odts fdt > fdt.dts 2>/dev/null
+
+	echo "Success: fdt.dts"
 }
 
 function my_3_view_dtb() {
