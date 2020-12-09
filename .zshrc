@@ -197,6 +197,7 @@ fi
 
 [ -e $HOME/.profile ] && source $HOME/.profile
 [ -e $HOME/.tmp_profile ] && source $HOME/.tmp_profile
+[ -e $HOME/.zsh_function ] && source $HOME/.zsh_function
 if [[ "$remote" == "1" ]]; then
 	tmux -2 a 2>/dev/null
 	# remove $1
