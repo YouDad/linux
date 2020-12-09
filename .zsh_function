@@ -1,22 +1,26 @@
 function my_1_test_dts() {
+	if [[ "$1" == "-" ]]; then
+		rm .x.dts.tmp
+		rm x.pre.tmp
+		rm out.dts
+
+		echo "Success: clean"
+		return 0
+	fi
+
 	in_dts=$1
 	if [[ "$in_dts" == "" ]]; then
 		echo "Error: need a in_dts"
 		return 1
 	fi
 
-	out_dts=$2
-	if [[ "$out_dts" == "" ]]; then
-		out_dts=out.dts
-	fi
+	out_dts=out.dts
 
 	cpp -Wp,-MD,x.pre.tmp -nostdinc -I. -I ~/repo/cdp/lagvm/LINUX/android/kernel/msm-4.14/include/ \
 		-undef -D__DTS__ -x assembler-with-cpp -o .x.dts.tmp $in_dts
 	if [[ "$?" != "0" ]]; then
 		return $?
 	fi
-
-	rm x.pre.tmp
 
 	dtc -Idts -Odts .x.dts.tmp -o $out_dts 2>&1 | grep -v "Warning" | grep -v "also"
 
