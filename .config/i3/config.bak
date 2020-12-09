@@ -93,6 +93,7 @@ bindsym $win+space focus mode_toggle
 # focus the child container
 # bindsym $win+d focus child
 
+# TODO
 set $ws1 " 1 "
 set $ws2 " 2 "
 set $ws3 " 3 "
@@ -102,18 +103,18 @@ set $ws6 " 6 "
 set $ws7 " 7 "
 set $ws8 " 8 "
 set $ws9 " 9 "
-set $ws0 " 10-tmp "
-set $wsf1 " A-music "
-set $wsf2 " B-talk "
-set $wsf3 " C-todo "
-set $wsf4 " D "
-set $wsf5 " E "
-set $wsf6 " F "
-set $wsf7 " G "
-set $wsf8 " H "
+set $ws0 " 10 "
+set $wsf1 " 01 "
+set $wsf2 " 02 "
+set $wsf3 " 03 "
+set $wsf4 " 04 "
+set $wsf5 " 05 "
+set $wsf6 " 06 "
+set $wsf7 " 07 "
+set $wsf8 " 08 "
 
-set $PRIOutput "DP-0"
-set $SECOutput "HDMI-0"
+set $PRIOutput ""
+set $SECOutput ""
 
 workspace $ws1 output $PRIOutput
 workspace $ws2 output $PRIOutput
@@ -188,12 +189,9 @@ mode "resize" {
 set $print_mode print
 bindsym $win+ctrl+p mode "$print_mode"
 mode "$print_mode" {
-	bindsym $win+ctrl+q exec --no-startup-id "bash ~/bin/xrandr-q.sh"
-	bindsym $win+ctrl+w exec --no-startup-id "bash ~/bin/xrandr-w.sh"
-	bindsym $win+ctrl+e exec --no-startup-id "bash ~/bin/xrandr-e.sh"
-	bindsym $win+ctrl+i exec --no-startup-id "bash ~/bin/xrandr-i.sh"
-	bindsym $win+ctrl+o exec --no-startup-id "bash ~/bin/xrandr-o.sh"
-	bindsym $win+ctrl+p exec --no-startup-id "bash ~/bin/xrandr-p.sh"
+# TODO
+	bindsym $win+ctrl+q exec --no-startup-id "bash ~/bin/xrandr-"
+	bindsym $win+ctrl+p exec --no-startup-id "bash ~/bin/xrandr-"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -211,16 +209,6 @@ mode "$mode_system" {
 	bindsym r exec --no-startup-id i3exit reboot, mode "default"
 
 	# exit system mode: "Enter" or "Escape"
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-
-set $F1System dict
-bindsym $win+ctrl+shift+F1 mode "$F1System"
-mode "$F1System" {
-	bindsym z      floating toggle
-	bindsym g      exec "adb shell input tap 700 2200"
-	bindsym m      exec "adb shell input tap 400 2200"
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
@@ -261,13 +249,12 @@ bindsym XF86MonBrightnessDown               exec "brightness -"
 bindsym $win+F11                            exec "brightness -"
 bindsym XF86MonBrightnessUp                 exec "brightness +"
 bindsym $win+F12                            exec "brightness +"
-bindsym $win+ctrl+shift+s                   exec "deepin-screen-recorder --save-path $HOME/Picture/ScreenShot/"
+bindsym $win+ctrl+shift+s                   exec "deepin-screen-recorder --save-path $HOME/Pictures/ScreenShot/"
 
 # music config
 assign [class="Clementine"]                 $wsf1
 
 exec_always --no-startup-id                 "fcitx"
-exec_always --no-startup-id                 "picom"
 exec_always --no-startup-id                 "blueman-tray"
 exec_always --no-startup-id                 "bash ~/my/bin/startup.sh"
 exec_always --no-startup-id                 "$HOME/.config/polybar/launch.sh"
