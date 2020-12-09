@@ -26,3 +26,34 @@ function my_1_test_dts() {
 
 	echo "Success: $out_dts"
 }
+
+function my_2_get_runtime_dts() {
+	if [[ "$1" == "-" ]]; then
+		rm fdt
+		rm fdt.dts
+
+		echo "Success: clean"
+		return 0
+	fi
+
+	if [ -e fdt ]; then
+		echo "Existing: fdt"
+		return 1
+	fi
+
+	if [ -e fdt.dts ]; then
+		echo "Existing: fdt.dts"
+		return 1
+	fi
+
+	adb shell "su root cat /sys/firmware/fdt" > fdt
+	if [[ "$?" != "0" ]]; then
+		echo 'adb shell "su root cat /sys/firmware/fdt" > fdt'
+		return $?
+	fi
+	dtc -Idtb -Odts fdt > fdt.dts 2>/dev/null
+}
+
+function my_3_view_dtb() {
+	dtc -Idtb -Odts $1 | vim
+}
