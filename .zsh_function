@@ -39,6 +39,8 @@ function my_2_get_runtime_dts() {
 		return 0
 	fi
 
+	device="$1"
+
 	if [ -e fdt ]; then
 		echo "Existing: fdt"
 		return 1
@@ -49,7 +51,11 @@ function my_2_get_runtime_dts() {
 		return 1
 	fi
 
-	adb shell "su root cat /sys/firmware/fdt" > fdt
+	if [[ "$device" == "" ]]; then
+		adb shell "su root cat /sys/firmware/fdt" > fdt
+	else
+		adb -s "$device" shell "su root cat /sys/firmware/fdt" > fdt
+	fi
 	if [[ "$?" != "0" ]]; then
 		echo 'adb shell "su root cat /sys/firmware/fdt" > fdt'
 		rm fdt
