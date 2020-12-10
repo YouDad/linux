@@ -70,3 +70,7 @@ function my_2_get_runtime_dts() {
 function my_3_view_dtb() {
 	dtc -Idtb -Odts $1 | vim
 }
+
+function my_4_cat_dtb() {
+	dtc -Idtb -Odts $1
+}
