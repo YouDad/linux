@@ -23,6 +23,9 @@ function my_1_test_dts() {
 	fi
 
 	dtc -Idts -Odts .x.dts.tmp -o $out_dts 2>&1 | grep -v "Warning" | grep -v "also"
+	if [[ "$?" != "0" ]]; then
+		return $?
+	fi
 
 	echo "Success: $out_dts"
 }
