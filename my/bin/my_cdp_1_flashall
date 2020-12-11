@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/repo/cdp/common/build
+python fastboot_complete.py --st=ufs --pf=8155_la
+speak "flash complete!"

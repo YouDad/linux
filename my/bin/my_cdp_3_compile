@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker exec -it cdp_container /bin/bash -c "/cdp/compile.sh $1"

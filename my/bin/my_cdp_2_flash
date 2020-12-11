@@ -1,0 +1,24 @@
+#!/bin/bash
+
+cd ~/repo/cdp
+flash=0
+if [[ "$(($1 & 1))" -ne "0"  ]]; then
+	flash=1
+	./flash_lagvm.sh
+fi
+if [[ "$(($1 & 2))" -ne "0"  ]]; then
+	flash=1
+	./flash_qnx.sh
+fi
+if [[ "$(($1 & 4))" -ne "0"  ]]; then
+	flash=1
+	./flash_boot.sh
+fi
+if [[ "$(($1 & 8))" -ne "0"  ]]; then
+	flash=1
+	./flash_tz.sh
+fi
+if [[ "$flash" == "1" ]]; then
+	fastboot reboot
+fi
+speak "flash complete!"
