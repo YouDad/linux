@@ -1,9 +1,9 @@
 #!/bin/bash
 
 volumn=`amixer -D pulse get Master`
-volumn=`echo $volumn | grep Left`
-volumn=`echo $volumn | grep %`
-volumn=`echo $volumn | cut -d ' ' -f 7`
+volumn=`echo "$volumn" | grep Left`
+volumn=`echo "$volumn" | grep %`
+volumn=`echo "$volumn" | cut -d ' ' -f 7`
 
 if [[ "$volumn" == "[0%]" ]]; then
 	zenity --info --text=ring
