@@ -1,0 +1,30 @@
+ack --flush --passthru --color --color-match="red on_yellow blink italic underline bold" $keyword
+
+        black   red     green   yellow  blue    magenta cyan    white
+        ------- ------- ------- ------- ------- ------- ------- -------
+        black   red     green   yellow  blue    magenta cyan    white
+bold    black   red     green   yellow  blue    magenta cyan    white
+
+        black   red     green   yellow  blue    magenta cyan    white   on_black
+bold    black   red     green   yellow  blue    magenta cyan    white   on_black
+
+        black   red     green   yellow  blue    magenta cyan    white   on_red
+bold    black   red     green   yellow  blue    magenta cyan    white   on_red
+
+        black   red     green   yellow  blue    magenta cyan    white   on_green
+bold    black   red     green   yellow  blue    magenta cyan    white   on_green
+
+        black   red     green   yellow  blue    magenta cyan    white   on_yellow
+bold    black   red     green   yellow  blue    magenta cyan    white   on_yellow
+
+        black   red     green   yellow  blue    magenta cyan    white   on_blue
+bold    black   red     green   yellow  blue    magenta cyan    white   on_blue
+
+        black   red     green   yellow  blue    magenta cyan    white   on_magenta
+bold    black   red     green   yellow  blue    magenta cyan    white   on_magenta
+
+        black   red     green   yellow  blue    magenta cyan    white   on_cyan
+bold    black   red     green   yellow  blue    magenta cyan    white   on_cyan
+
+        black   red     green   yellow  blue    magenta cyan    white   on_white
+bold    black   red     green   yellow  blue    magenta cyan    white   on_white
