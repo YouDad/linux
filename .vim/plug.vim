@@ -69,8 +69,8 @@ endif
 			Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 			Plug 'Xuyuanp/nerdtree-git-plugin'
 
-      Plug 'rbgrouleff/bclose.vim'
-      Plug 'francoiscabrol/ranger.vim'
+			Plug 'rbgrouleff/bclose.vim'
+			Plug 'francoiscabrol/ranger.vim'
 			"undotree
 			Plug 'mbbill/undotree'
 			"bookmark
