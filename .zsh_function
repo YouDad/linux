@@ -74,3 +74,20 @@ function my_3_view_dtb() {
 function my_4_cat_dtb() {
 	dtc -Idtb -Odts $1
 }
+
+function wiki() {
+	if [ -e  ~/my/link/wiki ]; then
+		cd ~/my/link/wiki
+		vim index.md
+	else
+		echo no wiki link
+	fi
+}
+
+function cdd() {
+	if [ -f "$1" ]; then
+		cd "$(dirname $1)"
+	else
+		cd "$1"
+	fi
+}
