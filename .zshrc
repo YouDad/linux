@@ -18,7 +18,7 @@ SAVEHIST=10000000
 
 alias szplug="source $ZPLUG_HOME/init.zsh"
 if [ -e $ZPLUG_HOME/init.zsh ]; then
-	plugins=(git zsh-syntax-highlighting zsh-autosuggestions h)
+	plugins=(git zsh-syntax-highlighting h)
 else
 	alias installzplug="git clone https://github.com/zplug/zplug $ZPLUG_HOME && zpluginstall"
 	function zpluginstall() {
@@ -61,6 +61,7 @@ if [[ "$?" == "0" ]]; then
 		remote=1
 	else
 		# local
+		plugins+=(zsh-autosuggestions)
 	fi
 fi
 
