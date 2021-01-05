@@ -11,11 +11,14 @@ nmap <leader>                       <nop>
 nmap s                              <nop>
 nmap ss                             <nop>
 
-"Ctrl+s和Ctrl+q可以随便设置，暂时没用上
 map <c-s>                           <nop>
 map <c-q>                           <nop>
 nmap <c-s>                          :w<cr>
 nmap <c-q>                          :q<cr>
+vmap <c-y>                          "+y
+nmap <c-y>                          "+y
+vmap <c-p>                          "+p
+nmap <c-p>                          "+p
 
 function! TabBufSwitch(num)
 	let l:used = filter(range(1, bufnr('$')), 'buflisted(v:val)')
