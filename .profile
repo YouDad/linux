@@ -25,3 +25,5 @@ export TMOUT=1000000
 export EDITOR=nvim
 
 export LD_PRELOAD=""
+
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
