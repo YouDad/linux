@@ -52,12 +52,13 @@ fi
 # is remote ?
 ###############################
 remote=0
+ip_addr=$(who am i | sed 's/.*(\(.*\))/\1/')
 who am i >/dev/null 2>&1
 if [[ "$?" == "0" ]]; then
 	who am i | grep pts
 	if [[ "$?" == "0" ]]; then
 		# remote
-		echo "Welcome, SSH_USER, "`who am i`
+		echo "Welcome, SSH_USER from $ip_addr"
 		remote=1
 	else
 		# local
@@ -199,8 +200,36 @@ fi
 [ -e $HOME/.profile ] && source $HOME/.profile
 [ -e $HOME/.tmp_profile ] && source $HOME/.tmp_profile
 [ -e $HOME/.zsh_function ] && source $HOME/.zsh_function
+
 if [[ "$remote" == "1" ]]; then
-	tmux -2 a 2>/dev/null
-	# remove $1
-	ls > /dev/null 2>&1
+	if [ -e $HOME/.tmux_ssh_enable ]; then
+		if [[ "$TMUX" == "" ]]; then
+			session_name=$(echo $ip_addr | cut -d '.' -f 3-4 | sed 's/\./_/g')
+			session_name=" ${session_name} "
+			tmux -2 has-session -t "$session_name" 2>/dev/null
+			if [[ "$?" != "0" ]]; then
+				tmux -2 new-session -t "$session_name" 2>/dev/null
+			else
+				tmux -2 attach-session -t "$session_name" 2>/dev/null
+			fi
+
+			exit
+		fi
+	fi
+else
+	if [ -e $HOME/.tmux_local_enable ]; then
+		if [[ "$TMUX" == "" ]]; then
+			session_name=$(echo $TTY | cut -d '/' -f 3- | sed 's/\//_/g')
+			session_name=" ${session_name} "
+			tmux -2 has-session -t "$session_name" 2>/dev/null
+			if [[ "$?" != "0" ]]; then
+				tmux -2 new-session -t "$session_name" 2>/dev/null
+			else
+				tmux -2 attach-session -t "$session_name" 2>/dev/null
+			fi
+
+			exit
+		fi
+	fi
 fi
+ls > /dev/null 2>&1
