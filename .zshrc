@@ -202,10 +202,22 @@ fi
 [ -e $HOME/.zsh_function ] && source $HOME/.zsh_function
 
 if [[ "$remote" == "1" ]]; then
-	if [ -e $HOME/.tmux_ssh_enable ]; then
+	if [ -e $HOME/.tmux_ip_enable ]; then
 		if [[ "$TMUX" == "" ]]; then
 			session_name=$(echo $ip_addr | cut -d '.' -f 3-4 | sed 's/\./_/g')
 			session_name=" ${session_name} "
+			tmux -2 has-session -t "$session_name" 2>/dev/null
+			if [[ "$?" != "0" ]]; then
+				tmux -2 new-session -t "$session_name" 2>/dev/null
+			else
+				tmux -2 attach-session -t "$session_name" 2>/dev/null
+			fi
+
+			exit
+		fi
+	elif [ -e $HOME/.tmux_share_enable ]; then
+		if [[ "$TMUX" == "" ]]; then
+			session_name=" ssh "
 			tmux -2 has-session -t "$session_name" 2>/dev/null
 			if [[ "$?" != "0" ]]; then
 				tmux -2 new-session -t "$session_name" 2>/dev/null
