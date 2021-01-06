@@ -91,3 +91,12 @@ function cdd() {
 		cd "$1"
 	fi
 }
+
+function retmux() {
+	tmux -2 has-session -t $1 2>/dev/null
+	if [[ "$?" == "0" ]]; then
+		tmux -2 attach-session -t $1
+	else
+		tmux -2 new-session -t $1
+	fi
+}
