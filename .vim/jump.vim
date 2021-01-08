@@ -20,6 +20,6 @@ if has ("cscope")
 	autocmd filetype c,cpp,javascript	nmap <silent> <leader>t	:cs find t <C-R>=expand("<cword>")<cr><cr>
 	autocmd filetype c,cpp				nmap <silent> <leader>d	:cs find d <C-R>=expand("<cword>")<cr><cr>
 	autocmd filetype c,cpp				nmap <silent> <leader>i	:cs find f <C-R>=strpart(expand("<cWORD>"),1,strlen(expand("<cWORD>"))-2)<cr><cr>
-	autocmd filetype c,cpp				nmap <silent> <leader>f	:cs find f \<
+	" autocmd filetype c,cpp				nmap <silent> <leader>f	:cs find f \<
 	" autocmd filetype c,css				nmap <silent> <leader>e	:cs find e <C-R>=expand("<cword>")<cr><cr>
 endif
