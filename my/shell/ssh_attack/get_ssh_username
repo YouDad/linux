@@ -1,0 +1,4 @@
+ip="$1"
+user="$2"
+pass="$3"
+sshpass -p $pass ssh $user@$ip "git config user.email"
