@@ -1,12 +1,12 @@
 #!/bin/bash
 
-filename=minicom$(my_date).$3.log
+filename=minicom$(my_date).$1.log
 
-if [[ "$1" == "--ssh" ]]; then
+if [[ "$2" == "--ssh" ]]; then
 	echo "minicom -C $filename -D /dev/ttyUSB0 -c on && exit" | xclip -selection c
-	ssh "$2"
-	scp $2:~/$filename ~/log/minicom/
-	ssh "$2" "rm ~/$filename"
+	ssh "$3"
+	scp $3:~/$filename ~/log/minicom/
+	ssh "$3" "rm ~/$filename"
 	exit $?
 fi
 
