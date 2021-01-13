@@ -8,5 +8,5 @@ source ~/.vim/key_map.vim
 source ~/.vim/plug.vim
 source ~/.vim/jump.vim
 source ~/.vim/command.vim
-source ~/.vim/temp.vim
 source ~/.vim/grammer.vim
+source ~/.vim/temp.vim

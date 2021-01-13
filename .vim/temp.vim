@@ -13,3 +13,6 @@ autocmd filetype gn set expandtab
 autocmd filetype gn set shiftwidth=2
 autocmd BufRead,BufNewFile Harmonyos.build set expandtab
 autocmd BufRead,BufNewFile Harmonyos.build set shiftwidth=2
+
+autocmd filetype debug syntax match _pid /.*\[pid\].*/
+autocmd filetype debug highlight!   _pid guifg=#282A36

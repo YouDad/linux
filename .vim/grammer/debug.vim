@@ -9,6 +9,7 @@ autocmd filetype debug syntax match Param /\[\d\+\]([^\)]\+) .*$/
 autocmd filetype debug highlight!   Param guifg=#00b7c2 gui=bold
 
 autocmd filetype debug syntax match Entry /\[\d\+\]([^\)]\+) => .\+$/
+autocmd filetype debug syntax match Entry /\[\d\+\]([^\)]\+) <= .\+$/
 autocmd filetype debug highlight!   Entry guifg=#cd0a0a gui=bold
 
 autocmd filetype debug syntax match _error_msg /ERROR:.*/
@@ -32,7 +33,3 @@ autocmd filetype debug syntax match _keyword /probe/
 autocmd filetype debug syntax match _keyword /exit/
 autocmd filetype debug syntax match _keyword /close/
 autocmd filetype debug highlight!   _keyword guifg=#b61aae gui=italic,bold
-"
-" autocmd filetype debug syntax match _pid /.*pid:[^1],.*/
-" autocmd filetype debug syntax match _pid /.*pid:1[^,].*/
-" autocmd filetype debug highlight!   _pid guifg=#000000
