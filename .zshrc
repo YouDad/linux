@@ -159,6 +159,14 @@ source $ZSH/oh-my-zsh.sh
 umask 022
 
 ###############################
+# opt
+###############################
+
+setopt inc_append_history
+
+unsetopt auto_cd
+
+###############################
 # alias command
 ###############################
 alias gvv="git status -vv"
