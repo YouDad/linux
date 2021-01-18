@@ -204,7 +204,7 @@ int main(int argc, char **argv)
 		}
 
 		char fmt[64];
-		snprintf(fmt, sizeof fmt, "%%%dd %%s %%s %%s\n", size);
+		snprintf(fmt, sizeof fmt, "%%%dd %%s %%s `%%s\n", size);
 		printf(fmt, i + 1, week, timestr, v[i].second.c_str());
 	}
 
