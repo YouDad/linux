@@ -26,7 +26,7 @@ primary = #c0ffb52a
 secondary = #c0e60053
 alert = #c0bd2c40
 
-[bar/27+15.6]
+[bar/default]
 width = 100%
 height = 30
 offset-x = 0%
