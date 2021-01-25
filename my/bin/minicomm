@@ -10,4 +10,4 @@ if [[ "$2" == "--ssh" ]]; then
 	exit $?
 fi
 
-sudo minicom -C ~/log/minicom/$filename -D /dev/ttyUSB0 -c on
+LANG="en_US.UTF-8" sudo minicom -C ~/log/minicom/$filename -D /dev/ttyUSB0 -c on
