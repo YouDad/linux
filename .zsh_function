@@ -78,7 +78,7 @@ function my_4_cat_dtb() {
 function wiki() {
 	if [ -e  ~/my/link/wiki ]; then
 		cd ~/my/link/wiki
-		vim index.md
+		vim README.md
 	else
 		echo no wiki link
 	fi

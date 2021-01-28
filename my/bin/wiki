@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd $MY_LINK/wiki
-vim index.md
+vim README.md
