@@ -20,32 +20,18 @@ nmap <c-y>                          "+y
 vmap <c-p>                          "+p
 nmap <c-p>                          "+p
 
-function! TabBufSwitch(num)
-	let l:used = filter(range(1, bufnr('$')), 'buflisted(v:val)')
-	execute ':'.(l:used[a:num - 1]).'b'
-endfunction
-
 "缓冲区移动键
-nnoremap sw                         :b<space>
-nnoremap <silent> <leader>1<leader> :call TabBufSwitch(1)<cr>
-nnoremap <silent> <leader>2         :call TabBufSwitch(2)<cr>
-nnoremap <silent> <leader>3         :call TabBufSwitch(3)<cr>
-nnoremap <silent> <leader>4         :call TabBufSwitch(4)<cr>
-nnoremap <silent> <leader>5         :call TabBufSwitch(5)<cr>
-nnoremap <silent> <leader>6         :call TabBufSwitch(6)<cr>
-nnoremap <silent> <leader>7         :call TabBufSwitch(7)<cr>
-nnoremap <silent> <leader>8         :call TabBufSwitch(8)<cr>
-nnoremap <silent> <leader>9         :call TabBufSwitch(9)<cr>
-nnoremap <silent> <leader>10        :call TabBufSwitch(10)<cr>
-nnoremap <silent> <leader>11        :call TabBufSwitch(11)<cr>
-nnoremap <silent> <leader>12        :call TabBufSwitch(12)<cr>
-nnoremap <silent> <leader>13        :call TabBufSwitch(13)<cr>
-nnoremap <silent> <leader>14        :call TabBufSwitch(14)<cr>
-nnoremap <silent> <leader>15        :call TabBufSwitch(15)<cr>
-nnoremap <silent> <leader>16        :call TabBufSwitch(16)<cr>
-nnoremap <silent> <leader>17        :call TabBufSwitch(17)<cr>
-nnoremap <silent> <leader>18        :call TabBufSwitch(18)<cr>
-nnoremap <silent> <leader>19        :call TabBufSwitch(19)<cr>
+nmap <silent> <leader>1         <Plug>AirlineSelectTab1
+nmap <silent> <leader>2         <Plug>AirlineSelectTab2
+nmap <silent> <leader>3         <Plug>AirlineSelectTab3
+nmap <silent> <leader>4         <Plug>AirlineSelectTab4
+nmap <silent> <leader>5         <Plug>AirlineSelectTab5
+nmap <silent> <leader>6         <Plug>AirlineSelectTab6
+nmap <silent> <leader>7         <Plug>AirlineSelectTab7
+nmap <silent> <leader>8         <Plug>AirlineSelectTab8
+nmap <silent> <leader>9         <Plug>AirlineSelectTab9
+nmap <silent> <leader>-         <Plug>AirlineSelectPrevTab
+nmap <silent> <leader>=         <Plug>AirlineSelectNextTab
 
 "在多窗口之间移动光标
 nnoremap <leader>h                  <c-w>h
