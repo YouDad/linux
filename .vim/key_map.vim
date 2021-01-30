@@ -103,6 +103,19 @@ inoremap jk                         <esc>
 autocmd filetype qf nnoremap <buffer> J j<cr>zz<c-w>j
 autocmd filetype qf nnoremap <buffer> K k<cr>zz<c-w>j
 
+"esc退出term的插入模式
+tnoremap <Esc> <C-\><C-n>
+
+"Alt+= 全屏buffer
+"Alt+, Alt+. 左右移buffer
+"Alt+/ 创建新的buffer
+"Alt+q 是安全退出
+nmap <m-=> <esc><C-w>\|
+nmap <m-,> <esc>105<C-w><
+nmap <m-.> <esc>105<C-w>>
+nmap <m-/> <esc>:vs<cr>
+nmap <m-q> <esc><c-q><m-=>
+
 nnoremap sk <nop>
 nmap ska<leader>	1k
 nmap sks<leader>	2k
