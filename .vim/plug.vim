@@ -84,7 +84,6 @@ endif
 			"clipboard
 			Plug 'junegunn/vim-peekaboo'
 			"fzf
-			Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 			Plug 'junegunn/fzf.vim'
 			"clever-f
 			Plug 'rhysd/clever-f.vim'

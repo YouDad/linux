@@ -193,9 +193,8 @@ fi
 # source
 ###############################
 
-### FZF
+### FZF installed by $(git clone https://github.com/junegunn/fzf) and pacman -S fzf
 if [ -e $HOME/.fzf ]; then
-	export PATH="$PATH:$HOME/.fzf/bin"
 	[[ "$-" == "*i*" ]] && source "$HOME/.fzf/shell/completion.zsh" 2>/dev/null
 	source "$HOME/.fzf/shell/key-bindings.zsh"
 fi
