@@ -96,6 +96,7 @@ hue-6-2: #e6c07b
 }
 
 .markdown-body pre code {
+  color: white;
   padding-top: 15px;
   border-radius: 5px;
 }
